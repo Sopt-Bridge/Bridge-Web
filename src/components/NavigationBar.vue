@@ -32,9 +32,11 @@
                     >
                     
                     <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
-                    <v-toolbar-title v-text="title"></v-toolbar-title>
+                    <v-toolbar-title>
+                        <img src="../assets/img/short logo.svg" class="main_logo">
+                    </v-toolbar-title>
                         <v-layout row wrap> 
-                            <v-flex xs1 sm3 md4 lg6 offset-xs2 offset-md2 offset-lg2>
+                            <v-flex xs1 sm3 md4 lg5 offset-xs2 offset-md2 offset-lg2>
                                 <v-text-field flat solo class="nav-search"></v-text-field>
                             </v-flex>
                             <button class="nav-search-btn"><v-icon color="white">search</v-icon></button>
@@ -79,6 +81,11 @@ export default {
 </script>
 
 <style scoped>
+    .main_logo{
+        width : 70px;
+        margin-top : 8px;
+    }
+
     .nav-search{
         margin-top : 8px;
         border : .5px black;
