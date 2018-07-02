@@ -3,7 +3,6 @@
   <div class="Rand-text">We, Korea offer2</div>
   <div class="Rand-text">the best K-content for you2</div>
   <v-btn class="Rand-btn">START2</v-btn>
-  <!-- <div class="Rand-btn">START</div> -->
 </div>
 </template>
 
