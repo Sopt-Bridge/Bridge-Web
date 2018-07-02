@@ -3,6 +3,8 @@
   <navdrawer></navdrawer>
   <!-- <div class="box">asd</div> -->
   <main-poster></main-poster>
+  <trending></trending>
+  <recommended></recommended>
 </div>
 </template>
 
