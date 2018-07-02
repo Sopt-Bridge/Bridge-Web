@@ -42,7 +42,7 @@ export default {
     },
     methods:{
         drawing(){
-            return !this.drawr;
+            return !this.drawer;
         }
     }
 
