@@ -1,12 +1,13 @@
 <template>
 <v-app>
   <toolbar></toolbar>
-  <router-view></router-view>
+  <v-content>
+    <router-view></router-view>
+  </v-content>
 </v-app>
 </template>
 
 <script>
-
 export default {
   data() {
     return {
@@ -24,7 +25,7 @@ export default {
     }
   },
   name: 'App',
-  
+
 }
 </script>
 

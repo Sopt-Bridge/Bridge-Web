@@ -1,5 +1,5 @@
 <template>
-<v-app>
+<div>
     <v-toolbar app :clipped-left="clipped">
         <!-- <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon> -->
         <v-toolbar-title>
@@ -9,6 +9,7 @@
             <v-flex xs1 sm3 md4 lg5 offset-xs2 offset-md2 offset-lg2>
                 <v-text-field flat solo class="nav-search"></v-text-field>
             </v-flex>
+
             <button class="nav-search-btn"><v-icon color="white">search</v-icon></button>
             <v-spacer></v-spacer>
             <v-toolbar-items>
@@ -20,17 +21,15 @@
             </v-toolbar-items>
         </v-layout>
     </v-toolbar>
-</v-app>
+</div>
 </template>
 
 <script>
-
-
 export default {
     data() {
         return {
-            clipped : true,
-            drawer : true,
+            clipped: true,
+            drawer: true,
         };
     }
 };
