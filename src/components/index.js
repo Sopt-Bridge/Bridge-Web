@@ -1,5 +1,8 @@
+//글로벌 컴포넌트 인덱스
+
 import Vue from 'vue';
 import Rand from './Rand.vue';
+
 import Rand2 from './Rand-test.vue'
 import Toolbar from './Toolbar/Toolbar.vue'
 import Navdrawer from './Drawer/Navdrawer.vue'
@@ -15,4 +18,7 @@ Vue.component('Navdrawer', Navdrawer);
 Vue.component('MainPoster', MainPoster);
 Vue.component('Recommended', Recommended);
 Vue.component('Trending', Trending);
+Vue.component('Vi-Main',ViMain);
+Vue.component('Vi-Sidebar',ViSidebar);
 export default Vue;
+
