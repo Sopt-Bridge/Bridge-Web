@@ -1,12 +1,18 @@
 <template>
 <div class="Vi-Sidebar">
-  <Vis-Infor></Vis-Infor>
+  <ViS-Infor></ViS-Infor>
   <ViS-Tabs></ViS-Tabs>
 </div>
 </template>
 <script>
-export default {
+import Infor from './ViS-Infro.vue';
+import Tabs from './ViS-Tabs.vue';
 
+export default {
+  components:{
+    'ViS-Infor':Infor,
+    'ViS-Tabs':Tabs
+  }
 }
 </script>
 <style lang='scss' scoped>

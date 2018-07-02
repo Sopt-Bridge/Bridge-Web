@@ -9,9 +9,6 @@ import infor from './Vim-Infor.vue'
 import video from './ViM-Video.vue'
 
 export default {
-  data(){
-
-  },
   components:{
     'ViM-Infor':infor,
     'ViM-Video':video
