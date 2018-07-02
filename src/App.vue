@@ -1,11 +1,12 @@
 <template>
 <v-app>
+  <toolbar></toolbar>
   <router-view></router-view>
 </v-app>
 </template>
 
 <script>
-import NavigationBar from './components/NavigationBar'
+
 export default {
   data() {
     return {
@@ -23,9 +24,7 @@ export default {
     }
   },
   name: 'App',
-  components: {
-    NavigationBar
-  }
+  
 }
 </script>
 
