@@ -55,18 +55,14 @@ export default {
     height: 110px;
 }
 
-.navbar-drawer-elem {
-    margin-left: 20px;
-}
-
 .navbar-drawer a p {
     font-size: 32px;
     color: #333333;
-    margin-left: 30px;
+    margin-left: 50px;
     line-height: 15vh;
 }
 
-.navbar-drawer-elem a p:visited {
+.navbar-drawer a p:active {
     color: #E31C9E;
 }
 </style>
