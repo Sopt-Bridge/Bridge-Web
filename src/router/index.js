@@ -14,14 +14,10 @@ export default new Router({
       component: Home
     },
     {
-      path: '/home',
-      name: 'Home',
-      component: Home
-    },
-    {
       path:'/login',
       name:'Login',
       component: Login
     }
-  ]
+  ],
+  mode : 'history'
 })

@@ -1,12 +1,11 @@
 <template>
 <div class="Home">
-  <navigation-bar></navigation-bar>
-  <router-view></router-view>
+  <navdrawer></navdrawer>
 </div>
 </template>
 
 <script>
-import NavigationBar from '@/components/NavigationBar'
+
 export default {
   data() {
     return {
@@ -24,9 +23,7 @@ export default {
     }
   },
   name: 'App',
-  components: {
-    NavigationBar
-  }
+  
 }
 </script>
 
