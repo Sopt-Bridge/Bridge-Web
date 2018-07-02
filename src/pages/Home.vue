@@ -1,7 +1,8 @@
 <template>
 <div class="Home">
   <navdrawer></navdrawer>
-  <div class="box">asd</div>
+  <!-- <div class="box">asd</div> -->
+  <main-poster></main-poster>
 </div>
 </template>
 
@@ -27,14 +28,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
-// @import url('styles/common.scss')
-.box{
-  width:1547px;
-  height:543px;
-  max-width:1547px;
-  max-height:543px;
-  background-color: blue;
+<style lang="scss" scoped>
+@import 'styles/common.scss';
 
-}
 </style>
