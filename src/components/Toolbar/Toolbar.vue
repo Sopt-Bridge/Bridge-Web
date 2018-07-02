@@ -1,27 +1,15 @@
 <template>
-<v-app>
-    <v-navigation-drawer persistent :mini-variant="miniVariant" :clipped="clipped" v-model="drawer" enable-resize-watcher fixed app>
-        <v-list>
-            <v-list-tile value="true" v-for="(item, i) in items" :key="i">
-                <v-list-tile-action>
-                    <v-icon v-html="item.icon"></v-icon>
-                </v-list-tile-action>
-                <v-list-tile-content>
-                    <v-list-tile-title v-text="item.title"></v-list-tile-title>
-                </v-list-tile-content>
-            </v-list-tile>
-        </v-list>
-    </v-navigation-drawer>
-
+<div>
     <v-toolbar app :clipped-left="clipped">
-        <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
+        <!-- <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon> -->
         <v-toolbar-title>
-            <img src="../assets/img/short logo.svg" class="main_logo">
+            <img src="../../assets/img/short logo.svg" class="main_logo">
         </v-toolbar-title>
         <v-layout row wrap>
             <v-flex xs1 sm3 md4 lg5 offset-xs2 offset-md2 offset-lg2>
                 <v-text-field flat solo class="nav-search"></v-text-field>
             </v-flex>
+
             <button class="nav-search-btn"><v-icon color="white">search</v-icon></button>
             <v-spacer></v-spacer>
             <v-toolbar-items>
@@ -31,15 +19,9 @@
                     <v-icon>perm_identity</v-icon>
                 </v-btn>
             </v-toolbar-items>
-
         </v-layout>
-
     </v-toolbar>
-
-
-
-
-</v-app>
+</div>
 </template>
 
 <script>
@@ -48,24 +30,13 @@ export default {
         return {
             clipped: true,
             drawer: true,
-            fixed: false,
-            items: [{
-                icon: "bubble_chart",
-                title: "Inspire"
-            }],
-            miniVariant: false,
-            right: true,
-            rightDrawer: false,
-            title: "Vuetify.js"
         };
-    },
-    name: "App"
+    }
 };
 </script>
 
 <style lang="scss" scoped>
 @import "styles/common.scss";
-
 .main_logo {
     width: 70px;
     margin-top: 8px;

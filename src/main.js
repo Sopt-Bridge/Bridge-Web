@@ -6,7 +6,6 @@ import router from './router'
 import Vuetify from 'vuetify'
 import 'vuetify/dist/vuetify.min.css'
 
-//글로벌 컴포넌트 
 import Global from '@/components/index.js'
 
 Vue.use(Vuetify)

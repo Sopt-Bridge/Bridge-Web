@@ -1,35 +1,36 @@
 <template>
 <div class="Home">
-  <navigation-bar></navigation-bar>
-  <router-view></router-view>
+  <navdrawer></navdrawer>
+  <!-- <div class="box">asd</div> -->
+  <main-poster></main-poster>
+  <trending></trending>
+  <recommended></recommended>
 </div>
 </template>
 
 <script>
-import NavigationBar from '@/components/NavigationBar'
 export default {
   data() {
     return {
-      clipped: false,
-      drawer: true,
-      fixed: false,
-      items: [{
-        icon: 'bubble_chart',
-        title: 'Inspire'
-      }],
-      miniVariant: false,
-      right: true,
-      rightDrawer: false,
-      title: 'Vuetify.js'
+      // clipped: false,
+      // drawer: true,
+      // fixed: false,
+      // items: [{
+      //   icon: 'bubble_chart',
+      //   title: 'Inspire'
+      // }],
+      // miniVariant: false,
+      // right: true,
+      // rightDrawer: false,
+      // title: 'Vuetify.js'
     }
   },
-  name: 'App',
-  components: {
-    NavigationBar
-  }
+  // name: 'App',
+
 }
 </script>
 
-<style lang="scss">
-// @import url('styles/common.scss')
+<style lang="scss" scoped>
+@import 'styles/common.scss';
+
 </style>
