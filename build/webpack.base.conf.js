@@ -27,10 +27,15 @@ module.exports = {
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
       '@': resolve('src'),
-    }
+      'styles': resolve('src/style/')
+      }
   },
   module: {
     rules: [
+      {
+        test: /.s[a|c]ss$/,
+        loader: 'style!css!sass'
+      },
       {
         test: /\.vue$/,
         loader: 'vue-loader',
