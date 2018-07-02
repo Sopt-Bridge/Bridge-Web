@@ -9,7 +9,8 @@ import Navdrawer from './Drawer/Navdrawer.vue'
 import MainPoster from './Poster/MainPoster.vue'
 import Recommended from './Contents/Recommended.vue'
 import Trending from './Contents/Trending.vue'
-
+import ViMain from './Vi-Main/Vi-Main.vue'
+import ViSidebar from './Vi-Sidebar/Vi-Sidebar.vue'
 
 Vue.component('Rand',Rand);
 Vue.component('Rand-test',Rand2);
