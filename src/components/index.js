@@ -11,6 +11,9 @@ import Recommended from './Contents/Recommended.vue'
 import Trending from './Contents/Trending.vue'
 import ViMain from './Vi-Main/Vi-Main.vue'
 import ViSidebar from './Vi-Sidebar/Vi-Sidebar.vue'
+import Recently from './Contents/Recently.vue'
+
+
 
 Vue.component('Rand',Rand);
 Vue.component('Rand-test',Rand2);
@@ -21,5 +24,7 @@ Vue.component('Recommended', Recommended);
 Vue.component('Trending', Trending);
 Vue.component('Vi-Main',ViMain);
 Vue.component('Vi-Sidebar',ViSidebar);
+Vue.component('Recently', Recently);
+
 export default Vue;
 

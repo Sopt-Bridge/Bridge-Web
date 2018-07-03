@@ -12,6 +12,7 @@ export default {
 }
 </script>
 <style lang='scss' scoped>
+
 .VideoContents {
   display:flex;
   justify-content: center;
@@ -24,4 +25,5 @@ export default {
     // flex-wrap: wrap;
   }
 }
+
 </style>
