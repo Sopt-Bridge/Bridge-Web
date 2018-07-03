@@ -1,13 +1,18 @@
 <template>
 <div class="ViS-Infor">
-  <div class="ViS-Infor-closeBtn">X</div>
-  <div class="ViS-Infor-heading">K-content</div>
-  <div class="ViS-Infor-body">
-    희대의 아이돌, 방탄 소년단이 컴백하면서<br>
-    아이돌팬계의 분위기가 활활 타올랐다.
+  <div class="ViS-Infor-container">
+    <div class="ViS-Infor-headig">
+      K-content
+    </div>
+    <div class="ViS-Infor-closeBtn">X</div>
+    <div class="ViS-Infor-body">
+      희대의 아이돌, 방탄 소년단이 컴백하면서<br> 아이돌팬계의 분위기가 활활 타올랐다.
+    </div>
+    <div class="ViS-Infor-like">
+      <img class="ViS-Infor-likeImg" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4_krABXXht-gOokW3I3i2oECeYLlNNVs3lBVQZ2d2BAXiioZsXA" alt="">
+      <div class="ViS-Infor-likeNum">10</div>
+    </div>
   </div>
-  <div class="ViS-Infor-likeBtn">GG</div>
-  <div class="ViS-Infor-like">10</div>
 </div>
 </template>
 <script>
@@ -16,5 +21,40 @@ export default {
 }
 </script>
 <style lang='scss' scoped>
-
+.ViS-Infor {
+  position: relative;
+  width: 528px;
+  background-color: #f5f5f5;
+  &-container {
+    padding-top: 30px;
+    padding-left: 38px;
+  }
+  &-headig {
+    font-size: 25px;
+  }
+  &-closeBtn {
+    font-size: 50px;
+    position: absolute;
+    top: 0;
+    right: 10px;
+  }
+  &-body {
+    margin-top:31px;
+    padding-bottom:30px;
+    color: #707070;
+    font-size: 22px;
+  }
+  &-like {
+    display: flex;
+    &Img {
+      height: 20px;
+    }
+    &Num {
+      padding-left:13px;
+      color: #707070;
+      font-size: 18px;
+    }
+    padding-bottom:27px;
+  }
+}
 </style>

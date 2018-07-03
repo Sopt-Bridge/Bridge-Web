@@ -14,17 +14,36 @@
 
             <button class="nav-search-btn"><v-icon color="white">search</v-icon></button>
             <v-spacer></v-spacer>
-            <v-toolbar-items>
+            
                 <v-btn flat large>Subscribe</v-btn>
                 <v-btn flat large>
                     <router-link :to='request'>
                         Request
                     </router-link>
                 </v-btn>
-                <v-btn flat large>
+                <v-menu offset-y>
+                <v-btn icon slot="activator">
                     <v-icon>perm_identity</v-icon>
                 </v-btn>
-            </v-toolbar-items>
+                <v-list>
+                    <v-list-tile>
+                        <v-list-tile-title>{{ name }}</v-list-tile-title>
+                    </v-list-tile>
+                    <v-list-tile>
+                        <v-list-tile-title>{{ email }}</v-list-tile-title>
+                    </v-list-tile>
+                    <v-list-tile>
+                        <v-list-tile-title>내가 쓴글</v-list-tile-title>
+                    </v-list-tile>
+                    <v-list-tile>
+                        <v-list-tile-title>Library</v-list-tile-title>
+                    </v-list-tile>
+                    <v-list-tile>
+                        <v-list-tile-title>Sign Out</v-list-tile-title>
+                    </v-list-tile>
+                </v-list>
+                </v-menu>
+            
         </v-layout>
     </v-toolbar>
 </div>
@@ -37,7 +56,9 @@ export default {
             clipped: true,
             drawer: true,
             request : '/request',
-            home :'/'
+            home : '/',
+            name : 'lee',
+            email : 'abc@abc.com'
         };
     }
 };
