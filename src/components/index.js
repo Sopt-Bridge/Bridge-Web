@@ -14,6 +14,7 @@ import ViSidebar from './Vi-Sidebar/Vi-Sidebar.vue'
 import Recently from './Contents/Recently.vue'
 
 
+
 Vue.component('Rand',Rand);
 Vue.component('Rand-test',Rand2);
 Vue.component('Toolbar', Toolbar);

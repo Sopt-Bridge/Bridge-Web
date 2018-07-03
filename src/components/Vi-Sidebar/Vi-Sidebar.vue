@@ -16,5 +16,7 @@ export default {
 }
 </script>
 <style lang='scss' scoped>
-
+.Vi-Sidebar{
+  // width:560px;
+}
 </style>
