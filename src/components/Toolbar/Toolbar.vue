@@ -7,14 +7,18 @@
         </v-toolbar-title>
         <v-layout row wrap>
             <v-flex xs1 sm3 md4 lg5 offset-xs2 offset-md2 offset-lg2>
-                <v-text-field flat solo class="nav-search"></v-text-field>
+                <v-text-field solo class="nav-search"></v-text-field>
             </v-flex>
 
             <button class="nav-search-btn"><v-icon color="white">search</v-icon></button>
             <v-spacer></v-spacer>
             <v-toolbar-items>
                 <v-btn flat large>Subscribe</v-btn>
-                <v-btn flat large>Request</v-btn>
+                <v-btn flat large>
+                    <router-link :to='request'>
+                        Request
+                    </router-link>
+                </v-btn>
                 <v-btn flat large>
                     <v-icon>perm_identity</v-icon>
                 </v-btn>
@@ -30,6 +34,7 @@ export default {
         return {
             clipped: true,
             drawer: true,
+            request : '/request'
         };
     }
 };
@@ -49,8 +54,13 @@ export default {
 
 .nav-search-btn {
     margin-top: 8px;
-    height: 48px;
+    height: 49px;
     width: 45px;
     background-color: $main-color;
+}
+
+a{
+    text-decoration: none;
+    color : black;
 }
 </style>
