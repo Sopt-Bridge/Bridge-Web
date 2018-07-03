@@ -3,7 +3,7 @@ import Router from 'vue-router'
 import HelloWorld from '@/components/HelloWorld'
 import Login from '@/pages/Login.vue'
 import Home from '@/pages/Home.vue'
-import VideoContent from '@/pages/VideoContens.vue'
+import VideoContent from '@/pages/VideoContents.vue'
 
 Vue.use(Router)
 
