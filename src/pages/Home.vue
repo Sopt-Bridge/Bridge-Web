@@ -5,6 +5,7 @@
   <main-poster></main-poster>
   <trending></trending>
   <recommended></recommended>
+  <recently></recently>
 </div>
 </template>
 
