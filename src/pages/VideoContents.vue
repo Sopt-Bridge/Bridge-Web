@@ -20,11 +20,6 @@ export default {
     margin-top: 30px;
     display: flex;
     flex-wrap:wrap;
-    &-sidebar{
-      float: left;
-      // background-color: red;
-      // width:1000px;
-    }
   }
 }
 
