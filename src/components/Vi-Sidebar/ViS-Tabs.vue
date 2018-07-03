@@ -2,20 +2,21 @@
 <div class="ViS-Tabs">
   <v-tabs class="ViS-Tabs-tabs" v-model="active" slider-color="none">
     <div class="ViS-Tabs-border">
-      <v-tab class="ViS-Tabs-tab" v-for="n in 2" :key="n" @click="activiting(n-1)">
+      <v-tab class="ViS-Tabs-tab" grow v-for="n in 2" :key="n" @click="activiting(n-1)">
         {{n}}번째 item
       </v-tab>
-      <v-tab-item v-for="n in 2" :key="n">
+      <!-- <v-tab-item v-for="n in 2" :key="n">
         <v-card flat>
           <v-card-text>text+{{ n }}</v-card-text>
         </v-card>
-      </v-tab-item>
+      </v-tab-item> -->
     </div>
     <v-tab-item>
       <ViS-Comments></ViS-Comments>
     </v-tab-item>
     <v-tab-item>
-     second
+      asd
+      <ViS-Recommended></ViS-Recommended>
     </v-tab-item>
     
   </v-tabs>
@@ -24,7 +25,7 @@
 
 <script>
 import Comments from './ViS-Comments.vue';
-
+import Recommended from './ViS-Recommended.vue'
 export default {
   data() {
     return {
@@ -37,7 +38,8 @@ export default {
     }
   },
   components: {
-    'ViS-Comments': Comments
+    'ViS-Comments': Comments,
+    'ViS-Recommended':Recommended
   },
   methods: {
     activiting(n) {
@@ -52,6 +54,7 @@ export default {
 <style lang='scss' scoped>
 @import 'styles/common.scss';
 .ViS-Tabs {
+  width:1000px;
   &-border {
     border-top: 1px solid black;
     border-bottom: 1px solid black;
@@ -59,7 +62,7 @@ export default {
     height: 100%;
   }
   &-tab {
-    width: 50%;
+    width: 100%;
     background-color: #f5f5f5;
   }
 }

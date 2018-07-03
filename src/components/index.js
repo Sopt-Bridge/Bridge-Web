@@ -12,6 +12,7 @@ import Trending from './Contents/Trending.vue'
 import ViMain from './Vi-Main/Vi-Main.vue'
 import ViSidebar from './Vi-Sidebar/Vi-Sidebar.vue'
 import Recently from './Contents/Recently.vue'
+import VideoCard from './Contents/VideoCard.vue'
 
 
 
@@ -25,6 +26,7 @@ Vue.component('Trending', Trending);
 Vue.component('Vi-Main',ViMain);
 Vue.component('Vi-Sidebar',ViSidebar);
 Vue.component('Recently', Recently);
+Vue.component('Video-card',VideoCard);
 
 export default Vue;
 
