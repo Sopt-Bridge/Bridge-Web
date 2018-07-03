@@ -23,7 +23,8 @@ export default {
 <style lang='scss' scoped>
 .ViS-Infor {
   position: relative;
-  width: 528px;
+  min-width: 528px;
+  width: 100%;
   background-color: #f5f5f5;
   &-container {
     padding-top: 30px;
@@ -39,8 +40,8 @@ export default {
     right: 10px;
   }
   &-body {
-    margin-top:31px;
-    padding-bottom:30px;
+    margin-top: 31px;
+    padding-bottom: 30px;
     color: #707070;
     font-size: 22px;
   }
@@ -50,7 +51,7 @@ export default {
       height: 20px;
     }
     &Num {
-      padding-left:13px;
+      padding-left: 13px;
       color: #707070;
       font-size: 18px;
     }

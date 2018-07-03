@@ -17,12 +17,14 @@ export default {
   display:flex;
   justify-content: center;
   &-container {
-    margin-top: 40px;
+    margin-top: 30px;
     display: flex;
     flex-wrap:wrap;
-    // justify-content: center;
-    // display:flex;
-    // flex-wrap: wrap;
+    &-sidebar{
+      float: left;
+      // background-color: red;
+      // width:1000px;
+    }
   }
 }
 

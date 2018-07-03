@@ -4,9 +4,6 @@
     <div class="ViM-Infor-heading-text">
       BTS - FAKE LOVE @BTS PERFECT COMEBACK SHOW PLEASE FOLLOW FOLLOW ME EVERYDAY SUBSCRIBE ME ME
     </div>
-    <!-- <div class="ViM-Infor-heading-moreBtn">
-      ...
-    </div> -->
   </div>
   <div class="ViM-Infor-tag">
     #BTS #BANGTANTV
@@ -30,8 +27,8 @@ export default {
     max-height: 68px;
     &-text {
       // display: block;
-      margin-top: 22px;
-      margin-bottom: 11px;
+      margin-top: 18px;
+      margin-bottom: 8px;
       max-width: 925px;
       max-height: 68px;
       font-size: 25px;
@@ -42,13 +39,13 @@ export default {
   }
   &-tag {
     // display: block;
-    margin-top:11px;
-    margin-bottom:11px;
+    margin-top:10px;
+    margin-bottom:10px;
     color: violet;
     font-size: 23px;
   }
   &-time {
-    margin-top: 22px;
+    margin-top: 15px;
     color: #acacac;
     font-size: 22px;
   }
