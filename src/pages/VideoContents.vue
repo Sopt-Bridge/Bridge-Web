@@ -1,5 +1,5 @@
 <template>
-<div class="VideoContens">
+<div class="VideoContents">
   <Vi-Main></Vi-Main>
   <Vi-Sidebar></Vi-Sidebar>
 </div>
