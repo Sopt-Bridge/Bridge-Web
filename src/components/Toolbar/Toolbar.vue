@@ -58,7 +58,7 @@ export default {
             request : '/request',
             home : '/',
             name : 'lee',
-            email : 'abc@abc.com',            
+            email : 'abc@abc.com'
         };
     }
 };

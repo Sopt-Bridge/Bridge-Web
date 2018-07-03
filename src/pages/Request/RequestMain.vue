@@ -11,7 +11,9 @@
                 <button class="req-search-btn"><v-icon>search</v-icon></button>
             </v-flex>
             <v-flex xs1 sm1 md1 lg1 >
-                <button class="req-write-btn">write</button>
+                <router-link :to="requestWrite">
+                    <button class="req-write-btn">write</button>
+                </router-link>
             </v-flex>
         </v-layout>
         <v-layout row wrap class="board-header">
@@ -247,10 +249,15 @@
 </template>
 
 <script>
-import RequestPagination from './RequestPagination'
+import RequestPagination from '../../components/Pagination/RequestPagination'
 export default {
     components : {
         RequestPagination
+    },
+    data(){
+        return {
+            requestWrite : '/request/write'
+        }
     }
 }
 </script>

@@ -20,6 +20,7 @@ export default {
 <style lang="scss" scoped>
 .req-pagination{
     margin-top : 30px;
+    height: 100px;
 }
 
 </style>
