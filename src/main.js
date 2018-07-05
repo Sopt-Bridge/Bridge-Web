@@ -3,12 +3,19 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+
+//Vuetify setting
 import Vuetify from 'vuetify'
 import 'vuetify/dist/vuetify.min.css'
+Vue.use(Vuetify)
 
+//Global Components
 import Global from '@/components/index.js'
 
-Vue.use(Vuetify)
+// Swiper setting
+import VueAwesomeSwiper from 'vue-awesome-swiper'
+import 'swiper/dist/css/swiper.css'
+Vue.use(VueAwesomeSwiper)
 
 Vue.config.productionTip = false
 
