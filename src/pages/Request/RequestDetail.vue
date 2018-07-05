@@ -1,50 +1,32 @@
 <template>
     <div class="req-detail">
-        <v-container>
+        <v-container class="req-detail-container">
             <v-layout row wrap class="req-detail-title-section">
-                <v-flex xs5 sm5 md5 lg5>
-                    <div class="req-detail-title">
+                <div class="req-detail-title">
                         <!-- AXIOS -->
-                        <h2>제목입니다.</h2>
-                    </div>
-                </v-flex>
-                <v-flex xs2 sm2 md2 lg2 offset-xs3 offset-sm4 offset-md5 offset-lg5>
-                        <!-- AXIOS -->
-                        <h3>Interpretation</h3>
-                </v-flex>
+                    <h2 class="req-detail-title-tag">제목입니다.</h2>
+                </div>
+                <v-spacer></v-spacer>
+                <div class="req-detail-translate">
+                    <h2 class="req-detail-title-tag">Translation</h2>
+                </div>
             </v-layout>
             <v-layout row wrap class="req-detail-board-info-section">
-                <v-flex xs4 sm3 md2 lg2>
-                    <div class="req-detail-author">
-                        <p class="req-detail-tag">Author</p>
-                        <!-- AXIOS -->
-                        <p>moonluv</p>
-                    </div>
-                </v-flex>
-                <v-flex xs1 sm2 md2 lg2  offset-md3 offset-lg4>
-                </v-flex>
-                    <div class="req-detail-date">
-                        <p class="req-detail-tag">Date</p>
-                        <!-- AXIOS -->
-                        <p>2018.07.21</p>
-                    </div>
                 
-                
-                    <div class="req-detail-views">
-                        <p class="req-detail-tag">Views</p>
-                        <!-- AXIOS -->
-                        <p>999</p>
-                    </div>
-                
-                
-                    <div class="req-detail-likes">
-                        <p class="req-detail-tag">Likes</p>
-                        <!-- AXIOS -->
-                        <p>999</p>
-                    </div>
+                <div class="req-detail-author">
+                    <p class="req-detail-tag">Author</p>
+                    <!-- AXIOS -->
+                    <p>moonluv</p>
+                </div>
+                <v-spacer></v-spacer>
+                <div class="req-detail-date">
+                    <p class="req-detail-tag">Date</p>
+                    <!-- AXIOS -->
+                    <p>2018.07.21</p>
+                </div>                
             </v-layout>
             <v-layout row wrap class="req-detail-board-content-section">
-                <v-flex xs12 sm12 md12 lg12 class="req-detail-board-content">
+                
                     <div class="req-detail-link">
                         <!-- AXIOS -->
                         <a href="https://tv.naver.com/v/3470970"><p>https://tv.naver.com/v/3470970</p></a>
@@ -59,40 +41,55 @@
                             뉴이스트 영상요청이요!!뉴이스트 영상요청이요!!뉴이스트 영상요청이요!!뉴이스트 영상요청이요!!뉴이스트 영상요청이요!!뉴이스트 영상요청이요!!
                         </p>
                     </div>
-                </v-flex>
-            </v-layout>
-        </v-container>
-        <div class="text-xs-center">
-                <div class="likes-btn">
-                    <v-icon color="black" medium class="likes-btn-img">thumb_up_alt</v-icon>
-                    <!-- AXIOS -->
-                    <p>999</p>
-                </div>
                 
-        </div>
+            </v-layout>
+            <v-layout row wrap justify-end>
+                <div class="req-detail-btn-section">
+                    <button class="req-detail-btn req-detail-edit">Edit</button>
+                    <button class="req-detail-btn req-detail-delete">Delete</button>
+                </div>
+            </v-layout>
+            
+        </v-container>
+        <request-comment></request-comment>
+        
     </div>
 </template>
 
 <script>
-export default {};
+import RequestComment from '../../components/Comment/RequestComment'
+export default {
+    components : {
+        RequestComment
+    }
+};
 </script>
 
 <style lang="scss" scoped>
 @import "styles/common.scss";
+
+
 .req-detail-title-section {
   margin-top: 90px;
   height: 50px;
   border-bottom: 3px solid black;
 }
 
-.req-detail-board-info-section {
+.req-detail-board-info-section, .req-detail-board-content-section {
   margin-top: 25px;
+  padding : 0px $inner-padding 0px $inner-padding;
 }
 
-.req-detail-title,
-.req-detail-author {
-  padding-left: 15px;
+.req-detail-translate{
+    padding-right : $inner-padding;
 }
+
+
+.req-detail-title{
+  padding-left : $inner-padding;
+}
+
+
 
 p {
   display: inline;
@@ -110,32 +107,40 @@ p {
     border-left : 1px solid $grey-text;
 }
 
-.req-detail-board-content{
-    margin-top: 25px;
-    height : 500px;
-    
-}
 
 .req-detail-board-content-text-section{
-    margin-top : 25px;
+    margin-top: 50px;
+    min-height : 300px;
 }
 
 .req-detail-board-content-text{
     line-height : 40px;
 }
 
-.likes-btn{
-    display: inline-block;
-    width : 65px;
-    height :65px;
-    border : 1px solid $grey-text;
-    border-radius: 5px;
-    cursor: pointer;
+.req-detail-btn{
+    border : 1px solid black;
 }
 
-.likes-btn-img{
-    margin-top : 7px;
-    display : block;
+
+.req-detail-btn-section{
+    text-align : center;
+}
+
+.req-detail-btn{
+    border : 1px solid $grey-text;
+    border-radius: 5px;
+    width : 93px;
+    height : 44px;
+}
+
+.req-detail-edit{
+    margin-right : 15px;
+}
+
+.req-detail-delete{
+    margin-left : 15px;
+    background-color: $main-color;
+    color : white;
 }
 
 @media screen and (max-width : 632px){
@@ -159,12 +164,38 @@ p {
     .req-detail-board-content-text{
         line-height : 25px;
     }
+
+    .req-detail-btn{
+        border : 1px solid $grey-text;
+        border-radius: 5px;
+        //width : 93px;
+        //height : 44px;
+        width : 60px;
+        height : 30px;
+    }
+
+    .req-detail-edit{
+        margin-right : 4px;
+    }
+
+    .req-detail-delete{
+        margin-left : 4px;
+    }
 }
 
 @media screen and (max-width : 487px){
+    .req-detail-title-section{
+        height : 30px;
+    }
+
     p{
         font-size : 8px;   
     }
+
+    .req-detail-title-tag{
+        font-size : 15px;
+    }
+
     .req-detail-date{
         margin-left : 0px;
     }
@@ -184,16 +215,24 @@ p {
         border-left : none;
     }
 
-    .likes-btn{
-    width : 50px;
-    height : 50px;
-    
+    .req-detail-btn{
+        border : 1px solid $grey-text;
+        border-radius: 5px;
+        //width : 93px;
+        //height : 44px;
+        width : 50px;
+        height : 25px;
     }
 
-    .likes-btn-img{
-        margin-top : 2px;
-        display : block;
+    .req-detail-edit{
+        margin-right : 3px;
     }
+
+    .req-detail-delete{
+        margin-left : 3px;
+    }
+
+    
 }
 
 </style>

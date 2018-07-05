@@ -25,7 +25,7 @@ export default {
 .Vi-Sidebar{
   background-color: blue;
   min-width:530px;
-  width:100%;
+  // width:100%;
   // overflow-x:hidden;
   overflow-y: scroll;
 }

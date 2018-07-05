@@ -54,7 +54,8 @@ export default {
 <style lang='scss' scoped>
 @import 'styles/common.scss';
 .ViS-Tabs {
-  width:1000px;
+  // width:1000px;
+  width:540px;
   &-border {
     border-top: 1px solid black;
     border-bottom: 1px solid black;
