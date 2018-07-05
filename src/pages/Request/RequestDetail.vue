@@ -51,40 +51,42 @@
             </v-layout>
             
         </v-container>
+        <request-comment></request-comment>
         
     </div>
 </template>
 
 <script>
-export default {};
+import RequestComment from '../../components/Comment/RequestComment'
+export default {
+    components : {
+        RequestComment
+    }
+};
 </script>
 
 <style lang="scss" scoped>
 @import "styles/common.scss";
 
-.req-detail{
-    padding : 0px 15px 0px 15px;
-}
+
 .req-detail-title-section {
   margin-top: 90px;
   height: 50px;
   border-bottom: 3px solid black;
-  
-  
 }
 
 .req-detail-board-info-section, .req-detail-board-content-section {
   margin-top: 25px;
-  padding : 0px 15px 0px 15px;
+  padding : 0px $inner-padding 0px $inner-padding;
 }
 
 .req-detail-translate{
-    padding-right : 15px;
+    padding-right : $inner-padding;
 }
 
 
 .req-detail-title{
-  padding-left : 15px;
+  padding-left : $inner-padding;
 }
 
 
