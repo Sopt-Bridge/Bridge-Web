@@ -17,228 +17,182 @@
             </v-flex>
         </v-layout>
         <v-layout row wrap class="board-header">
-                <v-flex xs1 sm1 md1 lg1>
+                <v-flex xs1 sm1 md1 lg1 class="board-no">
                     <p class="board-header-content">No</p>
                 </v-flex>
-                <v-flex xs7 sm7 md4 lg7>
-
-                </v-flex>
-                <v-flex xs1 sm1 md2 lg1>
+                <!-- <v-flex xs1 sm1 md1 lg1/> -->
+                <v-flex xs6 sm7 md7 lg7 />
+                <v-flex xs3 sm2 md2 lg2>
                     <p class="board-header-content">Author</p>
                 </v-flex>
-                <v-flex xs1 sm1 md2 lg1>
+                <v-flex>
                     <p class="board-header-content">Date</p>
                 </v-flex>
-                <v-flex xs1 sm1 md2 lg1>
-                    <p class="board-header-content">Views</p>
-                </v-flex>
-                <v-flex>
-                    <p class="board-header-content">Likes</p>
-                </v-flex>
+                
         </v-layout> 
-        <v-layout class="board-elems">
-           <v-flex xs1 sm1 md1 lg1>
+        <v-layout row wrap class="board-elems">
+            <!--****************AXIOS****************-->
+           <v-flex xs1 sm1 md1 lg1 class="board-no">
                     <p class="board-elems-content">448</p>
                 </v-flex>
-                <v-flex xs7 sm7 md4 lg7>
+                
+                <v-flex xs6 sm7 md7 lg7>
                     <p class="board-elems-content">뉴이스트 영샹 요청이요</p>
-                    
                 </v-flex>
-                <v-flex xs1 sm1 md2 lg1>
+                <v-flex xs3 sm2 md2 lg2>
                     <p class="board-elems-content">moonluv</p>
                 </v-flex>
-                <v-flex xs1 sm1 md2 lg1>
+                <v-flex xs1 sm1 md1 lg1>
                     <p class="board-elems-content">2018.01.01</p>
                 </v-flex>
-                <v-flex xs1 sm1 md2 lg1>
-                    <p class="board-elems-content">999</p>
-                </v-flex>
-                <v-flex>
-                    <p class="board-elems-content">123</p>
-                </v-flex>
+               
         </v-layout>
-        <v-layout class="board-elems">
-           <v-flex xs1 sm1 md1 lg1>
+        <v-layout row wrap class="board-elems">
+           <v-flex xs1 sm1 md1 lg1 class="board-no">
                     <p class="board-elems-content">448</p>
                 </v-flex>
-                <v-flex xs7 sm7 md4 lg7>
+                
+                <v-flex xs6 sm7 md7 lg7>
                     <p class="board-elems-content">뉴이스트 영샹 요청이요</p>
                     
                 </v-flex>
-                <v-flex xs1 sm1 md2 lg1>
+                <v-flex xs3 sm2 md2 lg2>
                     <p class="board-elems-content">moonluv</p>
                 </v-flex>
-                <v-flex xs1 sm1 md2 lg1>
+                <v-flex>
                     <p class="board-elems-content">2018.01.01</p>
                 </v-flex>
-                <v-flex xs1 sm1 md2 lg1>
-                    <p class="board-elems-content">999</p>
-                </v-flex>
-                <v-flex>
-                    <p class="board-elems-content">123</p>
-                </v-flex>
+                
         </v-layout>
-        <v-layout class="board-elems">
-           <v-flex xs1 sm1 md1 lg1>
+        <v-layout row wrap class="board-elems">
+           <v-flex xs1 sm1 md1 lg1 class="board-no">
                     <p class="board-elems-content">448</p>
                 </v-flex>
-                <v-flex xs7 sm7 md4 lg7>
+                
+                <v-flex xs6 sm7 md7 lg7>
                     <p class="board-elems-content">뉴이스트 영샹 요청이요</p>
                     
                 </v-flex>
-                <v-flex xs1 sm1 md2 lg1>
+                <v-flex xs3 sm2 md2 lg2>
                     <p class="board-elems-content">moonluv</p>
                 </v-flex>
-                <v-flex xs1 sm1 md2 lg1>
+                <v-flex>
                     <p class="board-elems-content">2018.01.01</p>
                 </v-flex>
-                <v-flex xs1 sm1 md2 lg1>
-                    <p class="board-elems-content">999</p>
-                </v-flex>
-                <v-flex>
-                    <p class="board-elems-content">123</p>
-                </v-flex>
+                
         </v-layout>
-        <v-layout class="board-elems">
-           <v-flex xs1 sm1 md1 lg1>
+        <v-layout row wrap class="board-elems">
+           <v-flex xs1 sm1 md1 lg1 class="board-no">
                     <p class="board-elems-content">448</p>
                 </v-flex>
-                <v-flex xs7 sm7 md4 lg7>
+                
+                <v-flex xs6 sm7 md7 lg7>
                     <p class="board-elems-content">뉴이스트 영샹 요청이요</p>
                     
                 </v-flex>
-                <v-flex xs1 sm1 md2 lg1>
+                <v-flex xs3 sm2 md2 lg2>
                     <p class="board-elems-content">moonluv</p>
                 </v-flex>
                 <v-flex xs1 sm1 md2 lg1>
                     <p class="board-elems-content">2018.01.01</p>
                 </v-flex>
-                <v-flex xs1 sm1 md2 lg1>
-                    <p class="board-elems-content">999</p>
-                </v-flex>
-                <v-flex>
-                    <p class="board-elems-content">123</p>
-                </v-flex>
-        </v-layout><v-layout class="board-elems">
-           <v-flex xs1 sm1 md1 lg1>
+                
+        </v-layout><v-layout row wrap class="board-elems">
+           <v-flex xs1 sm1 md1 lg1 class="board-no">
                     <p class="board-elems-content">448</p>
                 </v-flex>
-                <v-flex xs7 sm7 md4 lg7>
+                
+                <v-flex xs6 sm7 md7 lg7>
                     <p class="board-elems-content">뉴이스트 영샹 요청이요</p>
                     
                 </v-flex>
-                <v-flex xs1 sm1 md2 lg1>
+                <v-flex xs3 sm2 md2 lg2>
                     <p class="board-elems-content">moonluv</p>
                 </v-flex>
                 <v-flex xs1 sm1 md2 lg1>
                     <p class="board-elems-content">2018.01.01</p>
                 </v-flex>
-                <v-flex xs1 sm1 md2 lg1>
-                    <p class="board-elems-content">999</p>
-                </v-flex>
-                <v-flex>
-                    <p class="board-elems-content">123</p>
-                </v-flex>
-        </v-layout><v-layout class="board-elems">
-           <v-flex xs1 sm1 md1 lg1>
+                
+        </v-layout><v-layout row wrap class="board-elems">
+           <v-flex xs1 sm1 md1 lg1 class="board-no">
                     <p class="board-elems-content">448</p>
                 </v-flex>
-                <v-flex xs7 sm7 md4 lg7>
+                
+                <v-flex xs6 sm7 md7 lg7>
                     <p class="board-elems-content">뉴이스트 영샹 요청이요</p>
                     
                 </v-flex>
-                <v-flex xs1 sm1 md2 lg1>
+                <v-flex xs3 sm2 md2 lg2>
                     <p class="board-elems-content">moonluv</p>
                 </v-flex>
-                <v-flex xs1 sm1 md2 lg1>
+                <v-flex>
                     <p class="board-elems-content">2018.01.01</p>
                 </v-flex>
-                <v-flex xs1 sm1 md2 lg1>
-                    <p class="board-elems-content">999</p>
-                </v-flex>
-                <v-flex>
-                    <p class="board-elems-content">123</p>
-                </v-flex>
-        </v-layout><v-layout class="board-elems">
-           <v-flex xs1 sm1 md1 lg1>
+               
+        </v-layout><v-layout row wrap class="board-elems">
+           <v-flex xs1 sm1 md1 lg1 class="board-no">
                     <p class="board-elems-content">448</p>
                 </v-flex>
-                <v-flex xs7 sm7 md4 lg7>
+                
+                <v-flex xs6 sm7 md7 lg7>
                     <p class="board-elems-content">뉴이스트 영샹 요청이요</p>
                     
                 </v-flex>
-                <v-flex xs1 sm1 md2 lg1>
+                <v-flex xs3 sm2 md2 lg2>
                     <p class="board-elems-content">moonluv</p>
                 </v-flex>
-                <v-flex xs1 sm1 md2 lg1>
+                <v-flex>
                     <p class="board-elems-content">2018.01.01</p>
                 </v-flex>
-                <v-flex xs1 sm1 md2 lg1>
-                    <p class="board-elems-content">999</p>
-                </v-flex>
-                <v-flex>
-                    <p class="board-elems-content">123</p>
-                </v-flex>
-        </v-layout><v-layout class="board-elems">
-            <v-flex xs1 sm1 md1 lg1>
+                
+        </v-layout><v-layout row wrap class="board-elems">
+            <v-flex xs1 sm1 md1 lg1 class="board-no">
                     <p class="board-elems-content">448</p>
                 </v-flex>
-                <v-flex xs7 sm7 md4 lg7>
+                
+                <v-flex xs6 sm7 md7 lg7>
                     <p class="board-elems-content">뉴이스트 영샹 요청이요</p>
                     
                 </v-flex>
-                <v-flex xs1 sm1 md2 lg1>
+                <v-flex xs3 sm2 md2 lg2>
                     <p class="board-elems-content">moonluv</p>
                 </v-flex>
-                <v-flex xs1 sm1 md2 lg1>
+                <v-flex>
                     <p class="board-elems-content">2018.01.01</p>
                 </v-flex>
-                <v-flex xs1 sm1 md2 lg1>
-                    <p class="board-elems-content">999</p>
-                </v-flex>
-                <v-flex>
-                    <p class="board-elems-content">123</p>
-                </v-flex>
-        </v-layout><v-layout class="board-elems">
-           <v-flex xs1 sm1 md1 lg1>
+                
+        </v-layout><v-layout row wrap class="board-elems">
+           <v-flex xs1 sm1 md1 lg1 class="board-no">
                     <p class="board-elems-content">448</p>
                 </v-flex>
-                <v-flex xs7 sm7 md4 lg7>
+                
+                <v-flex xs6 sm7 md7 lg7>
                     <p class="board-elems-content">뉴이스트 영샹 요청이요</p>
                     
                 </v-flex>
-                <v-flex xs1 sm1 md2 lg1>
+                <v-flex xs3 sm2 md2 lg2>
                     <p class="board-elems-content">moonluv</p>
                 </v-flex>
-                <v-flex xs1 sm1 md2 lg1>
+                <v-flex>
                     <p class="board-elems-content">2018.01.01</p>
                 </v-flex>
-                <v-flex xs1 sm1 md2 lg1>
-                    <p class="board-elems-content">999</p>
-                </v-flex>
-                <v-flex>
-                    <p class="board-elems-content">123</p>
-                </v-flex>
-        </v-layout><v-layout class="board-elems">
-           <v-flex xs1 sm1 md1 lg1>
+                
+        </v-layout><v-layout row wrap class="board-elems">
+           <v-flex xs1 sm1 md1 lg1 class="board-no">
                     <p class="board-elems-content">448</p>
                 </v-flex>
-                <v-flex xs7 sm7 md4 lg7>
+                
+                <v-flex xs6 sm7 md7 lg7>
                     <p class="board-elems-content">뉴이스트 영샹 요청이요</p>
                     
                 </v-flex>
-                <v-flex xs1 sm1 md2 lg1>
+                <v-flex xs3 sm2 md2 lg2>
                     <p class="board-elems-content">moonluv</p>
                 </v-flex>
-                <v-flex xs1 sm1 md2 lg1>
+                <v-flex>
                     <p class="board-elems-content">2018.01.01</p>
                 </v-flex>
-                <v-flex xs1 sm1 md2 lg1>
-                    <p class="board-elems-content">999</p>
-                </v-flex>
-                <v-flex>
-                    <p class="board-elems-content">123</p>
-                </v-flex>
+                
         </v-layout>
         
     </v-container>
@@ -264,6 +218,14 @@ export default {
 
 <style lang="scss" scoped>
 @import "styles/common.scss";
+
+.board-no{
+    text-align: center;
+}
+
+p{
+    display: inline;
+}
 
 .req-search{
     margin-top : 100px;
@@ -301,5 +263,14 @@ export default {
 
 .board-elems-content{
     line-height: 160px;
+}
+
+@media screen and (max-width : 550px){
+    .board-header-content{
+        font-size : 13px;   
+    }
+    .board-elems-content{
+        font-size : 8px;
+    }
 }
 </style>

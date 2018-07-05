@@ -27,21 +27,7 @@
                         <p class="req-detail-tag">Date</p>
                         <!-- AXIOS -->
                         <p>2018.07.21</p>
-                    </div>
-                
-                
-                    <div class="req-detail-views">
-                        <p class="req-detail-tag">Views</p>
-                        <!-- AXIOS -->
-                        <p>999</p>
-                    </div>
-                
-                
-                    <div class="req-detail-likes">
-                        <p class="req-detail-tag">Likes</p>
-                        <!-- AXIOS -->
-                        <p>999</p>
-                    </div>
+                    </div>                
             </v-layout>
             <v-layout row wrap class="req-detail-board-content-section">
                 <v-flex xs12 sm12 md12 lg12 class="req-detail-board-content">
@@ -61,15 +47,9 @@
                     </div>
                 </v-flex>
             </v-layout>
+            <v-layout ></v-layout>
         </v-container>
-        <div class="text-xs-center">
-                <div class="likes-btn">
-                    <v-icon color="black" medium class="likes-btn-img">thumb_up_alt</v-icon>
-                    <!-- AXIOS -->
-                    <p>999</p>
-                </div>
-                
-        </div>
+        
     </div>
 </template>
 
