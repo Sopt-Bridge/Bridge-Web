@@ -9,13 +9,14 @@ import {video} from './video'
 import {login} from './login'
 import {home} from './home'
 import {request} from './request'
+import {subscribe} from './subscribe'
 
 
 Vue.use(Router)
 
 export default new Router({
   routes: [
-    login, home, video, request
+    login, home, video, request,subscribe
   ],
   mode : 'history'
 })
