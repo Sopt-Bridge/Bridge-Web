@@ -92,11 +92,11 @@ export default {
       &-more{
         position: absolute;
         cursor: pointer;
-        margin-left : -10px;
+        margin-left : -12px;
         margin-top : 50px;
         &-img{
-            width : 40px;
-            height : 40px;
+            width : 50px;
+            height : 50px;
         }
       }
   }
