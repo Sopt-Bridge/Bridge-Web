@@ -1,14 +1,14 @@
 <template>
     <div class="req-comment">
         <v-container>
-            <v-layout row wrap>
+            <v-layout>
                 <div class="req-comment-count-section">
                     <p>Comments</p>
                     <!-- ***AXIOS*** -->
                     <p class="req-comment-count">4</p>
                 </div>
             </v-layout>
-            <v-layout row wrap >
+            <v-layout>
                 <v-flex xs12 sm12 md12 lg12 class="req-comment-user-content-section">
                     <div class="req-comment-user-content-inner-section">
                         <textarea class="req-comment-user-content" :placeholder="comment"></textarea>
@@ -18,11 +18,11 @@
                     </div>
                 </v-flex>
             </v-layout>
-            <v-layout row wrap>
+            <v-layout>
                 <!-- ***AXIOS*** -->
                 <div class="req-comment-section">
                     <div class="req-comment-user-icon">
-                        <v-icon>person</v-icon>
+                        <v-icon class="req-comment-icon-person">person</v-icon>
                     </div>
                     <div class="req-comment-user-container">
                         <div class="req-comment-user-info">
@@ -52,18 +52,21 @@
                     </div>
                 </div>
             </v-layout>
-            <v-layout row wrap>
+            <v-layout>
                 <!-- ***AXIOS*** -->
-                <div class="req-comment-section">
+                <div class="req-comment-reply-section">
+                    <div class="req-comment-reply-icon">
+                        <v-icon>subdirectory_arrow_right</v-icon>
+                    </div>
                     <div class="req-comment-user-icon">
-                        <v-icon>person</v-icon>
+                        <v-icon class="req-comment-icon-person">person</v-icon>
                     </div>
                     <div class="req-comment-user-container">
                         <div class="req-comment-user-info">
                             <div class="req-comment-user-info-nickname req-comment-user-info-detail">
                                 <div>
                                     <!--***AXIOS**-->
-                                    <p>SML</p>
+                                    <p>KYG</p>
                                 </div>
                                 <v-spacer/>
                                 <div>
@@ -81,55 +84,37 @@
                         </div>
                         <div class="req-comment-user-comment-detail">
                             <!--***AXIOS**-->
-                            <p>Hello World! I'm Sang min lee. ahahahaha</p>
+                            <p>ahahahaha</p>
                         </div>
                     </div>
                 </div>
             </v-layout>
-            <v-layout row wrap>
-                <!-- ***AXIOS*** -->
-                <div class="req-comment-section">
-                    <div class="req-comment-user-icon">
-                        <v-icon>person</v-icon>
-                    </div>
-                    <div class="req-comment-user-container">
-                        <div class="req-comment-user-info">
-                            <div class="req-comment-user-info-nickname req-comment-user-info-detail">
-                                <div>
-                                    <!--***AXIOS**-->
-                                    <p>SML</p>
-                                </div>
-                                <v-spacer/>
-                                <div>
-                                    <!--***AXIOS**-->
-                                    <p class="req-comment-user-info-btn">DELETE</p>
-                                    <p class="req-comment-user-info-btn req-comment-user-info-btn-reply">REPLY</p>
-                                </div>
-                            </div>
-                            <div class="req-comment-user-info-date-section req-comment-user-info-detail">
-                                <div>
-                                    <!--***AXIOS**-->
-                                    <p class="req-comment-user-info-date">01/01/2018</p>
-                                </div>
-                            </div>
+            <v-layout>
+                    <div class="req-comment-reply-content-section">
+                        <div>
+                            <v-icon>subdirectory_arrow_right</v-icon>
                         </div>
-                        <div class="req-comment-user-comment-detail">
-                            <!--***AXIOS**-->
-                            <p>Hello World! I'm Sang min lee. ahahahaha</p>
+                        <div class="req-comment-reply-content-section-inner">
+                            <textarea class="req-comment-user-content" :placeholder="reply"></textarea>
                         </div>
                     </div>
-                </div>
+                    <div class="req-comment-reply-btn-section">
+                        <button class="req-comment-reply-btn">Reply</button>
+                    </div>
             </v-layout>
         </v-container>
     </div>
 </template>
 <script>
+// import Reply from './Reply'
 export default {
     data(){
         return {
-            comment : "Please input comment..."
+            comment : "Please input comment...",
+            reply : "Please input reply..."
         }
     }
+    
 }
 </script>
 <style lang='scss' scoped>
@@ -137,19 +122,20 @@ export default {
     $button-width-height : 95px;  
     $remain : 0px;
     $comment-height : 97px;  
+    $reply-height : 45px;
+    
     p{
         display: inline;
         font-size : 15px;
     }
-
-    i{
-        width : 70px;
-        height : 70px;
-        font-size : 45px;
-        margin-left : 10px;
-    }
-
     .req-comment{
+        &-icon{
+            &-person{
+                width : 70px;
+                height : 70px;
+                font-size : 45px;
+            }
+        }
         &-count{
             padding-left : $inner-padding;
         }
@@ -184,9 +170,7 @@ export default {
                     
                 }
             }
-            &-icon{
-                width : 92px;
-            }
+            
             &-info{
                 width : 100%;
                 height : 70px;
@@ -229,4 +213,37 @@ export default {
             display: flex;
         }
     }
+
+    .req{
+        &-comment{
+            &-reply{
+                &-content{
+                    &-section{
+                        @extend .req-comment-user-content-section;
+                        width : $remain;
+                        padding-left : 45px;
+                        height: 45px;
+                        margin-right : 1%;
+                        &-inner{
+                            @extend .req-comment-user-content-inner-section;
+                            width : 100%;
+                            margin-right : 0%;
+                        }
+                    }
+                }
+                &-section{
+                    @extend .req-comment-section;
+                    padding-left : 45px;
+                }
+                
+                &-btn{
+                    @extend .req-comment-btn;
+                    height : 45px;
+                    margin-top : 19px;
+                }
+            }
+            
+        }
+    }
 </style>
+

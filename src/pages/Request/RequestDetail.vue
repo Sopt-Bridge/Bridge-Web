@@ -29,7 +29,7 @@
                 
                     <div class="req-detail-link">
                         <!-- AXIOS -->
-                        <a href="https://tv.naver.com/v/3470970"><p>https://tv.naver.com/v/3470970</p></a>
+                        <a href="https://tv.naver.com/v/3519878"><p>https://tv.naver.com/v/3519878</p></a>
                     </div>
                     <div class="req-detail-board-content-text-section">
                         <!-- AXIOS -->
