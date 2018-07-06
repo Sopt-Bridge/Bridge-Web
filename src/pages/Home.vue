@@ -1,7 +1,6 @@
 <template>
 <div class="Home">
   <navdrawer></navdrawer>
-  
   <main-poster></main-poster>
   <trending></trending>
   <recommended></recommended>
