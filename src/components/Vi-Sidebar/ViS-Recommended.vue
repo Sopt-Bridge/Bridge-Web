@@ -1,11 +1,16 @@
 <template>
 <div class="ViS-Recommended">
-  <Video-card class="ViS-Recommended-card" v-for="i in 10" :key="i"></Video-card>
+  <!-- <div class="item" v-for="i in 8" :key="i"> -->
+    <video-card></video-card>
+  <!-- </div> -->
 </div>
 </template>
 <script>
+import VideoCard from '../Card/VideoCard.vue'
 export default {
-
+  components:{
+    'video-card':VideoCard
+  }
 }
 </script>
 <style lang='scss' scoped>
