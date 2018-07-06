@@ -31,4 +31,7 @@ export default {
 
 <style lang="scss">
 // @import url('styles/common.scss')
+.v-app{
+  min-width:320px;
+}
 </style>
