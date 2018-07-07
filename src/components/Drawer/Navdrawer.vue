@@ -21,29 +21,31 @@
 <script>
 import more_icon from '../../assets/img/hamburger_open_btn.svg'
 export default {
-  data() {
-    return {
-      items: [
-        {
-          title: "HOT"
-        },
-        {
-          title: "K-content"
-        },
-        {
-          title: "K-pop"
-        },
-        {
-          title: "Fun"
-        },
-        {
-          title: "Culture"
-        }
-      ],
-      fixed: true,
-      drawer: true,
-      clipped: true,
-      more : more_icon
+    data() {
+        return {
+            items: [{
+                    // icon: "bubble_chart",
+                    title: "HOT"
+
+                },
+                {
+                    title: "K-content"
+                },
+                {
+                    title: "K-pop"
+                },
+                {
+                    title: "Fun"
+                },
+                {
+                    title: "Culture"
+                }
+
+            ],
+            fixed: true,
+            drawer: false,
+            clipped: true,
+            more : more_icon
     };
   },
   methods: {
