@@ -1,14 +1,8 @@
 <template>
-<div class="VideoCard">
+<div class="VideoCard" :style="{flexWrap:wraping}">
   <div class="VideoCard-content">
     <img class="VideoCard-content-thumb" src="@/assets/img/cms_temp_article_21120403550250@2x.png" alt="">
-    <!-- <svg class="VideoCard-content-play" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-      <path d="M8 5v14l11-7z"/>
-      <path d="M0 0h24v24H0z" fill="none"/>
-    </svg>   -->
     <div class="VideoCard-content-play">
-      <!-- <div class="VideoCard-content-playBtn">
-      </div> -->
       <img src="@/assets/img/baseline-play_arrow-24px.svg" alt="">
     </div>
     <div class="VideoCard-content-time">04:29</div>
@@ -25,12 +19,30 @@
 </template>
 <script>
 export default {
-
+  data() {
+    return {
+      // wrap:'wrap'
+    }
+  },
+  props: ['wrap'],
+  computed: {
+    wraping() {
+      let out;
+      if (this.wrap){
+        out = 'wrap'
+        }
+      else{
+        out = 'nowrap'
+      }
+      return out;
+    }
+  }
 }
 </script>
 <style lang='scss' scoped>
 .VideoCard {
   display: flex;
+  flex-wrap:wrap;
   align-items: center;
   &:hover &-content-play {
     animation: playHover 0.3s;
@@ -45,8 +57,9 @@ export default {
     }
   }
   &-content {
-    width: 50%;
-    display: flex;
+    flex-grow: 1;
+    // width: 50%;
+    // display: flex;
     align-items: center;
     // background-color: brown;
     position: relative;
@@ -62,25 +75,6 @@ export default {
       position: absolute;
       display: flex;
       justify-content: center;
-      // align-content: center;
-      // img {
-      //   background-color: #e31c9d;
-      //   align-self: center;
-      //   width: 50%;
-      //   height: 50%;
-      // }
-      // &:hover {
-      //   animation: playHover 0.3s;
-      //   background-color: rgba(227, 28, 157, 0.9);
-      // }
-      // @keyframes playHover {
-      //   from {
-      //     background-color: rgba(255, 255, 255, 0.8);
-      //   }
-      //   to {
-      //     background-color: rgba(227, 28, 157, 0.9);
-      //   }
-      // }
     }
     &-time {
       color: white;
@@ -92,7 +86,8 @@ export default {
     }
   }
   &-infor {
-    width: 50%;
+    flex-grow: 1;
+    // width: 50%;
     box-sizing: border-box;
     font-size: 16px;
     padding-left: 2%;

@@ -36,7 +36,7 @@ export default {
 
             ],
             fixed: true,
-            drawer: true,
+            drawer: false,
             clipped: true
         }
     },
