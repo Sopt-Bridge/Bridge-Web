@@ -1,11 +1,17 @@
 <template>
 <div class="main">
-  <img class="main-img" src="https://pbs.twimg.com/media/DNzBoYsVAAAJ3Mn.jpg">
+  <img class="main-img" :src="main_img">
 </div>
 </template>
 
 <script>
+import main_img from '../../assets/img/nu_est_33375.jpg'
 export default {
+    data(){
+        return {
+            main_img : main_img
+        }
+    }
 }
 </script>
 

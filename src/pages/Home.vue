@@ -1,4 +1,5 @@
 <template>
+
 <div class="Home">
   <!-- <navdrawer></navdrawer> -->
   <main-poster></main-poster>
@@ -28,5 +29,9 @@ export default {
 
 <style lang="scss" scoped>
 @import 'styles/common.scss';
-
+.home-components{
+  max-width: 1377px;
+  margin-left : auto;
+  margin-right : auto;
+}
 </style>
