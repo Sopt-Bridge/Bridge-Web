@@ -1,47 +1,49 @@
 <template>
-<div class="Toobar">
-    <div class="Toobar-wrap">
-        <div class="Toobar-upBox">
-            <div class="Toobar-logo">
-                <router-link :to="home">
-                    <img src="../../assets/img/short logo.svg" class="main_logo">
-                </router-link>
+<div class="Toolbar-container">
+    <div class="Toobar">
+        <div class="Toobar-wrap">
+            <div class="Toobar-upBox">
+                <div class="Toobar-logo">
+                    <router-link :to="home">
+                        <img src="../../assets/img/short logo.svg" class="main_logo">
+                    </router-link>
+                </div>
+                <div class="Toobar-search">
+                    <search-bar class="Toolbar-search-bar" :styleObj="searchStyle"></search-bar>
+                </div>
+                <button class="nav-search-btn"><v-icon color="white">search</v-icon></button>
             </div>
-            <div class="Toobar-search">
-                <search-bar class="Toolbar-search-bar" :styleObj="searchStyle"></search-bar>
-            </div>
-            <button class="nav-search-btn"><v-icon color="white">search</v-icon></button>
-        </div>
-        <div class="Toobar-items">
-            <div class="Toobar-items-item">
-                Subscriptions
-            </div>
-            <div class="Toobar-items-item Toobar_Btn">
-                Request
-            </div>
-            <div class="Toobar-items-my">
-                <v-menu offset-y>
-                    <v-btn icon slot="activator">
-                        <v-icon>perm_identity</v-icon>
-                    </v-btn>
-                    <v-list>
-                        <v-list-tile>
-                            <v-list-tile-title>{{ name }}</v-list-tile-title>
-                        </v-list-tile>
-                        <v-list-tile>
-                            <v-list-tile-title>{{ email }}</v-list-tile-title>
-                        </v-list-tile>
-                        <v-list-tile>
-                            <v-list-tile-title>내가 쓴글</v-list-tile-title>
-                        </v-list-tile>
-                        <v-list-tile>
-                            <v-list-tile-title>Library</v-list-tile-title>
-                        </v-list-tile>
-                        <v-list-tile>
-                            <v-list-tile-title>Sign Out</v-list-tile-title>
-                        </v-list-tile>
-                    </v-list>
-                </v-menu>
+            <div class="Toobar-items">
+                <div class="Toobar-items-item">
+                    Subscriptions
+                </div>
+                <div class="Toobar-items-item Toobar_Btn">
+                    Request
+                </div>
+                <div class="Toobar-items-my">
+                    <v-menu offset-y>
+                        <v-btn icon slot="activator">
+                            <v-icon>perm_identity</v-icon>
+                        </v-btn>
+                        <v-list>
+                            <v-list-tile>
+                                <v-list-tile-title>{{ name }}</v-list-tile-title>
+                            </v-list-tile>
+                            <v-list-tile>
+                                <v-list-tile-title>{{ email }}</v-list-tile-title>
+                            </v-list-tile>
+                            <v-list-tile>
+                                <v-list-tile-title>내가 쓴글</v-list-tile-title>
+                            </v-list-tile>
+                            <v-list-tile>
+                                <v-list-tile-title>Library</v-list-tile-title>
+                            </v-list-tile>
+                            <v-list-tile>
+                                <v-list-tile-title>Sign Out</v-list-tile-title>
+                            </v-list-tile>
+                        </v-list>
+                    </v-menu>
+                </div>
             </div>
         </div>
     </div>
@@ -75,6 +77,11 @@ export default {
 <style lang="scss" scoped>
 @import "styles/common.scss";
 .Toobar {
+    box-shadow: 0px 2px 6px 1px gray;
+    z-index:3;
+    position: fixed;
+    width:100%;
+    background-color: white;    
     &-wrap {
         padding-top: 8px;
         padding-bottom: 8px;
@@ -133,6 +140,8 @@ export default {
         }
     }
 }
+
+
 
 // .Toobar {
 //     &_Btn {

@@ -68,6 +68,7 @@ export default {
 
 .navbar-drawer {
   z-index: 0;
+  top : 68px;
   &-components{
       margin-top : 80px;
       margin-left : 40px;
@@ -94,8 +95,8 @@ export default {
       &-more{
         position: absolute;
         cursor: pointer;
-        margin-left : -12px;
-        margin-top : 50px;
+        margin-left : -13px;
+        margin-top : 100px;
         &-img{
             width : 50px;
             height : 50px;

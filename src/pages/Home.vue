@@ -1,12 +1,14 @@
 <template>
 
 <div class="Home">
-  <!-- <navdrawer></navdrawer> -->
-  <main-poster></main-poster>
-  <!-- <trending></trending>
-  <recommended></recommended>
-  <recently></recently> -->
-  <contents></contents>
+  <navdrawer></navdrawer>
+  <div class="home-components">
+    <main-poster></main-poster>
+    <!-- <trending></trending>
+    <recommended></recommended>
+    <recently></recently> -->
+    <contents></contents>
+  </div>
 </div>
 </template>
 
@@ -30,7 +32,7 @@ export default {
 <style lang="scss" scoped>
 @import 'styles/common.scss';
 .home-components{
-  max-width: 1377px;
+  max-width: 1378px;
   margin-left : auto;
   margin-right : auto;
 }
