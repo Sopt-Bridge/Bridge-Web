@@ -32,7 +32,7 @@ export default {
 <style lang="scss" scoped>
 @import 'styles/common.scss';
 .home-components{
-  max-width: 1378px;
+  max-width: 1380px;
   margin-left : auto;
   margin-right : auto;
 }
