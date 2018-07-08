@@ -15,10 +15,10 @@
             </div>
             <div class="Toobar-items">
                 <div class="Toobar-items-item">
-                    Subscriptions
+                    <span>Subscriptions</span>
                 </div>
                 <div class="Toobar-items-item Toobar_Btn">
-                    Request
+                    <span>Request</span>
                 </div>
                 <div class="Toobar-items-my">
                     <v-menu offset-y>
@@ -76,6 +76,9 @@ export default {
 
 <style lang="scss" scoped>
 @import "styles/common.scss";
+
+
+
 .Toobar {
     box-shadow: 0px 2px 6px 1px gray;
     z-index:3;
@@ -88,6 +91,7 @@ export default {
         display: flex;
         @media screen and (max-width: 510px) {
             flex-wrap: wrap;
+            padding-bottom: 4px;
         }
     }
     &-upBox {
@@ -110,33 +114,45 @@ export default {
         flex-grow: 1;
         justify-content: flex-end;
         user-select: none;
-        padding-right: 1.6%;
+        padding-right: 3%;
+        @include media("(max-width: 510px)"){
+            justify-content: space-around;
+        }
         &-item {
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
             border-radius: 7px;
-            transition: 0.5s;
             font-size: 17px;
             flex-shrink: 1;
             margin: {
                 left: 5px;
-                right: 5px;
+                right: 7%;
             }
             padding: 5px;
+
+            @include media("(max-width: 860px)"){
+                font-size : 12px;
+                margin : {
+                    right : 3%;
+                }
+            }
+            @include media("(max-width: 510px)"){
+                font-size : 17px;
+            }
             &:hover {
                 transition: 0.5s;
                 background-color: rgba(151, 150, 150, 0.596);
             }
-            @media screen and (max-width:510px) {
-                margin-left: 20px;
-                margin-right: 20px;
-                background-color: aquamarine;
-            }
-            @media screen and (max-width:620px) {
-                font-size: 15px;
-            }
+            // @media screen and (max-width:510px) {
+            //     margin-left: 20px;
+            //     margin-right: 20px;
+            //     background-color: aquamarine;
+            // }
+            // @media screen and (max-width:620px) {
+            //     font-size: 15px;
+            // }
         }
     }
 }
