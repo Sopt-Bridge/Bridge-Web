@@ -140,19 +140,16 @@ export default {
             }
             @include media("(max-width: 510px)"){
                 font-size : 17px;
+                margin : {
+                    left : 0px;
+                    right : 0px;
+                }
             }
             &:hover {
                 transition: 0.5s;
                 background-color: rgba(151, 150, 150, 0.596);
             }
-            // @media screen and (max-width:510px) {
-            //     margin-left: 20px;
-            //     margin-right: 20px;
-            //     background-color: aquamarine;
-            // }
-            // @media screen and (max-width:620px) {
-            //     font-size: 15px;
-            // }
+            
         }
     }
 }
@@ -179,5 +176,8 @@ export default {
     width: 45px;
     background-color: $main-color;
     margin-right: auto;
+    @include media('(max-width : 510px)'){
+        margin-right : 8px;
+    }
 }
 </style>
