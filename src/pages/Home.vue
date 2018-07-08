@@ -1,22 +1,29 @@
 <template>
-<div class="home">
+
+<div class="Home">
   <navdrawer></navdrawer>
-  <div class="home-components"> 
+  <div class="home-components">
     <main-poster></main-poster>
-    <trending></trending>
+    <!-- <trending></trending>
     <recommended></recommended>
-    <recently></recently>
+    <recently></recently> -->
+    <contents></contents>
   </div>
 </div>
 </template>
 
 <script>
+import contents from '../components/Contents/Contents.vue'
+
 export default {
   data() {
     return {
 
     }
   },
+  components:{
+    contents
+  }
 
 
 }
@@ -24,9 +31,13 @@ export default {
 
 <style lang="scss" scoped>
 @import 'styles/common.scss';
-.home-components{
-  max-width: 1377px;
+.home{
+  &-components{
+    max-width: 1380px;
   margin-left : auto;
   margin-right : auto;
+  }
+  
+  
 }
 </style>
