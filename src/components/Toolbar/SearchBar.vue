@@ -26,7 +26,6 @@ export default {
 .Search {
   &-textBar {
     border: 1px solid #E4E4E4;
-    border-radius: 4px;
     width: 100%;
     height: 45px;
     padding : 5px 13px 5px 13px;
