@@ -44,4 +44,9 @@ export default {
     }
   }
 }
+
+.swiper-pagination-bullet-active{
+  background-color: #ffffff;
+}
+
 </style>
