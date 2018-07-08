@@ -67,8 +67,8 @@ export default {
 @import "styles/common.scss";
 
 .navbar-drawer {
-  z-index: 0;
-  top : 68px;
+  z-index: 2;
+  top : 64px;
   &-components{
       margin-top : 80px;
       margin-left : 40px;
@@ -97,9 +97,11 @@ export default {
         cursor: pointer;
         margin-left : -13px;
         margin-top : 100px;
+        z-index: 2;
         &-img{
             width : 50px;
             height : 50px;
+            
         }
       }
   }

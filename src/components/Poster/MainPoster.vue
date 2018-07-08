@@ -29,7 +29,7 @@ export default {
 
 <style lang="scss" scoped>
 .MainPoster {
-    z-index: -1;
+    z-index: 0;
     background-color: blue;
     &-swiper {
         &-slide {
