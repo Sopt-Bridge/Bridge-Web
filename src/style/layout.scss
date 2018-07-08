@@ -1,2 +1,8 @@
 $inner-padding : 15px;
 $double-inner-padding : $inner-padding*2;
+
+@mixin media($queryString){
+    @media #{$queryString} {
+      @content;
+    }
+}

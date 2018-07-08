@@ -1,7 +1,7 @@
 <template>
 <v-container class="Contents" grid-list-lg>
   <v-layout row wrap>
-    <v-flex class="Contents-card" v-for="i in 12" :key="i" xs12 sm3>
+    <v-flex class="Contents-card" v-for="i in 12" :key="i" xs6 sm3>
       <video-card :wrap="true"></video-card>
     </v-flex>
   </v-layout>

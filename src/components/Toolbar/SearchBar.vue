@@ -29,6 +29,7 @@ export default {
     border-radius: 4px;
     width: 100%;
     height: 45px;
+    padding : 5px 13px 5px 13px;
     &:focus+.Search-menu {
       // background-color: white;
       display: initial;
