@@ -19,22 +19,20 @@ export default {
 </script>
 <style lang='scss' scoped>
 .ViM-Infor {
-  // display: block;
   height:250px;
   &-heading {
-    // display: block;
-    max-width: 1200px;
-    max-height: 68px;
+    // max-width: 1200px;
+    // max-height: 68px;
     &-text {
-      // display: block;
+      display: block;
       margin-top: 18px;
       margin-bottom: 8px;
       max-width: 925px;
       max-height: 68px;
-      font-size: 25px;
+      font-size: 23px;
     }
     &-moreBtn {
-      max-height: 68px;
+      // max-height: 68px;
     }
   }
   &-tag {
