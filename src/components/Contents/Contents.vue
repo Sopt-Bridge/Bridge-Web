@@ -1,6 +1,6 @@
 <template>
 <div class="Contents">
-  <v-container grid-list-lg>
+  <v-container grid-list-lg fluid>
     <div class="Contents-head">
       <div class="Contents-head-text">
         {{headTxt}}
