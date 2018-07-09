@@ -23,10 +23,9 @@ import more_icon from '../../assets/img/hamburger_open_btn.svg'
 export default {
     data() {
         return {
-            items: [{
-                    // icon: "bubble_chart",
+            items: [
+                {
                     title: "HOT"
-
                 },
                 {
                     title: "K-content"
@@ -58,6 +57,9 @@ export default {
             document.getElementById(i).style.color = "#333333";    
         }
         document.getElementById(num).style.color = "#E31c9e";
+        if(window.screen.availWidth < 510){
+            this.drawer = false;
+        }
     }
   }
 };
@@ -65,9 +67,15 @@ export default {
 
 <style lang="scss" scoped>
 @import "styles/common.scss";
+$navigation-top : 64px;
 
 .navbar-drawer {
-  z-index: 0;
+  z-index: 2;
+  top : $navigation-top;
+  @include media("(max-width: 510px)"){
+      top : $navigation-top + 40px;
+      
+  }
   &-components{
       margin-top : 80px;
       margin-left : 40px;
@@ -92,13 +100,15 @@ export default {
           cursor: pointer;
       }
       &-more{
-        position: absolute;
+        position: fixed;
         cursor: pointer;
-        margin-left : -12px;
-        margin-top : 50px;
+        margin-left : -13px;
+        margin-top : 100px;
+        z-index: 2;
         &-img{
             width : 50px;
             height : 50px;
+            
         }
       }
   }

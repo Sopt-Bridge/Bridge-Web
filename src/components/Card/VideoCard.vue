@@ -68,7 +68,7 @@ export default {
     }
     &-play {
       background-color: rgba(255, 255, 255, 0.8);
-      bottom: 0;
+      bottom: 6px;
       left: 0;
       width: 13%;
       height: 20%;

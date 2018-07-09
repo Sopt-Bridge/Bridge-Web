@@ -4,7 +4,9 @@
     <div class="ViS-Infor-headig">
       K-content
     </div>
-    <div class="ViS-Infor-closeBtn">X</div>
+    <div class="ViS-Infor-closeBtn">
+      <v-icon medium>clear</v-icon>
+    </div>
     <div class="ViS-Infor-body">
       희대의 아이돌, 방탄 소년단이 컴백하면서<br> 아이돌팬계의 분위기가 활활 타올랐다.
     </div>
@@ -23,20 +25,17 @@ export default {
 <style lang='scss' scoped>
 .ViS-Infor {
   position: relative;
-  min-width: 528px;
-  width: 100%;
   background-color: #f5f5f5;
   &-container {
-    padding-top: 30px;
-    padding-left: 38px;
+    padding-top: 6%;
+    padding-left: 7%;
   }
   &-headig {
     font-size: 25px;
   }
   &-closeBtn {
-    font-size: 50px;
     position: absolute;
-    top: 0;
+    top: 20px;
     right: 10px;
   }
   &-body {
@@ -51,7 +50,7 @@ export default {
       height: 20px;
     }
     &Num {
-      padding-left: 13px;
+      padding-left: 10px;
       color: #707070;
       font-size: 18px;
     }

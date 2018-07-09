@@ -1,36 +1,72 @@
 <template>
 <div class="Search" :style="styleObj">
-  <input class="Search-textBar" type="text" placeholder="#Kpop, #beauty, #BTS 등을 검색해보세요">
-  <div class="Search-menu" :style="styleObj">
-    <div class="Search-menu-items">
-      <div class="Search-menu-item" v-for="i in 15" :key="i">
-        <div class="Search-menu-item-text">
-          {{i}}번쨰 리스트
+  <div class="Search-section">
+    <input class="Search-textBar" v-model="searchItem" @keyup.enter="addSearchItem" type="text" placeholder="#Kpop, #beauty, #BTS 등을 검색해보세요">
+    <!-- <div class="Search-menu" :style="styleObj"> -->
+      <div class="Search-menu" v-if="propsSearchItems.length > 1">
+        <div class="Search-menu-items">
+          <div class="Search-menu-item" v-for="(propsSearchItem, index) in propsSearchItems.slice().reverse()" :key="index">
+            <!-- <div class="Search-menu-item" v-for="(propsSearchItem, index) in propsSearchItems" :key="index"> -->
+            <div class="Search-menu-item-text">
+              {{ propsSearchItem.searchItem }}
+            </div>
+            <div class="Search-menu-item-date">{{ propsSearchItem.date }}</div>
+            <div class="Search-menu-item-closeBtn">
+              <v-icon small class="Search-menu-item-closeBtn-icon">clear</v-icon>
+            </div>
+          </div>
         </div>
-        <div class="Search-menu-item-date">05.24</div>
-        <div class="Search-menu-item-closeBtn">X</div>
       </div>
-    </div>
+      <div class="Search-menu-noresult" v-if="propsSearchItems.length <= 1">
+        <div class="Search-menu-noresult-text">
+          {{ noSearchResult }}
+        </div>      
+      </div>
+      
   </div>
 </div>
 </template>
 <script>
+import * as moment from "moment";
 export default {
   data() {
-    return {}
+    return {
+      searchItem: "",
+      noSearchResult : "최근 검색내역이 없습니다."
+    };
   },
-  props: ['styleObj']
-}
+  methods: {
+    addSearchItem() {
+      if (this.searchItem != "") {
+        const now = moment().format("MM.DD");
+        const item = {
+          date: now,
+          searchItem: this.searchItem
+        };
+        this.$emit("addItem", item);
+        this.searchItem = "";
+      }
+    }
+  },
+  props: ["styleObj", "propsSearchItems"]
+};
 </script>
 <style lang='scss' scoped>
+@import "styles/common.scss";
 .Search {
+  &-section {
+    position: relative;
+  }
   &-textBar {
-    border: 1px solid #E4E4E4;
-    border-radius: 4px;
+    border: 1px solid #e4e4e4;
     width: 100%;
     height: 45px;
-    &:focus+.Search-menu {
+    padding: 5px 13px 5px 13px;
+    &:focus + .Search-menu {
       // background-color: white;
+      display: initial;
+    }
+    &:focus + .Search-menu-noresult {
       display: initial;
     }
     @media screen and (max-width: 860px) {
@@ -45,7 +81,8 @@ export default {
     width: 100%;
     z-index: 1;
     position: absolute;
-    top: 73px;
+    // top: 73px;
+    top: 47px;
     left: 0;
     display: none;
     box-sizing: border-box;
@@ -59,14 +96,68 @@ export default {
       height: 45px;
       display: flex;
       &:hover {
-        background-color: #DDDDDD;
+        background-color: #dddddd;
       }
       &-text {
-        width: 90%;
+        width: 87%;
         font-size: 20px;
+        padding-left: 10px;
+        @include media("(max-width : 860px)") {
+          font-size: 15px;
+        }
       }
       &-date {
         font-size: 16px;
+        width: 8%;
+        color: $grey-text;
+        @include media("(max-width : 1130px)") {
+          width: 15%;
+        }
+        @include media("(max-width : 860px)") {
+          font-size: 12px;
+        }
+        @include media("(max-width : 720px)") {
+          width: 25%;
+        }
+        @include media("(max-width : 630px)") {
+          width: 40%;
+        }
+        @include media("(max-width : 510px)") {
+          width: 30%;
+        }
+      }
+      &-closeBtn {
+        text-align: center;
+        width: 5%;
+        &-icon {
+          color: $grey-text;
+          cursor: pointer;
+        }
+      }
+    }
+    &-noresult {
+      background-color: white;
+      width: 100%;
+      z-index: 1;
+      position: absolute;
+      // top: 73px;
+      top: 47px;
+      left: 0;
+      display: none;
+      box-sizing: border-box;
+      box-shadow: 0 0 10px 0 gray;
+      height: 45px;
+      overflow-y: scroll;
+      &-text{
+        margin-top : 10.5px;
+        padding-left : 15px;
+        color : $grey-text;
+        font-size : 15px;
+        @extend .Search-menu-item-text;
+        @include media("(max-width : 860px)") {
+          margin-top : 15px;
+          font-size : 10px;
+        }
       }
     }
   }

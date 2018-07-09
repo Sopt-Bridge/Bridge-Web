@@ -2,7 +2,7 @@
 <v-app>
   <toolbar></toolbar>
   <v-content>
-    <router-view></router-view>
+    <router-view class="App-content"></router-view>
   </v-content>
 </v-app>
 </template>
@@ -31,7 +31,21 @@ export default {
 
 <style lang="scss">
 // @import url('styles/common.scss')
-.v-app{
-  min-width:320px;
+@import 'styles/common.scss';
+.v-app {
+  min-width: 320px;
+}
+
+.App {
+  &-content {
+    margin-top: 65px;
+    @media screen and (max-width: 510px) {
+      margin-top: 109px;
+    }
+  }
+}
+
+.swiper-pagination-bullet-active{
+  background-color: #ffffff;
 }
 </style>

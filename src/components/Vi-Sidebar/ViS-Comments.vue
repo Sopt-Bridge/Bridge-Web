@@ -77,7 +77,5 @@ export default {
 </script>
 <style lang='scss' scoped>
 .ViS-Comments {
-  // background-color: blue;
-  height: 500px;
 }
 </style>
