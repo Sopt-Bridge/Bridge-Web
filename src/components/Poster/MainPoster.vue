@@ -23,6 +23,10 @@ export default {
                 }
             }
         }
+    },
+    mounted(){
+        // let activeColor = document.getElementsByClassName('swiper-pagination-bullet-active')[0].style.backgroundColor;
+        // activeColor = '#ff0000';
     }
 }
 </script>
@@ -48,7 +52,7 @@ export default {
             }
             background-position: center;
             background-size: 100% auto;
-            background-color: red;
+            background-color: #ff0000;
             background-image: url(https://is4-ssl.mzstatic.com/image/thumb/Music128/v4/30/68/7a/30687a5b-ccc5-0b1a-3035-574c060f2508/cover-KARD.jpg/600x600bf.jpg);
         }
     }

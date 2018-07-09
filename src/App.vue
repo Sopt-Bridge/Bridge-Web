@@ -32,16 +32,20 @@ export default {
 <style lang="scss">
 // @import url('styles/common.scss')
 @import 'styles/common.scss';
-.v-app{
-  min-width:320px;
+.v-app {
+  min-width: 320px;
 }
 
-.App{
-  &-content{
-    margin-top : 65px;
-    @media screen and (max-width : 510px){
-      margin-top : 109px;
+.App {
+  &-content {
+    margin-top: 65px;
+    @media screen and (max-width: 510px) {
+      margin-top: 109px;
     }
   }
+}
+
+.Libaray-Vcard {
+  min-height: 186px;
 }
 </style>
