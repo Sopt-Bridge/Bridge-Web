@@ -149,11 +149,14 @@ export default {
       height: 45px;
       overflow-y: scroll;
       &-text{
-        margin-top : 7px;
+        margin-top : 10.5px;
+        padding-left : 15px;
         color : $grey-text;
+        font-size : 15px;
         @extend .Search-menu-item-text;
         @include media("(max-width : 860px)") {
-          margin-top : 10px;
+          margin-top : 15px;
+          font-size : 10px;
         }
       }
     }
