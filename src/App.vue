@@ -48,4 +48,11 @@ export default {
 .swiper-pagination-bullet-active{
   background-color: #ffffff;
 }
+.swiper-container{
+  // margin:0;
+} 
+// swiper1 swiper-container-horizontal
+.swiper-container-horizontal{
+  // margin:0;
+}
 </style>

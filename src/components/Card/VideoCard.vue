@@ -8,11 +8,15 @@
     <div class="VideoCard-content-time">04:29</div>
   </div>
   <div class="VideoCard-infor">
-    <div class="VideoCard-infor-heading">
-      BTS - FAKE LOVE @BTS PERFECT COMEBACK SHOW PLEASE FOLLOW FOLLOW ME EVERYDAY SUBSCRIBE ME ME
+    <div class="VideoCard-infor-heading">BTS - FAKE LOVE @BTS PERFECT COMEBACK SHOW PLEASE FOLLOW FOLLOW ME EVERYDAY SUBSCRIBE ME ME
     </div>
-    <div class="VideoCard-infor-hastag">
-      #BTS #BANGTANTV
+    <div class="VideoCard-infor-moreBtn">
+      <v-menu offset-y :close-on-content-click="false">
+        <v-icon slot="activator">more_vert</v-icon>
+        <slot name="more"></slot>
+      </v-menu>
+    </div>
+    <div class="VideoCard-infor-hastag">#BTS #BANGTANTV
     </div>
   </div>
 </div>
@@ -28,10 +32,9 @@ export default {
   computed: {
     wraping() {
       let out;
-      if (this.wrap){
+      if (this.wrap) {
         out = 'wrap'
-        }
-      else{
+      } else {
         out = 'nowrap'
       }
       return out;
@@ -42,27 +45,24 @@ export default {
 <style lang='scss' scoped>
 .VideoCard {
   display: flex;
-  flex-wrap:wrap;
+  flex-wrap: wrap;
   align-items: center;
-  &:hover &-content-play {
-    animation: playHover 0.3s;
-    background-color: rgba(227, 28, 157, 0.9);
-  }
-  @keyframes playHover {
-    from {
-      background-color: rgba(255, 255, 255, 0.8);
-    }
-    to {
-      background-color: rgba(227, 28, 157, 0.9);
-    }
-  }
   &-content {
     flex-grow: 1;
-    // width: 50%;
-    // display: flex;
     align-items: center;
-    // background-color: brown;
     position: relative;
+    &:hover &-play {
+      animation: playHover 0.3s;
+      background-color: rgba(227, 28, 157, 0.9);
+    }
+    @keyframes playHover {
+      from {
+        background-color: rgba(255, 255, 255, 0.8);
+      }
+      to {
+        background-color: rgba(227, 28, 157, 0.9);
+      }
+    }
     &-thumb {
       width: 100%;
     }
@@ -86,12 +86,19 @@ export default {
     }
   }
   &-infor {
+    // background-color: red;
+    transition: none;
+    align-self: stretch;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-right: 25px;
     flex-grow: 1;
     // width: 50%;
-    box-sizing: border-box;
+    // box-sizing: border-box;
     font-size: 16px;
     padding-left: 2%;
     // white-space: nowrap;
+    position: relative;
     &-heading {
       /* 한 줄 자르기 */
       display: inline-block;
@@ -108,6 +115,12 @@ export default {
       display: -webkit-box;
       -webkit-line-clamp: 3;
       -webkit-box-orient: vertical;
+    }
+    &-moreBtn {
+      position: absolute;
+      right: 0;
+      top: 5px;
+      visibility: hidden;
     }
     &-hastag {
       margin-top: 1em;
@@ -126,20 +139,10 @@ export default {
       font-size: 10px;
     }
   }
-  // &:hover {
-  //   animation: popUp 0.2s;
-  //   transform: scale(1.05);
-  //   // box-shadow: 0px 0px 20px 0px rgba(255, 255, 255, 0.781);
-  // }
-  // @keyframes popUp {
-  //   from {
-  //     // box-shadow: none;
-  //     transform: scale(1);
-  //   }
-  //   to {
-  //     // box-shadow: 0px 0px 20px 0px rgba(255, 255, 255, 0.781);
-  //     transform: scale(1.05);
-  //   }
-  // }
+}
+
+.VideoCard:hover .VideoCard-infor-moreBtn {
+  transition: none;
+  visibility: visible;
 }
 </style>
