@@ -52,7 +52,6 @@
 
 <script>
 import SearchBar from './SearchBar.vue';
-// import SearchBarList from './SearchBarList.vue';
 export default {
     data() {
         return {
@@ -82,7 +81,7 @@ export default {
     created(){
         if(localStorage.length > 0){
             for(let i =0; i<localStorage.length; i++){
-                this.searchItemList.push(localStorage.getItem(localStorage.key(i)));
+                if(localStorage.getItem(localStorage.key(i)) != 'WARN') this.searchItemList.push(localStorage.getItem(localStorage.key(i)));
             }
         }
     }
