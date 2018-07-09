@@ -45,7 +45,7 @@ export default {
   }
 }
 
-.Libaray-Vcard {
-  min-height: 186px;
+.swiper-pagination-bullet-active{
+  background-color: #ffffff;
 }
 </style>
