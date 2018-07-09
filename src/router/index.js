@@ -4,19 +4,19 @@ import HelloWorld from '@/components/HelloWorld'
 // import Login from '@/pages/Login.vue'
 import Home from '@/pages/Home.vue'
 
-
 import {video} from './video'
 import {login} from './login'
 import {home} from './home'
 import {request} from './request'
 import {subscribe} from './subscribe'
+import {myPage} from './myPage'
 
 
 Vue.use(Router)
 
 export default new Router({
   routes: [
-    login, home, video, request,subscribe
+    login, home, video, request,subscribe,myPage
   ],
   mode : 'history'
 })
