@@ -9,7 +9,7 @@
                     </router-link>
                 </div>
                 <div class="Toobar-search">
-                    <search-bar class="Toolbar-search-bar" :styleObj="searchStyle"></search-bar>
+                    <search-bar @addItem="addOneItem" class="Toolbar-search-bar" :styleObj="searchStyle" :propsSearchItems="searchItemList"></search-bar>
                 </div>
                 <button class="nav-search-btn"><v-icon color="white">search</v-icon></button>
             </div>
@@ -51,8 +51,8 @@
 </template>
 
 <script>
-import searchBar from './SearchBar.vue';
-
+import SearchBar from './SearchBar.vue';
+// import SearchBarList from './SearchBarList.vue';
 export default {
     data() {
         return {
@@ -65,11 +65,26 @@ export default {
             items: {},
             searchStyle: {
                 width: '100%'
-            }
+            },
+            searchItemList : []
         }
     },
     components: {
-        searchBar
+        SearchBar
+    },
+    methods : {
+        addOneItem(searchItem){
+            localStorage.setItem(searchItem, searchItem);
+            this.searchItemList.push(searchItem);
+            // this.searchItemList.
+        }
+    },
+    created(){
+        if(localStorage.length > 0){
+            for(let i =0; i<localStorage.length; i++){
+                this.searchItemList.push(localStorage.getItem(localStorage.key(i)));
+            }
+        }
     }
 };
 </script>
