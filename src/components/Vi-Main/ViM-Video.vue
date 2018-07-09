@@ -11,8 +11,8 @@ export default {
 </script>
 <style lang='scss' scoped>
 .ViM-Video {
-  width: 1000px;
-  height: 500px;
+  // width: 1000px;
+  height: 450px;
   background-color: yellow;
 }
 </style>
