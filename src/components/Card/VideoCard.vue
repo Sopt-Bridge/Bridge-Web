@@ -1,18 +1,28 @@
 <template>
-<div class="VideoCard" :style="{flexWrap:wraping}">
-  <div class="VideoCard-content">
-    <img class="VideoCard-content-thumb" src="@/assets/img/cms_temp_article_21120403550250@2x.png" alt="">
-    <div class="VideoCard-content-play">
-      <img src="@/assets/img/baseline-play_arrow-24px.svg" alt="">
+<div class="VideoCard" :style="{flexWrap:wraping}" to="/video">
+  <router-link :to="{name:'video'}">
+    <div class="VideoCard-content">
+      <img class="VideoCard-content-thumb" src="https://i.ytimg.com/vi/uM5UpRk-tuk/maxresdefault.jpg" alt="">
+      <div class="VideoCard-content-play">
+        <img src="@/assets/img/baseline-play_arrow-24px.svg" alt="">
+      </div>
+      <div class="VideoCard-content-time">04:29</div>
     </div>
-    <div class="VideoCard-content-time">04:29</div>
-  </div>
+  </router-link>
   <div class="VideoCard-infor">
     <div class="VideoCard-infor-heading">
-      BTS - FAKE LOVE @BTS PERFECT COMEBACK SHOW PLEASE FOLLOW FOLLOW ME EVERYDAY SUBSCRIBE ME ME
+      <router-link :to="{name:'video'}">
+        BTS - FAKE LOVE @BTS PERFECT COMEBACK SHOW PLEASE FOLLOW FOLLOW ME EVERYDAY SUBSCRIBE ME ME
+      </router-link>
     </div>
-    <div class="VideoCard-infor-hastag">
-      #BTS #BANGTANTV
+    <div class="VideoCard-infor-moreBtn">
+      <v-menu offset-x right :close-on-content-click="false">
+        <v-icon slot="activator">more_vert</v-icon>
+        <slot name="more">
+        </slot>
+      </v-menu>
+    </div>
+    <div class="VideoCard-infor-hastag">#BTS #BANGTANTV
     </div>
   </div>
 </div>
@@ -27,14 +37,23 @@ export default {
   props: ['wrap'],
   computed: {
     wraping() {
-      let out;
-      if (this.wrap){
-        out = 'wrap'
-        }
-      else{
-        out = 'nowrap'
+      if (this.wrap) {
+        return 'wrap'
+      } else {
+        return 'nowrap'
       }
-      return out;
+    }
+  },
+  mounted() {
+    function isMobile() {
+      return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    }
+    let more = document.getElementsByClassName('VideoCard-infor-moreBtn')
+    if (isMobile()) {
+      for (let i = 0; i < more.length; i++) {
+        // console.log('실행됨')
+        more[i].style.visibility = 'visible'
+      }
     }
   }
 }
@@ -42,27 +61,24 @@ export default {
 <style lang='scss' scoped>
 .VideoCard {
   display: flex;
-  flex-wrap:wrap;
+  flex-wrap: wrap;
   align-items: center;
-  &:hover &-content-play {
-    animation: playHover 0.3s;
-    background-color: rgba(227, 28, 157, 0.9);
-  }
-  @keyframes playHover {
-    from {
-      background-color: rgba(255, 255, 255, 0.8);
-    }
-    to {
-      background-color: rgba(227, 28, 157, 0.9);
-    }
-  }
   &-content {
     flex-grow: 1;
-    // width: 50%;
-    // display: flex;
     align-items: center;
-    // background-color: brown;
     position: relative;
+    &:hover &-play {
+      animation: playHover 0.3s;
+      background-color: rgba(227, 28, 157, 0.9);
+    }
+    @keyframes playHover {
+      from {
+        background-color: rgba(255, 255, 255, 0.8);
+      }
+      to {
+        background-color: rgba(227, 28, 157, 0.9);
+      }
+    }
     &-thumb {
       width: 100%;
     }
@@ -86,12 +102,19 @@ export default {
     }
   }
   &-infor {
+    // background-color: red;
+    transition: none;
+    align-self: stretch;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-right: 25px;
     flex-grow: 1;
     // width: 50%;
-    box-sizing: border-box;
+    // box-sizing: border-box;
     font-size: 16px;
     padding-left: 2%;
     // white-space: nowrap;
+    position: relative;
     &-heading {
       /* 한 줄 자르기 */
       display: inline-block;
@@ -101,13 +124,27 @@ export default {
       text-overflow: ellipsis;
       /* 여러 줄 자르기 추가 스타일 */
       white-space: normal;
-      line-height: 1.3;
+      line-height: 1.2;
       height: 3.6em;
       text-align: left;
       word-wrap: break-word;
       display: -webkit-box;
       -webkit-line-clamp: 3;
       -webkit-box-orient: vertical;
+      a{
+        text-decoration: none;
+        color:#000000;
+      }
+      a:hover{
+        text-decoration:underline;
+
+      }
+    }
+    &-moreBtn {
+      position: absolute;
+      right: 0;
+      top: 5px;
+      visibility: hidden;
     }
     &-hastag {
       margin-top: 1em;
@@ -126,20 +163,10 @@ export default {
       font-size: 10px;
     }
   }
-  // &:hover {
-  //   animation: popUp 0.2s;
-  //   transform: scale(1.05);
-  //   // box-shadow: 0px 0px 20px 0px rgba(255, 255, 255, 0.781);
-  // }
-  // @keyframes popUp {
-  //   from {
-  //     // box-shadow: none;
-  //     transform: scale(1);
-  //   }
-  //   to {
-  //     // box-shadow: 0px 0px 20px 0px rgba(255, 255, 255, 0.781);
-  //     transform: scale(1.05);
-  //   }
-  // }
+}
+
+.VideoCard:hover .VideoCard-infor-moreBtn {
+  transition: none;
+  visibility: visible;
 }
 </style>

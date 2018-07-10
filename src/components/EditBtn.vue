@@ -79,7 +79,7 @@ export default {
 
 .menu-list-item:hover {
   transition: 0.3s;
-  background-color: rgba(99, 99, 99, 0.521);
+  background-color: rgba(141, 141, 141, 0.5);
 }
 
 #menu-in-rename {

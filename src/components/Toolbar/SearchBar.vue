@@ -3,37 +3,47 @@
   <div class="Search-section">
     <input class="Search-textBar" v-model="searchItem" @keyup.enter="addSearchItem" type="text" placeholder="#Kpop, #beauty, #BTS 등을 검색해보세요">
     <!-- <div class="Search-menu" :style="styleObj"> -->
-      <div class="Search-menu" v-if="propsSearchItems.length > 1">
-        <div class="Search-menu-items">
-          <div class="Search-menu-item" v-for="(propsSearchItem, index) in propsSearchItems.slice().reverse()" :key="index">
-            <!-- <div class="Search-menu-item" v-for="(propsSearchItem, index) in propsSearchItems" :key="index"> -->
-            <div class="Search-menu-item-text">
-              {{ propsSearchItem.searchItem }}
-            </div>
-            <div class="Search-menu-item-date">{{ propsSearchItem.date }}</div>
-            <div class="Search-menu-item-closeBtn">
-              <v-icon small class="Search-menu-item-closeBtn-icon">clear</v-icon>
-            </div>
+    <div class="Search-menu" :height="logHeight+'px'" v-if="propsSearchItems.length > 1">
+      <div class="Search-menu-items">
+        <div class="Search-menu-item" v-for="(propsSearchItem, index) in propsSearchItems.slice().reverse()" :key="index">
+          <!-- <div class="Search-menu-item" v-for="(propsSearchItem, index) in propsSearchItems" :key="index"> -->
+          <div class="Search-menu-item-text">
+            {{ propsSearchItem.searchItem }}
+          </div>
+          <div class="Search-menu-item-date">{{ propsSearchItem.date }}</div>
+          <div class="Search-menu-item-closeBtn">
+            <v-icon small class="Search-menu-item-closeBtn-icon">clear</v-icon>
           </div>
         </div>
       </div>
-      <div class="Search-menu-noresult" v-if="propsSearchItems.length <= 1">
-        <div class="Search-menu-noresult-text">
-          {{ noSearchResult }}
-        </div>      
+    </div>
+    <div class="Search-menu-noresult" v-if="propsSearchItems.length <= 1">
+      <div class="Search-menu-noresult-text">
+        {{ noSearchResult }}
       </div>
-      
+    </div>
+
   </div>
 </div>
 </template>
 <script>
 import * as moment from "moment";
 export default {
+  props: ["styleObj", "propsSearchItems"],
   data() {
     return {
       searchItem: "",
-      noSearchResult : "최근 검색내역이 없습니다."
+      noSearchResult: "최근 검색내역이 없습니다."
     };
+  },
+  computed:{
+    logHeight(){
+      let len = this.propsSearchItems.lenght;
+      if(len<6){
+        return len*45
+      }
+      return 270;
+    }
   },
   methods: {
     addSearchItem() {
@@ -47,8 +57,7 @@ export default {
         this.searchItem = "";
       }
     }
-  },
-  props: ["styleObj", "propsSearchItems"]
+  }
 };
 </script>
 <style lang='scss' scoped>
@@ -62,11 +71,11 @@ export default {
     width: 100%;
     height: 45px;
     padding: 5px 13px 5px 13px;
-    &:focus + .Search-menu {
+    &:focus+.Search-menu {
       // background-color: white;
       display: initial;
     }
-    &:focus + .Search-menu-noresult {
+    &:focus+.Search-menu-noresult {
       display: initial;
     }
     @media screen and (max-width: 860px) {
@@ -87,7 +96,7 @@ export default {
     display: none;
     box-sizing: border-box;
     box-shadow: 0 0 10px 0 gray;
-    height: 45 * 6px;
+    // height: 45 * 6px;
     overflow-y: scroll;
     &-item {
       padding: 10px;
@@ -148,15 +157,15 @@ export default {
       box-shadow: 0 0 10px 0 gray;
       height: 45px;
       overflow-y: scroll;
-      &-text{
-        margin-top : 10.5px;
-        padding-left : 15px;
-        color : $grey-text;
-        font-size : 15px;
+      &-text {
+        margin-top: 10.5px;
+        padding-left: 15px;
+        color: $grey-text;
+        font-size: 15px;
         @extend .Search-menu-item-text;
         @include media("(max-width : 860px)") {
-          margin-top : 15px;
-          font-size : 10px;
+          margin-top: 15px;
+          font-size: 10px;
         }
       }
     }
