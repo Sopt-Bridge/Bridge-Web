@@ -4,10 +4,9 @@
     <v-dialog v-model="dialog" width="500">
       <v-btn class="btnText" slot="activator" flat>
         <span><v-icon>add</v-icon></span>more        
-        <!-- + MORE -->
       </v-btn>
-      <v-card>
-        <v-card-title class="headline grey lighten-2" primary-title>
+      <v-card class="Sub-Modal-pop">
+        <v-card-title class="Libaray-head grey lighten-2" primary-title>
           <div class="sm-heading">
             <div class="leftBox">
               Total <span>58</span>
@@ -17,7 +16,7 @@
             </div>
           </div>
         </v-card-title>
-        <v-card-text>
+        <v-card-text class="Libaray-body">
           <v-container grid-list-md fluid>
             <v-layout row wrap>
               <v-flex class="Libaray-body-card" xs6 v-for="i in 16" :key="i">
@@ -57,5 +56,13 @@ export default {
 
 .btnText{
   color:#9A9A9A;
+}
+.Sub-Modal-pop{
+  height: 100%;
+}
+.Libaray{
+  &-body{
+    height:90%;
+  }
 }
 </style>
