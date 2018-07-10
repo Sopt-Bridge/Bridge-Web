@@ -1,6 +1,6 @@
 <template>
 <v-app>
-  <toolbar></toolbar>
+  <toolbar id="App-toolbar"></toolbar>
   <v-content>
     <router-view class="App-content"></router-view>
   </v-content>
@@ -24,8 +24,7 @@ export default {
       title: 'Vuetify.js'
     }
   },
-  name: 'App',
-
+  name: 'App'
 }
 </script>
 
@@ -35,7 +34,9 @@ export default {
 .v-app {
   min-width: 320px;
 }
-
+#App-toolbar{
+  z-index:10;
+}
 .App {
   &-content {
     margin-top: 65px;
@@ -45,7 +46,8 @@ export default {
   }
 }
 
-.swiper-pagination-bullet-active{
+.swiper-pagination-bullet-active {
   background-color: #ffffff;
 }
+
 </style>

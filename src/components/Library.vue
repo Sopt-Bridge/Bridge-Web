@@ -6,6 +6,7 @@
     </div>
     <div class="Library-headingCreate">
       <v-menu offset-overflow left :close-on-content-click="false">
+        <!-- <div>Create</div> -->
         <v-btn flat slot="activator">Create</v-btn>
         <v-card>
           <form class="menu-form">

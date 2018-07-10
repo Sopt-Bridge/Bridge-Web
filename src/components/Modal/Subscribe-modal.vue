@@ -2,8 +2,9 @@
 <div class="Sub-Modal">
   <div class="text-xs-center">
     <v-dialog v-model="dialog" width="500">
-      <v-btn slot="activator" flat>
-        + MORE
+      <v-btn class="btnText" slot="activator" flat>
+        <span><v-icon>add</v-icon></span>more        
+        <!-- + MORE -->
       </v-btn>
       <v-card>
         <v-card-title class="headline grey lighten-2" primary-title>
@@ -52,5 +53,9 @@ export default {
 }
 .rightBox{
   cursor: pointer;
+}
+
+.btnText{
+  color:#9A9A9A;
 }
 </style>

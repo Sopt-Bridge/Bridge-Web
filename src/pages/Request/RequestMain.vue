@@ -194,18 +194,18 @@
                     <p class="board-elems-content">2018.01.01</p>
                 </v-flex>
                 
+
         </v-layout>
-        
+
     </v-container>
     <request-pagination></request-pagination>
-    </div>
-    
-    
+</div>
 </template>
 
 <script>
 import RequestPagination from "../../components/Pagination/RequestPagination";
 export default {
+
   components: {
     RequestPagination
   },
@@ -215,11 +215,11 @@ export default {
     };
   }
 };
+
 </script>
 
 <style lang="scss" scoped>
 @import "styles/common.scss";
-
 .board-no {
   text-align: center;
 }
@@ -313,5 +313,6 @@ p {
   .board-elems-content {
     font-size: 8px;
   }
+
 }
 </style>

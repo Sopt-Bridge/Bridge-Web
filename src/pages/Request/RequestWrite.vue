@@ -27,7 +27,7 @@
                 </v-layout>
             </div>
             <div class="text-xs-center req-final-btn">
-                <button class="req-write-cancel req-write-btn">Cancel</button>
+                <button class="req-write-cancel req-write-btn" onclick="history.go(-1);return false">Cancel</button>
                 <button class="req-write-submit req-write-btn">Submit</button>
             </div>
         </v-container>
