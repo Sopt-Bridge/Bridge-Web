@@ -25,21 +25,40 @@
                         <v-btn icon slot="activator">
                             <v-icon>perm_identity</v-icon>
                         </v-btn>
-                        <v-list>
+                        <v-list class="Toolbar-items-myinfo-contents">
                             <v-list-tile>
-                                <v-list-tile-title>{{ name }}</v-list-tile-title>
+                                <v-list-tile-title>
+                                    <div class="Toolbar-items-myinfo-content">
+                                        {{ name }}
+                                    </div>
+                                </v-list-tile-title>
                             </v-list-tile>
                             <v-list-tile>
-                                <v-list-tile-title>{{ email }}</v-list-tile-title>
+                                
+                                            <div class="Toolbar-items-myinfo-content">
+                                                {{ email }}
+                                            </div>
+                                        
+                            </v-list-tile>
+                            <v-divider/>
+                            <v-list-tile>
+                                 <div class="Toolbar-items-myinfo-content">
+                                    <v-icon class="Toolbar-items-myinfo-content-icon">list</v-icon>
+                                    <span class="Toolbar-items-myinfo-content-text">내가 쓴 글</span>
+                                </div>
                             </v-list-tile>
                             <v-list-tile>
-                                <v-list-tile-title>내가 쓴글</v-list-tile-title>
+                                
+                                <div class="Toolbar-items-myinfo-content">
+                                    <v-icon class="Toolbar-items-myinfo-content-icon">folder</v-icon>
+                                    <span class="Toolbar-items-myinfo-content-text">Library</span>
+                                </div>
+                                        
                             </v-list-tile>
-                            <v-list-tile>
-                                <v-list-tile-title>Library</v-list-tile-title>
-                            </v-list-tile>
-                            <v-list-tile>
-                                <v-list-tile-title>Sign Out</v-list-tile-title>
+                            <v-list-tile avatar class="Toolbar-items-myinfo-content-signout-section">
+                                <div class="Toolbar-items-myinfo-content Toolbar-items-myinfo-content-signout">
+                                    Sign out
+                                </div>
                             </v-list-tile>
                         </v-list>
                     </v-menu>
@@ -51,7 +70,7 @@
 </template>
 
 <script>
-import SearchBar from './SearchBar.vue';
+import SearchBar from "./SearchBar.vue";
 export default {
     data() {
         return {
@@ -85,6 +104,7 @@ export default {
             }
         }
     }
+  }
 };
 </script>
 
@@ -111,15 +131,35 @@ export default {
         flex-shrink: 1;
         flex-grow: 3;
         margin-right: auto;
+
     }
-    &-logo {
-        margin-left: 3.5%;
-        margin-right: 3.5%;
+  }
+  &-upBox {
+    display: flex;
+    align-items: center;
+    flex-shrink: 1;
+    flex-grow: 3;
+    margin-right: auto;
+  }
+  &-logo {
+    margin-left: 3.5%;
+    margin-right: 3.5%;
+  }
+  &-search {
+    flex-grow: 1;
+    margin-left: 7%;
+  }
+  &-items {
+    display: inline-flex;
+    flex-grow: 1;
+    justify-content: flex-end;
+    user-select: none;
+    padding-right: 3%;
+
+    @include media("(max-width: 510px)") {
+      justify-content: space-around;
     }
-    &-search {
-        flex-grow: 1;
-        margin-left: 7%;
-    }
+
     &-items {
         display: inline-flex;
         flex-grow: 1;
@@ -165,16 +205,25 @@ export default {
                 color: black;
                 text-decoration: none;
             }
+
         }
+      }
+      &:hover {
+        transition: 0.5s;
+        background-color: rgba(151, 150, 150, 0.596);
+      }
     }
+  }
 }
 
+
 .main_logo {
-    width: 60px;
-    margin-top: 8px;
+  width: 60px;
+  margin-top: 8px;
 }
 
 .nav-search-btn {
+
     height: 45px;
     width: 45px;
     background-color: $main-color;
@@ -182,5 +231,6 @@ export default {
     @include media('(max-width : 510px)') {
         margin-right: 8px;
     }
+
 }
 </style>
