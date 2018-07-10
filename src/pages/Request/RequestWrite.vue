@@ -8,7 +8,7 @@
                 </h1>
             </v-layout>
             <div class="req-write-contents">
-                <v-layout row wrap class="req-write-user-section">
+                <v-layout row wrap class="req-write-user-section req-write-user-title">
                     <v-flex xs12 sm12 md12 lg12>
                         <input type="text" class="req-write-user-content" :placeholder="title">
                     </v-flex>
@@ -36,72 +36,82 @@
 
 <script>
 export default {
-    data(){
-        return {
-            title : 'Please input title...',
-            link : 'Please input link you want to translate...',
-            content : 'Please input content of request...'
-        }
-    }
-}
+  data() {
+    return {
+      title: "Please input title...",
+      link: "Please input link you want to translate...",
+      content: "Please input content of request..."
+    };
+  }
+};
 </script>
 
 <style lang="scss" scoped>
-    @import "styles/common.scss";
-    .req-write-title{
-        margin-top : 44px;
-        max-width : 1360px;
-        width : 100%;
-        margin-left : auto;
-        margin-right : auto;
-    }
+@import "styles/common.scss";
+.req-write-title {
+  margin-top: 44px;
+  max-width: 1360px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  @include media("(max-width : 510px)") {
+    margin-top: 20px;
+  }
+}
 
-    .req-write-contents{
-        margin-top : 54px;
-    }
+.req-write-contents {
+  margin-top: 54px;
+  @include media("(max-width : 510px)") {
+    margin-top: 20px;
+  }
+}
 
-    .req-write-user-section{
-        margin-top : 24px;
-        max-width : 1177px;
-        height : 55px;
-        border : 1px solid $grey-text;
-        border-radius: 5px;
+.req-write-user {
+  &-section {
+    margin-top: 24px;
+    max-width: 1177px;
+    height: 55px;
+    border: 1px solid $grey-text;
+    border-radius: 5px;
 
-        margin-left : auto;
-        margin-right : auto;
-        padding : 10px 10px 10px 10px;
-    }
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px 10px 10px 10px;
+  }
+  &-content {
+    width: 100%;
+    height: 100%;
+    &-section {
+      margin-top: 24px;
+      height: 430px;
+      border: 1px solid $grey-text;
+      border-radius: 5px;
 
-    .req-write-user-content-section{
-        margin-top : 24px;
-        height : 430px;
-        border : 1px solid $grey-text;
-        border-radius: 5px;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 10px 10px 10px 10px;
+      @include media("(max-width : 510px)") {
+        height : 300px;
+      }
+    }
+  }
+}
 
-        margin-left : auto;
-        margin-right : auto;
-        padding : 10px 10px 10px 10px;
-    }
-    .req-write-user-content{
-        width : 100%;
-        height :100%;
-        
-    }
-    .req-write-btn{
-        border : 1px solid $grey-text;
-        border-radius: 5px;
-        width : 93px;
-        height : 44px;
-    }
-    .req-write-cancel{
-        margin-right : 15px;
-    }
-    .req-write-submit{
-        margin-left : 15px;
-        background-color: $main-color;
-        color : white;
-    }
-    .req-final-btn{
-        margin-top: 40px;
-    }
+.req-write-btn {
+  border: 1px solid $grey-text;
+  border-radius: 5px;
+  width: 93px;
+  height: 44px;
+}
+.req-write-cancel {
+  margin-right: 15px;
+}
+.req-write-submit {
+  margin-left: 15px;
+  background-color: $main-color;
+  color: white;
+}
+.req-final-btn {
+  margin-top: 40px;
+}
 </style>
