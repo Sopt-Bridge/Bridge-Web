@@ -17,7 +17,7 @@
                 </div>
             </div>
         </v-layout>
-        <v-layout row wrap class="board-header">
+        <v-layout row class="board-header">
                 <v-flex xs1 sm1 md1 lg1 class="board-no">
                     <p class="board-header-content">No</p>
                 </v-flex>
@@ -31,13 +31,13 @@
                 </v-flex>
                 
         </v-layout> 
-        <v-layout row wrap class="board-elems">
+        <v-layout row class="board-elems">
             <!--****************AXIOS****************-->
            <v-flex xs1 sm1 md1 lg1 class="board-no">
                     <p class="board-elems-content">448</p>
                 </v-flex>
                 
-                <v-flex xs6 sm7 md7 lg7>
+                <v-flex xs6 sm7 md7 lg7 class="board-elem-text">
                     <p class="board-elems-content">뉴이스트 영샹 요청이요</p>
                 </v-flex>
                 <v-flex xs3 sm2 md2 lg2>
@@ -48,12 +48,12 @@
                 </v-flex>
                
         </v-layout>
-        <v-layout row wrap class="board-elems">
+        <v-layout row class="board-elems">
            <v-flex xs1 sm1 md1 lg1 class="board-no">
                     <p class="board-elems-content">448</p>
                 </v-flex>
                 
-                <v-flex xs6 sm7 md7 lg7>
+                <v-flex xs6 sm7 md7 lg7 class="board-elem-text">
                     <p class="board-elems-content">뉴이스트 영샹 요청이요</p>
                     
                 </v-flex>
@@ -65,12 +65,12 @@
                 </v-flex>
                 
         </v-layout>
-        <v-layout row wrap class="board-elems">
+        <v-layout row class="board-elems">
            <v-flex xs1 sm1 md1 lg1 class="board-no">
                     <p class="board-elems-content">448</p>
                 </v-flex>
                 
-                <v-flex xs6 sm7 md7 lg7>
+                <v-flex xs6 sm7 md7 lg7 class="board-elem-text">
                     <p class="board-elems-content">뉴이스트 영샹 요청이요</p>
                     
                 </v-flex>
@@ -82,12 +82,12 @@
                 </v-flex>
                 
         </v-layout>
-        <v-layout row wrap class="board-elems">
+        <v-layout row class="board-elems">
            <v-flex xs1 sm1 md1 lg1 class="board-no">
                     <p class="board-elems-content">448</p>
                 </v-flex>
                 
-                <v-flex xs6 sm7 md7 lg7>
+                <v-flex xs6 sm7 md7 lg7 class="board-elem-text">
                     <p class="board-elems-content">뉴이스트 영샹 요청이요</p>
                     
                 </v-flex>
@@ -98,12 +98,12 @@
                     <p class="board-elems-content">2018.01.01</p>
                 </v-flex>
                 
-        </v-layout><v-layout row wrap class="board-elems">
+        </v-layout><v-layout row class="board-elems">
            <v-flex xs1 sm1 md1 lg1 class="board-no">
                     <p class="board-elems-content">448</p>
                 </v-flex>
                 
-                <v-flex xs6 sm7 md7 lg7>
+                <v-flex xs6 sm7 md7 lg7 class="board-elem-text">
                     <p class="board-elems-content">뉴이스트 영샹 요청이요</p>
                     
                 </v-flex>
@@ -114,12 +114,12 @@
                     <p class="board-elems-content">2018.01.01</p>
                 </v-flex>
                 
-        </v-layout><v-layout row wrap class="board-elems">
+        </v-layout><v-layout row class="board-elems">
            <v-flex xs1 sm1 md1 lg1 class="board-no">
                     <p class="board-elems-content">448</p>
                 </v-flex>
                 
-                <v-flex xs6 sm7 md7 lg7>
+                <v-flex xs6 sm7 md7 lg7 class="board-elem-text">
                     <p class="board-elems-content">뉴이스트 영샹 요청이요</p>
                     
                 </v-flex>
@@ -130,12 +130,12 @@
                     <p class="board-elems-content">2018.01.01</p>
                 </v-flex>
                
-        </v-layout><v-layout row wrap class="board-elems">
+        </v-layout><v-layout row class="board-elems">
            <v-flex xs1 sm1 md1 lg1 class="board-no">
                     <p class="board-elems-content">448</p>
                 </v-flex>
                 
-                <v-flex xs6 sm7 md7 lg7>
+                <v-flex xs6 sm7 md7 lg7 class="board-elem-text">
                     <p class="board-elems-content">뉴이스트 영샹 요청이요</p>
                     
                 </v-flex>
@@ -146,12 +146,12 @@
                     <p class="board-elems-content">2018.01.01</p>
                 </v-flex>
                 
-        </v-layout><v-layout row wrap class="board-elems">
+        </v-layout><v-layout row class="board-elems">
             <v-flex xs1 sm1 md1 lg1 class="board-no">
                     <p class="board-elems-content">448</p>
                 </v-flex>
                 
-                <v-flex xs6 sm7 md7 lg7>
+                <v-flex xs6 sm7 md7 lg7 class="board-elem-text">
                     <p class="board-elems-content">뉴이스트 영샹 요청이요</p>
                     
                 </v-flex>
@@ -162,12 +162,12 @@
                     <p class="board-elems-content">2018.01.01</p>
                 </v-flex>
                 
-        </v-layout><v-layout row wrap class="board-elems">
+        </v-layout><v-layout row class="board-elems">
            <v-flex xs1 sm1 md1 lg1 class="board-no">
                     <p class="board-elems-content">448</p>
                 </v-flex>
                 
-                <v-flex xs6 sm7 md7 lg7>
+                <v-flex xs6 sm7 md7 lg7 class="board-elem-text">
                     <p class="board-elems-content">뉴이스트 영샹 요청이요</p>
                     
                 </v-flex>
@@ -178,12 +178,12 @@
                     <p class="board-elems-content">2018.01.01</p>
                 </v-flex>
                 
-        </v-layout><v-layout row wrap class="board-elems">
+        </v-layout><v-layout row class="board-elems">
            <v-flex xs1 sm1 md1 lg1 class="board-no">
                     <p class="board-elems-content">448</p>
                 </v-flex>
                 
-                <v-flex xs6 sm7 md7 lg7>
+                <v-flex xs6 sm7 md7 lg7 class="board-elem-text">
                     <p class="board-elems-content">뉴이스트 영샹 요청이요</p>
                     
                 </v-flex>
@@ -228,34 +228,32 @@ p {
   display: inline;
 }
 
-
-
 .req-search {
   margin-top: 50px;
-  @include media('(max-width : 510px)'){
-      margin-top : 30px;
-    }
-  &-text{
-      border: 1px solid #e4e4e4;
-      width : 80%;
-      height : 100%;
+  @include media("(max-width : 510px)") {
+    margin-top: 30px;
   }
-  &-section{
-      width : 40%;
-      height : 45px;
+  &-text {
+    border: 1px solid #e4e4e4;
+    width: 80%;
+    height: 100%;
+  }
+  &-section {
+    width: 40%;
+    height: 45px;
+    display: flex;
+    @include media("(max-width : 820px)") {
+      width: 60%;
+      height: 30px;
+    }
+    @include media("(max-width : 510px)") {
+      width: 80%;
+    }
+    &-content {
       display: flex;
-      @include media('(max-width : 820px)'){
-          width : 60%;
-          height : 30px;
-      }
-      @include media('(max-width : 510px)'){
-          width : 80%;
-      }
-      &-content{
-          display: flex;
-          width : 90%;
-          margin-right : 20px;
-      }
+      width: 90%;
+      margin-right: 20px;
+    }
   }
 }
 
@@ -271,22 +269,22 @@ p {
   background-color: #e31c9e;
   font-size: 17px;
   color: white;
-  @include media('(max-width : 820px)'){
-          width : 60px;
-      }
-   @include media('(max-width : 510px)'){
-          width : 40px;
-          font-size : 13px;
-    }
+  @include media("(max-width : 820px)") {
+    width: 60px;
+  }
+  @include media("(max-width : 510px)") {
+    width: 40px;
+    font-size: 13px;
+  }
 }
 
 .board-header {
   margin-top: 70px;
   height: 50px;
   border-bottom: 3px solid black;
-  @include media('(max-width : 510px)'){
-      margin-top : 30px;
-    }
+  @include media("(max-width : 510px)") {
+    margin-top: 30px;
+  }
 }
 
 .board-header-content {
@@ -294,12 +292,18 @@ p {
 }
 
 .board-elems {
-  height: 80px;
+  height: 60px;
   border-bottom: 1px solid $grey-text;
 }
 
 .board-elems-content {
-  line-height: 80px;
+  line-height: 60px;
+}
+
+.board-elem-text {
+  
+    padding-left: 15px;
+  
 }
 
 @media screen and (max-width: 550px) {
