@@ -12,8 +12,9 @@ import Trending from './Contents/Trending.vue'
 import ViMain from './Vi-Main/Vi-Main.vue'
 import ViSidebar from './Vi-Sidebar/Vi-Sidebar.vue'
 import Recently from './Contents/Recently.vue'
-import VideoCard from './Contents/VideoCard.vue'
-
+import VideoCard from './Card/VideoCard.vue'
+import Contents from './Contents/Contents.vue'
+import Menu from './Menu/Menu.vue'
 
 
 Vue.component('Rand',Rand);
@@ -26,7 +27,9 @@ Vue.component('Trending', Trending);
 Vue.component('Vi-Main',ViMain);
 Vue.component('Vi-Sidebar',ViSidebar);
 Vue.component('Recently', Recently);
-Vue.component('Video-card',VideoCard);
+Vue.component('video-card',VideoCard);
+Vue.component('Contents',Contents);
+Vue.component('Menu',Menu);
 
 export default Vue;
 

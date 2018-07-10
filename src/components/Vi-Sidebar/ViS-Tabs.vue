@@ -5,20 +5,13 @@
       <v-tab class="ViS-Tabs-tab" grow v-for="n in 2" :key="n" @click="activiting(n-1)">
         {{n}}번째 item
       </v-tab>
-      <!-- <v-tab-item v-for="n in 2" :key="n">
-        <v-card flat>
-          <v-card-text>text+{{ n }}</v-card-text>
-        </v-card>
-      </v-tab-item> -->
     </div>
-    <v-tab-item>
+    <v-tab-item class="ViS-Tabs-item">
       <ViS-Comments></ViS-Comments>
     </v-tab-item>
-    <v-tab-item>
-      asd
+    <v-tab-item class="ViS-Tabs-item">
       <ViS-Recommended></ViS-Recommended>
     </v-tab-item>
-    
   </v-tabs>
 </div>
 </template>
@@ -39,7 +32,7 @@ export default {
   },
   components: {
     'ViS-Comments': Comments,
-    'ViS-Recommended':Recommended
+    'ViS-Recommended': Recommended
   },
   methods: {
     activiting(n) {
@@ -48,23 +41,33 @@ export default {
       }
       this.vTabsItem[n].style.backgroundColor = "#E31C9E";
     }
-  }
+  },
+  mounted() {
+    this.vTabsItem[1].style.backgroundColor = "#E31C9E";
+  },
 }
 </script>
 <style lang='scss' scoped>
 @import 'styles/common.scss';
 .ViS-Tabs {
-  // width:1000px;
-  width:540px;
+  border-top: 1px solid black;
   &-border {
-    border-top: 1px solid black;
-    border-bottom: 1px solid black;
-    width: 100%;
     height: 100%;
+    width:100%;
+    background-color: #f5f5f5;
   }
   &-tab {
-    width: 100%;
+    width: 50%;
     background-color: #f5f5f5;
+    box-sizing: border-box;
+    border-left:1px solid black;
+    &:nth-child(2){
+    border-right:1px solid black;
+
+    }
+  }
+  &-item {
+    border-top: 1px solid black;
   }
 }
 </style>

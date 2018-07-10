@@ -23,10 +23,6 @@ export default {
 </script>
 <style lang='scss' scoped>
 .Vi-Sidebar{
-  background-color: blue;
-  min-width:530px;
-  // width:100%;
-  // overflow-x:hidden;
   overflow-y: scroll;
 }
 </style>

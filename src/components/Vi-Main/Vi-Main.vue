@@ -23,9 +23,6 @@ export default {
 </script>
 <style lang='scss' scoped>
 .Vi-Main{
-  // max-width:1000px;
-  // max-height:860px;
-  // width:100%;
-  // // height:100%;
+  
 }
 </style>
