@@ -3,9 +3,7 @@
   <div class="Subscribe-heading">
     <div class="Subscribe-headingWrap">
       <h1 class="Subscribe-headingH1">PiCK</h1>
-      <v-btn class="Subscribe-headingBtn" flat>
-        <v-icon>add</v-icon>more
-      </v-btn>
+      <subscribe-modal></subscribe-modal>
     </div>
     <div class="swiper">
       <div class="swiper-btn">
@@ -14,15 +12,15 @@
       <swiper class="swiper1" :options="swiperOption1">
         <swiper-slide class="swiper-slide" v-for="i in 12" :key="'swiper1'+i">
           <div>
-            <img class="swiper-slideImg" src="https://pbs.twimg.com/media/C-AFS8ZU0AAkoce.jpg" alt="">
-            <div class="swiper-slideText">{{i}}</div>
+            <img class="swiper-slideImg" src="http://cmsimg.mnet.com/clipimage/album/240/002/213/2213017.jpg" alt="">
+            <div class="swiper-slideText">#NU'EST{{i}}</div>
           </div>
         </swiper-slide>
       </swiper>
       <swiper class="swiper2" :options="swiperOption2">
-        <swiper-slide class="swiper-slide" v-for="i in 12" :key="'swiper2'+i">
-          <img class="swiper-slideImg" src="https://pbs.twimg.com/media/C-AFS8ZU0AAkoce.jpg" alt="">
-          <div class="swiper-slideText">#NU'EST</div>
+        <swiper-slide class="swiper-slide" v-for="j in 12" :key="'swiper2'+j">
+          <img class="swiper-slideImg" src="http://cmsimg.mnet.com/clipimage/album/240/002/213/2213017.jpg" alt="">
+          <div class="swiper-slideText">#NU'EST{{j}}</div>
         </swiper-slide>
       </swiper>
       <div class="swiper-btn">
@@ -63,10 +61,10 @@
     </div>
     <v-container grid-list-lg fluid>
       <v-layout row wrap>
-        <v-flex class="Subscribe-content-flex" v-for="i in 12" :key="i" xs12 sm6>
-          <thumnail>
+        <v-flex class="Subscribe-content-flex" v-for="k in 12" :key="'scf'+k" xs12 sm6>
+          <video-card>
             <more-menu slot="more"></more-menu>
-          </thumnail>
+          </video-card>
         </v-flex>
       </v-layout>
     </v-container>
@@ -75,7 +73,8 @@
 </template>
 
 <script>
-import thumnail from '../../components/Card/VideoCard.vue';
+import VideoCard from '../../components/Card/VideoCard.vue';
+import subscribeModal from '../../components/Modal/Subscribe-modal.vue'
 import moreMenu from '../../components/Card/Home-cardMore.vue'
 import subNomarlBtn from '../../assets/img/subscribe/drawable-xxxhdpi/subscribe_normal_btn.png';
 import subActivelBtn from '../../assets/img/subscribe/drawable-xxxhdpi/subscribe_active_btn.png';
@@ -120,8 +119,9 @@ export default {
     }
   },
   components: {
-    'thumnail': thumnail,
-    moreMenu
+    'video-card': VideoCard,
+    'subscribe-modal': subscribeModal,
+    'more-menu': moreMenu
   }
 }
 </script>
