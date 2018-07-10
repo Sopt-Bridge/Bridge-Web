@@ -1,7 +1,7 @@
 <template>
 <div class="Modal">
   <slot name="activator"></slot>
-  <div class="Modal-pop" :style="{visibility:popUp}">
+  <div class="Modal-pop" v-if="popState">
     <div class="Modal-pop-menu" :style="{maxHeight:modalH+'px',marginTop:modalMarginTop+'px'}">
       <slot name="head">
         <div class="Modal-contents-head" slot="head">
@@ -25,13 +25,6 @@ export default {
     return {}
   },
   computed: {
-    popUp() {
-      if (this.popState) {
-        return 'visible'
-      } else {
-        return 'hidden'
-      }
-    },
     screenH() {
       let h = window.screen.availHeight;
       return h;

@@ -4,101 +4,152 @@
     <v-btn @click="opening" slot="activator" flat>
       <span><v-icon>add</v-icon></span>more
     </v-btn>
+    <!-- myPage-Modal-card-body -->
     <div class="smcb" slot="contents">
-      <v-layout row wrap>
-        <v-flex xs6 sm4 md3 class="smcb-card" v-for="i in 17" :key="i">
-          <div class="smcb-card-wrapper">
-            <div class="smcb-card-img">
-              <img src="http://img.insight.co.kr/static/2018/01/08/700/143hm9u98n3dr49jue61.jpg">
+      <v-container grid-list-md>
+        <v-layout row wrap>
+          <v-flex xs12 sm6 class="smcb-card" v-for="i in 17" :key="i">
+            <div class="smcb-card-wrapper">
+
+              <img class="smcb-card-img" src="http://ilyricsbuzz.com/wp-content/uploads/2015/01/Eddy-Kim-Sing-Sing-Sing.jpg">
+              <div class="smcb-card-infor">
+                <div class="smcb-card-infor-hash">#EddyKim</div>
+                <div class="smcb-card-infor-sub">구독자</div>
+                <div class="smcb-card-infor-number">6,502,030s</div>
+              </div>
+              <div class="smcb-card-subBtn" @click="subClick">
+                <button class="Subcribe-bodyBtn">
+                  <img :src="subNomarlBtn" width="35px" alt="">
+                  <!-- <div>Subscribe</div> -->
+                </button>
+              </div>
             </div>
-            <div class="smcb-card-text">
-              Group
-            </div>
-          </div>
-        </v-flex>
-      </v-layout>
+          </v-flex>
+        </v-layout>
+      </v-container>
     </div>
   </Modal>
 </div>
 </template>
 <script>
 import Modal from './Modal.vue'
+import subNomarlBtn from '../../assets/img/subscribe/drawable-xxxhdpi/subscribe_normal_btn.png';
+import subActivelBtn from '../../assets/img/subscribe/drawable-xxxhdpi/subscribe_active_btn.png';
 
 export default {
   data() {
     return {
-      dialog: false
+      subBool: true,
+      dialog: false,
+      subNomarlBtn:subNomarlBtn,
+      subActivelBtn:subActivelBtn
+    }
+  },
+  computed: {
+    subscirbe() {
+      if (this.subBool) {
+        return subActivelBtn
+      } else if (!this.subBool) {
+        return subNomarlBtn
+      }
     }
   },
   components: {
     'Modal': Modal
   },
-  methods:{
-    activating(state){
-      console.log(state);
-      console.log('moreBtn');
-      // this.dialog = true;
-    },
-    opening(){
+  methods: {
+    opening() {
       this.dialog = true;
     },
-    closing(){
+    closing() {
       this.dialog = false;
+    },
+    subClick(e) {
+      if(e.target.src===subNomarlBtn){
+        e.target.src=subActivelBtn
+      }else{
+        e.target.src=subNomarlBtn
+      }
     }
   }
 }
 </script>
 <style lang='scss' scoped>
 .smcb {
-  // display: grid;
-  // grid-template-columns: repeat(4, 1fr);
-  padding: 25px;
-  @media screen and (max-width: 640px) {
-    padding:0;
-    padding-top: 15px;
-  }
   overflow-y: scroll;
   height: 100%;
   background-color: white;
   &-card {
-    padding: 3%;
-    @media screen and (max-width: 1000px) {
-      padding:1%;
-    }
-    // height: 100%;
     &-wrapper {
-      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      // background-color: blue;
     }
     &-img {
-      position: relative;
-      // padding-top: 70%;
-      overflow: hidden;
-      // height:50%;
-      background-color: #E4E4E4;
-      img {
-        // position: absolute;
-        // top: auto;
-        // left: 0;
-        // right: 0;
-        // bottom: auto;
-        max-height: auto;
-        width: 100%;
-        // height:100%;
+      // background-color: red;
+      width: 100px;
+      height: 100px;
+      border-radius: 100%;
+      @media screen and (max-width: 720px) {
+        width: 80px;
+        height: 80px;
       }
     }
-    &-text {
-      text-align: center;
-      font-size: 18px;
-      font-weight: bold;
-      width: 100%;
-      padding: 10px;
-      padding: 5px;
-      background-color: #E4E4E4;
+    &-infor {
+      padding-left: 4%;
+      flex-shrink: 2;
+      flex-basis: 45%;
+      // flex-basis: 200px;
+      display: flex;
+      flex-wrap: wrap;
+      // background-color: aqua;
+      &-hash {
+        width: 100%;
+        font-size: 24px;
+        font-weight: bold;
+      }
+      &-sub {
+        font-size: 13px;
+        font-weight: bold;
+      }
+      &-number {
+        color: #AEAEAE;
+        font-size: 12px;
+        padding-left: 10px;
+      }
+      @media screen and (max-width: 720px) {
+        padding-left: 2%;
+        &-hash {
+          font-size: 22px;
+        }
+        &-sub {
+          font-size: 11px;
+        }
+        &-number {
+          font-size: 10px;
+          padding-left: 6px;
+        }
+      }
     }
+    &-subBtn {}
   }
 }
 
 .btnText {
   color: #9A9A9A;
+}
+
+.Subcribe-bodyBtn {
+  display: flex;
+  align-items: center;
+  @media screen and (max-width: 720px) {
+    img {
+      width:29px;
+    }
+    div {
+      font-size: 12.5px;
+    }
+  }
 }
 </style>
