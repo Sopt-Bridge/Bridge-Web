@@ -57,39 +57,39 @@
 </template>
 
 <script>
-import RequestComment from '../../components/Comment/RequestComment'
+import RequestComment from "../../components/Comment/RequestComment";
 export default {
-    components : {
-        RequestComment
-    }
+  components: {
+    RequestComment
+  }
 };
 </script>
 
 <style lang="scss" scoped>
 @import "styles/common.scss";
 
-
 .req-detail-title-section {
   margin-top: 90px;
   height: 50px;
   border-bottom: 3px solid black;
+  @include media("(max-width : 510px)") {
+    margin-top: 30px;
+  }
 }
 
-.req-detail-board-info-section, .req-detail-board-content-section {
+.req-detail-board-info-section,
+.req-detail-board-content-section {
   margin-top: 25px;
-  padding : 0px $inner-padding 0px $inner-padding;
+  padding: 0px $inner-padding 0px $inner-padding;
 }
 
-.req-detail-translate{
-    padding-right : $inner-padding;
+.req-detail-translate {
+  padding-right: $inner-padding;
 }
 
-
-.req-detail-title{
-  padding-left : $inner-padding;
+.req-detail-title {
+  padding-left: $inner-padding;
 }
-
-
 
 p {
   display: inline;
@@ -100,139 +100,136 @@ p {
   margin-right: 10px;
 }
 
-.req-detail-views, .req-detail-likes{
-    width : 95px;
-    text-align : right;
-    margin-left : 20px;
-    border-left : 1px solid $grey-text;
+.req-detail-views,
+.req-detail-likes {
+  width: 95px;
+  text-align: right;
+  margin-left: 20px;
+  border-left: 1px solid $grey-text;
 }
 
-
-.req-detail-board-content-text-section{
-    margin-top: 50px;
-    min-height : 300px;
+.req-detail-board-content-text-section {
+  margin-top: 50px;
+  min-height: 300px;
 }
 
-.req-detail-board-content-text{
-    line-height : 40px;
+.req-detail-board-content-text {
+  line-height: 40px;
 }
 
-.req-detail-btn{
-    border : 1px solid black;
+.req-detail-btn {
+  border: 1px solid black;
 }
 
-
-.req-detail-btn-section{
-    text-align : center;
+.req-detail-btn-section {
+  text-align: center;
 }
 
-.req-detail-btn{
-    border : 1px solid $grey-text;
+.req-detail-btn {
+  border: 1px solid $grey-text;
+  border-radius: 5px;
+  width: 93px;
+  height: 44px;
+}
+
+.req-detail-edit {
+  margin-right: 15px;
+}
+
+.req-detail-delete {
+  margin-left: 15px;
+  background-color: $main-color;
+  color: white;
+}
+
+@media screen and (max-width: 632px) {
+  p {
+    font-size: 12.5px;
+  }
+
+  .req-detail-tag {
+    margin-right: 3px;
+  }
+
+  .req-detail-date {
+    margin-left: 20px;
+  }
+  .req-detail-views,
+  .req-detail-likes {
+    width: 65px;
+    margin-left: 10px;
+    border-left: none;
+  }
+
+  .req-detail-board-content-text {
+    line-height: 25px;
+  }
+
+  .req-detail-btn {
+    border: 1px solid $grey-text;
     border-radius: 5px;
-    width : 93px;
-    height : 44px;
+    //width : 93px;
+    //height : 44px;
+    width: 60px;
+    height: 30px;
+  }
+
+  .req-detail-edit {
+    margin-right: 4px;
+  }
+
+  .req-detail-delete {
+    margin-left: 4px;
+  }
 }
 
-.req-detail-edit{
-    margin-right : 15px;
+@media screen and (max-width: 487px) {
+  .req-detail-title-section {
+    height: 30px;
+  }
+
+  p {
+    font-size: 8px;
+  }
+
+  .req-detail-title-tag {
+    font-size: 15px;
+  }
+
+  .req-detail-date {
+    margin-left: 0px;
+  }
+
+  .req-detail-tag {
+    margin-right: 3px;
+  }
+
+  .req-detail-board-content {
+    margin-top: 25px;
+    height: 350px;
+  }
+  .req-detail-views,
+  .req-detail-likes {
+    width: 60px;
+    margin-left: 0px;
+    border-left: none;
+  }
+
+  .req-detail-btn {
+    border: 1px solid $grey-text;
+    border-radius: 5px;
+    //width : 93px;
+    //height : 44px;
+    width: 50px;
+    height: 25px;
+  }
+
+  .req-detail-edit {
+    margin-right: 3px;
+  }
+
+  .req-detail-delete {
+    margin-left: 3px;
+  }
 }
-
-.req-detail-delete{
-    margin-left : 15px;
-    background-color: $main-color;
-    color : white;
-}
-
-@media screen and (max-width : 632px){
-    p{
-        font-size : 12.5px;   
-    }
-
-    .req-detail-tag{
-        margin-right : 3px;
-    }
-
-    .req-detail-date{
-        margin-left : 20px;
-    }
-    .req-detail-views, .req-detail-likes{
-        width : 65px;
-        margin-left : 10px;
-        border-left : none;
-    }
-
-    .req-detail-board-content-text{
-        line-height : 25px;
-    }
-
-    .req-detail-btn{
-        border : 1px solid $grey-text;
-        border-radius: 5px;
-        //width : 93px;
-        //height : 44px;
-        width : 60px;
-        height : 30px;
-    }
-
-    .req-detail-edit{
-        margin-right : 4px;
-    }
-
-    .req-detail-delete{
-        margin-left : 4px;
-    }
-}
-
-@media screen and (max-width : 487px){
-    .req-detail-title-section{
-        height : 30px;
-    }
-
-    p{
-        font-size : 8px;   
-    }
-
-    .req-detail-title-tag{
-        font-size : 15px;
-    }
-
-    .req-detail-date{
-        margin-left : 0px;
-    }
-
-    .req-detail-tag{
-        margin-right : 3px;
-    }
-
-    .req-detail-board-content{
-        margin-top: 25px;
-        height : 350px;
-        
-    }
-    .req-detail-views, .req-detail-likes{
-        width : 60px;
-        margin-left : 0px;
-        border-left : none;
-    }
-
-    .req-detail-btn{
-        border : 1px solid $grey-text;
-        border-radius: 5px;
-        //width : 93px;
-        //height : 44px;
-        width : 50px;
-        height : 25px;
-    }
-
-    .req-detail-edit{
-        margin-right : 3px;
-    }
-
-    .req-detail-delete{
-        margin-left : 3px;
-    }
-
-    
-}
-
 </style>
