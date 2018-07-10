@@ -16,7 +16,7 @@
       </router-link>
     </div>
     <div class="VideoCard-infor-moreBtn">
-      <v-menu offset-y :close-on-content-click="false">
+      <v-menu offset-x right :close-on-content-click="false">
         <v-icon slot="activator">more_vert</v-icon>
         <slot name="more">
         </slot>
