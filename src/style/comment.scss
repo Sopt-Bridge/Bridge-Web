@@ -1,0 +1,106 @@
+$comment-height: 97px;
+$reply-height: 45px;
+$button-width-height: 95px;
+
+p {
+    display: inline;
+    font-size: 15px;
+  }
+  
+  .req-comment {
+    &-section {
+      width: 100%;
+      min-height: $comment-height;
+      display: flex;
+    }
+    &-icon {
+      &-person {
+        width: 70px;
+        height: 70px;
+        font-size: 45px;
+      }
+    }
+    &-user {
+      &-container {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+      }
+      &-content {
+        width: 100%;
+        height: 100%;
+        &-section {
+          display: flex;
+          margin-top: 19px;
+          height: $comment-height;
+          @include media("(max-width : 620px)") {
+            height: 60px;
+          }
+        }
+      }
+      &-comment {
+        &-detail {
+          height: 100%;
+        }
+      }
+      &-info {
+        width: 100%;
+        height: 70px;
+        display: block;
+        &-detail {
+          display: flex;
+          align-items: flex-end;
+        }
+        &-nickname {
+          width: 100%;
+          height: 60%;
+        }
+        &-btn {
+          font-size: 13px;
+          cursor: pointer;
+          &-reply {
+            margin-left: 26px;
+            @include media("(max-width : 620px)") {
+              margin-left: 8px;
+            }
+          }
+        }
+        &-date {
+          font-size: 13px;
+          color: $grey-text;
+          &-section {
+            width: 100%;
+            height: 30%;
+          }
+        }
+      }
+    }
+    @include media("(max-width : 620px)") {
+        &-title {
+          font-size: 12.5px;
+        }
+        &-count {
+          font-size: 12.5px;
+        }
+        &-user-info {
+          &-btn {
+            font-size: 10px;
+          }
+          &-date {
+            font-size: 10px;
+          }
+          &-nickname {
+            &-text {
+              font-size: 12.5px;
+            }
+          }
+        }
+        &-user-comment {
+          &-detail {
+            &-text {
+              font-size: 12.5px;
+            }
+          }
+        }
+      }
+  }
