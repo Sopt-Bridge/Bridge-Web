@@ -1,19 +1,25 @@
 <template>
-<div class="VideoCard" :style="{flexWrap:wraping}">
-  <div class="VideoCard-content">
-    <img class="VideoCard-content-thumb" src="@/assets/img/cms_temp_article_21120403550250@2x.png" alt="">
-    <div class="VideoCard-content-play">
-      <img src="@/assets/img/baseline-play_arrow-24px.svg" alt="">
+<div class="VideoCard" :style="{flexWrap:wraping}" to="/video">
+  <router-link :to="{name:'video'}">
+    <div class="VideoCard-content">
+      <img class="VideoCard-content-thumb" src="https://i.ytimg.com/vi/uM5UpRk-tuk/maxresdefault.jpg" alt="">
+      <div class="VideoCard-content-play">
+        <img src="@/assets/img/baseline-play_arrow-24px.svg" alt="">
+      </div>
+      <div class="VideoCard-content-time">04:29</div>
     </div>
-    <div class="VideoCard-content-time">04:29</div>
-  </div>
+  </router-link>
   <div class="VideoCard-infor">
-    <div class="VideoCard-infor-heading">BTS - FAKE LOVE @BTS PERFECT COMEBACK SHOW PLEASE FOLLOW FOLLOW ME EVERYDAY SUBSCRIBE ME ME
+    <div class="VideoCard-infor-heading">
+      <router-link :to="{name:'video'}">
+        BTS - FAKE LOVE @BTS PERFECT COMEBACK SHOW PLEASE FOLLOW FOLLOW ME EVERYDAY SUBSCRIBE ME ME
+      </router-link>
     </div>
     <div class="VideoCard-infor-moreBtn">
       <v-menu offset-y :close-on-content-click="false">
         <v-icon slot="activator">more_vert</v-icon>
-        <slot name="more"></slot>
+        <slot name="more">
+        </slot>
       </v-menu>
     </div>
     <div class="VideoCard-infor-hastag">#BTS #BANGTANTV
@@ -31,13 +37,23 @@ export default {
   props: ['wrap'],
   computed: {
     wraping() {
-      let out;
       if (this.wrap) {
-        out = 'wrap'
+        return 'wrap'
       } else {
-        out = 'nowrap'
+        return 'nowrap'
       }
-      return out;
+    }
+  },
+  mounted() {
+    function isMobile() {
+      return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    }
+    let more = document.getElementsByClassName('VideoCard-infor-moreBtn')
+    if (isMobile()) {
+      for (let i = 0; i < more.length; i++) {
+        // console.log('실행됨')
+        more[i].style.visibility = 'visible'
+      }
     }
   }
 }
@@ -108,13 +124,21 @@ export default {
       text-overflow: ellipsis;
       /* 여러 줄 자르기 추가 스타일 */
       white-space: normal;
-      line-height: 1.3;
+      line-height: 1.2;
       height: 3.6em;
       text-align: left;
       word-wrap: break-word;
       display: -webkit-box;
       -webkit-line-clamp: 3;
       -webkit-box-orient: vertical;
+      a{
+        text-decoration: none;
+        color:#000000;
+      }
+      a:hover{
+        text-decoration:underline;
+
+      }
     }
     &-moreBtn {
       position: absolute;

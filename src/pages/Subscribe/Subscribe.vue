@@ -3,9 +3,9 @@
   <div class="Subscribe-heading">
     <div class="Subscribe-headingWrap">
       <h1 class="Subscribe-headingH1">PiCK</h1>
-      <div class="Subscribe-headingBtn">
-        <span><v-icon>add</v-icon></span>more
-      </div>
+      <v-btn class="Subscribe-headingBtn" flat>
+        <v-icon>add</v-icon>more
+      </v-btn>
     </div>
     <div class="swiper">
       <div class="swiper-btn">
@@ -34,14 +34,39 @@
     <div class="Subscribe-bodyHead">
       <div class="Subscribe-bodyLB">
         <h1 class="Subscribe-bodyH1">#BTS</h1>
-        <div class="Subcribe-bodyBtn">Subscribe</div>
+        <!-- <div > -->
+        <button class="Subcribe-bodyBtn" flat @click="subClick" :style="{color:subBtnColor}">
+            <img :src="subscirbe" width="35px" alt="">
+            <span>Subscribe</span>
+          </button>
+        <!-- </div> -->
       </div>
-      <div class="Subscribe-bodyUpload">Upload date</div>
+      <v-menu offset-x left>
+        <button class="Subscribe-bodyUpload" slot="activator">
+          Upload date
+          <img :src="subFilter" width="25px" alt="">
+        </button>
+        <v-card>
+          <v-list-tile class="menu-list-item">
+            <v-list-tile-title>
+              Upload data
+            </v-list-tile-title>
+          </v-list-tile>
+          <v-list-tile class="menu-list-item">
+            <v-list-tile-title>
+              View count
+            </v-list-tile-title>
+          </v-list-tile>
+        </v-card>
+
+      </v-menu>
     </div>
     <v-container grid-list-lg fluid>
       <v-layout row wrap>
         <v-flex class="Subscribe-content-flex" v-for="i in 12" :key="i" xs12 sm6>
-          <thumnail></thumnail>
+          <thumnail>
+            <more-menu slot="more"></more-menu>
+          </thumnail>
         </v-flex>
       </v-layout>
     </v-container>
@@ -51,11 +76,15 @@
 
 <script>
 import thumnail from '../../components/Card/VideoCard.vue';
+import moreMenu from '../../components/Card/Home-cardMore.vue'
+import subNomarlBtn from '../../assets/img/subscribe/drawable-xxxhdpi/subscribe_normal_btn.png';
+import subActivelBtn from '../../assets/img/subscribe/drawable-xxxhdpi/subscribe_active_btn.png';
+import subFilter from '../../assets/img/subscribe/drawable-xxxhdpi/search_filter_icon.png';
 
 export default {
-  name: 'carrousel',
   data() {
     return {
+      subBool: true,
       swiperOption1: {
         slidesPerView: 6,
         spaceBetween: 1,
@@ -65,11 +94,34 @@ export default {
         slidesPerView: 4,
         freeMode: true,
         lazy: true,
+      },
+      subFilter
+    }
+  },
+  computed: {
+    subscirbe() {
+      if (this.subBool) {
+        return subActivelBtn
+      } else if (!this.subBool) {
+        return subNomarlBtn
+      }
+    },
+    subBtnColor() {
+      if (this.subBool) {
+        return '#E31c9e'
+      } else if (!this.subBool) {
+        return '#9A9A9A'
       }
     }
   },
+  methods: {
+    subClick() {
+      this.subBool = !this.subBool;
+    }
+  },
   components: {
-    'thumnail': thumnail
+    'thumnail': thumnail,
+    moreMenu
   }
 }
 </script>
@@ -93,6 +145,9 @@ export default {
       display: flex;
       align-items: center;
       // background-color: slategrey;
+    }
+    &Btn {
+      color: #9A9A9A;
     }
     &H1 {
       font-size: 43px;
@@ -201,5 +256,25 @@ export default {
   @media screen and (min-width: 520px) {
     display:none;
   }
+}
+
+.Subcribe-bodyBtn {
+  display: flex;
+  span {
+    margin-left: 10px;
+  }
+}
+
+.Subscribe-bodyUpload {
+  // color:#E31c9e;
+  font-size: 17px;
+  img {
+    margin-left: 10px;
+  }
+}
+
+.menu-list-item:hover {
+  transition: 0.3s;
+  background-color: rgba(141, 141, 141, 0.5);
 }
 </style>
