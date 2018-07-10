@@ -35,7 +35,7 @@ export default {
   min-width: 320px;
 }
 #App-toolbar{
-  z-index:10;
+  z-index:6;
 }
 .App {
   &-content {
