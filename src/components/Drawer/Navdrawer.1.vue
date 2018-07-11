@@ -7,8 +7,8 @@
         <div class="navbar-drawer-components">
             <ul class="navbar-drawer-components-lists">
                 <li class="navbar-drawer-components-lists-item" v-for="(item,index) in items" :key="index">
-                    <a @click="changeColor(index)">
-                        <p :class="position" class="navbar-drawer-components-lists-item-title">{{ item.title }}</p>
+                    <a @click="changeColor(i)">
+                        <p :id="i" class="navbar-drawer-components-lists-item-title">{{ item.title }}</p>
                     </a>
                 </li>
             </ul>
@@ -21,41 +21,31 @@
 </template>
 
 <script>
-import {mapMutations} from 'vuex'
 import more_icon from '../../assets/img/hamburger_open_btn.svg'
 export default {
-    props: ['items', 'position'],
+    props: ['items'],
     data() {
         return {
             fixed: true,
             drawer: false,
             clipped: true,
-            more: more_icon,
-            btnState: 0
+            more: more_icon
         };
-    },
-    computed: {
-        btnLength() {
-            return document.getElementsByClassName(this.position).length;
-        }
     },
     methods: {
         drawing() {
             return !this.drawer;
         },
-        changeColor(index) {
-            this.$store.commit('getHomeNowtrend');
-            console.log(index);
-            this.$emit('navBtnState', index);
-            for (let i = 0; i < this.btnLength; i++) {
-                document.getElementsByClassName(this.position)[i].style.color = "#333333";
+        changeColor(num) {
+            let i = 0;
+            for (i; i < 5; i++) {
+                document.getElementById(i).style.color = "#333333";
             }
-            this.btnState = index;
-            document.getElementsByClassName(this.position)[index].style.color = "#E31c9e";
+            document.getElementById(num).style.color = "#E31c9e";
             if (window.screen.availWidth < 510) {
                 this.drawer = false;
             }
-        },
+        }
     }
 };
 </script>

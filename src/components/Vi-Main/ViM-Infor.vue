@@ -12,7 +12,7 @@
   </div>
   <div class="ViM-Infor-tag">#BTS #BANGTANTV
   </div>
-  <div class="ViM-Infor-time">3 min age</div>
+  <!-- <div class="ViM-Infor-time">3 min age</div> -->
   <div class="ViM-Infor-src">BTS Official Homepage https:/bts.isjndk_vkaocorp.com</div>
 </div>
 </template>
@@ -25,43 +25,53 @@ export default {
 }
 </script>
 <style lang='scss' scoped>
+@mixin resSize($size) {
+  @media screen and (max-width: 780px) {
+    font-size:$size - 2px;
+  }
+  @media screen and (max-width:480px) {
+    font-size: $size - 4px;
+  }
+  @media screen and (max-width:360px) {
+    font-size: $size - 5px;
+  }
+}
+
 .ViM-Infor {
-  height: 250px;
+  padding-left: 2%;
   &-heading {
     position: relative;
-    // max-width: 1200px;
-    // max-height: 68px;
     &-text {
-      display: block;
-      margin-top: 18px;
-      margin-bottom: 8px;
-      max-width: 850px;
-      max-height: 68px;
-      font-size: 23px;
-      // padding-right:-300px;
       // background-color: red;
+      padding-top: 2%;
+      padding-bottom: 1%;
+      padding-right: 4.5%;
+      font-size: 22px;
+      font-weight: bold;
+      @include resSize(22px);
     }
     &-more {
       position: absolute;
-      top: 0;
-      right: 10px;
+      top: 22%;
+      right: 0.8%;
     }
   }
   &-tag {
-    // display: block;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    padding-top: 1%;
+    padding-bottom: 1%;
     color: violet;
-    font-size: 23px;
+    font-size: 20px;
+    @include resSize(20px);
   }
   &-time {
-    margin-top: 15px;
     color: #acacac;
     font-size: 22px;
   }
   &-src {
     color: #acacac;
-    font-size: 22px;
+    font-size: 17px;
+    @include resSize(17px);
   }
 }
+
 </style>

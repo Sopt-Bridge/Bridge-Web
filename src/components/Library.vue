@@ -2,7 +2,7 @@
 <div class="Library">
   <div class="Library-heading">
     <div class="Library-headingMore">
-      <sub-modal></sub-modal>
+      <mypage-modal></mypage-modal>
     </div>
     <div class="Library-headingCreate">
       <v-menu offset-overflow left :close-on-content-click="false">
@@ -43,7 +43,7 @@
 </template>
 <script>
 import bg from '../assets/img/bp.png';
-import modal from '../components/Modal/Subscribe-modal.vue'
+import modal from '../components/Modal/MyPage-modal.vue'
 export default {
   data() {
     return {
@@ -51,7 +51,7 @@ export default {
     }
   },
   components:{
-    'sub-modal':modal
+    'mypage-modal':modal
   }
 
 }

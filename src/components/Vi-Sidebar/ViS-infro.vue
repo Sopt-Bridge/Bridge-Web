@@ -8,7 +8,7 @@
       <v-icon medium>clear</v-icon>
     </div>
     <div class="ViS-Infor-body">
-      희대의 아이돌, 방탄 소년단이 컴백하면서<br> 아이돌팬계의 분위기가 활활 타올랐다.
+      희대의 아이돌, 방탄 소년단이 컴백하면서 아이돌팬계의 분위기가 활활 타올랐다.
     </div>
     <div class="ViS-Infor-like">
       <img class="ViS-Infor-likeImg" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4_krABXXht-gOokW3I3i2oECeYLlNNVs3lBVQZ2d2BAXiioZsXA" alt="">
@@ -41,8 +41,10 @@ export default {
   &-body {
     margin-top: 31px;
     padding-bottom: 30px;
+    margin-right:20px;
+    // background-color: blue;
     color: #707070;
-    font-size: 22px;
+    font-size: 20px;
   }
   &-like {
     display: flex;

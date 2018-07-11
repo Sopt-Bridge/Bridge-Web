@@ -1,21 +1,23 @@
 <template>
 <div class="Modal">
   <slot name="activator"></slot>
-  <div class="Modal-pop" :style="{visibility:popUp}">
-    <div class="Modal-pop-menu" :style="{maxHeight:modalH+'px',marginTop:modalMarginTop+'px'}">
-      <slot name="head">
-        <div class="Modal-contents-head" slot="head">
-          <div class="leftBox">
-            Total 58
+  <transition name="slide-fade">
+    <div class="Modal-pop" v-if="popState">
+      <div class="Modal-pop-menu" :style="{maxHeight:modalH+'px',marginTop:modalMarginTop+'px'}">
+        <slot name="head">
+          <div class="Modal-contents-head" slot="head">
+            <div class="leftBox">
+              Total 58
+            </div>
+            <div class="rightBox" @click="closing">
+              <v-icon medium>clear</v-icon>
+            </div>
           </div>
-          <div class="rightBox" @click="closing">
-            <v-icon medium>clear</v-icon>
-          </div>
-        </div>
-      </slot>
-      <slot name="contents" :style="{height:modalHeadHeight+'px'}"></slot>
+        </slot>
+        <slot name="contents" :style="{height:modalHeadHeight+'px'}"></slot>
+      </div>
     </div>
-  </div>
+  </transition>
 </div>
 </template>
 <script>
@@ -25,13 +27,6 @@ export default {
     return {}
   },
   computed: {
-    popUp() {
-      if (this.popState) {
-        return 'visible'
-      } else {
-        return 'hidden'
-      }
-    },
     screenH() {
       let h = window.screen.availHeight;
       return h;
@@ -115,5 +110,23 @@ export default {
   &-Modal {
     &-contents {}
   }
+}
+
+// transition animation config
+.slide-fade-enter-active {
+  transition: all .3s ease;
+}
+
+.slide-fade-leave-active {
+  transition: all .2s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+}
+
+.slide-fade-enter,
+.slide-fade-leave-to
+/* .slide-fade-leave-active below version 2.1.8 */
+
+{
+  transform: scale(0);
+  opacity: 0;
 }
 </style>
