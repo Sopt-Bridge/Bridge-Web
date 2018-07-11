@@ -1,12 +1,24 @@
 <template>
 <div class="MainPoster">
+  <div class="swiper-custom-section">
+    <div class="swiper-custom-section-button">
+      <div class="swiper-custom-section-button-before" id="before" @click="beforePoster()">
+        <v-icon x-large color="grey">navigate_before</v-icon>
+      </div>
+      <v-spacer class="swiper-custom-section-spacer" />
+      <div class="swiper-custom-section-button-next" id="next" @click="nextPoster()">
+        <v-icon x-large color="grey">navigate_next</v-icon>
+      </div>
+    </div>
+  </div>
   <swiper class="MainPoster-swiper" ref="mySwiper" :options="swiperOption">
+    <!-- <swiper-slide class="MainPoster-swiper-slide" v-for="item in 4" :key="item"> -->
     <swiper-slide v-resize="onResize" class="MainPoster-swiper-slide" v-for="item in slideItems" :key="item" :style="{backgroundImage:item}">
+
     </swiper-slide>
     <div class="swiper-pagination swiper-custom-pagination" slot="pagination" />
-    <v-icon class="swiper-btnBefore" id="before" @click="beforePoster()" x-large color="grey">navigate_before</v-icon>
-    <v-icon class="swiper-btnNext" id="next" @click="nextPoster()" x-large color="grey">navigate_next</v-icon>
   </swiper>
+
 </div>
 </template>
 
@@ -93,6 +105,50 @@ export default {
 @import "styles/common.scss";
 .swiper {
   &-custom {
+    &-section {
+      width: 100%;
+      display: flex;
+      justify-content: flex-end;
+      position: absolute;
+      z-index: 2;
+      &-button {
+        right: 92px;
+        display: flex;
+        position: absolute;
+        justify-content: flex-end;
+        width: 120px;
+        bottom: -525.5px;
+        //1000 860 500 376
+        @include media("(max-width: 1000px)") {
+          bottom: -463.5px;
+        }
+        @include media("(max-width: 860px)") {
+          bottom: -344px;
+          right: 50px;
+        }
+        @include media("(max-width: 500px)") {
+          bottom: -262.5px;
+        }
+        @include media("(max-width: 376px)") {
+          bottom: -202.5px;
+        }
+        &-before {
+          cursor: pointer;
+          i {
+            width: 15px;
+          }
+        }
+        &-next {
+          cursor: pointer;
+          i {
+            width: 15px;
+          }
+        }
+      }
+      &-spacer {
+        z-index: -1;
+      }
+    }
     &-pagination {
       z-index: 10;
       text-align: right;
@@ -113,10 +169,9 @@ export default {
 }
 
 .MainPoster {
-  // z-index: 0;
-  background-color: red;
+  z-index: 0;
+  position: relative;
   &-swiper {
-    position: relative;
     &-slide {
       height: 543px;
       @media screen and (max-width: 1000px) {
@@ -138,17 +193,6 @@ export default {
       // background-size: auto 100%;
       // }
     }
-  }
-}
-
-.swiper-btn {
-  &Before {
-    background-color: blue;
-    position: absolute;
-  }
-  &Next {
-    background-color: blue;
-    position: absolute;
   }
 }
 
