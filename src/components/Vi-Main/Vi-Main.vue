@@ -11,7 +11,7 @@ import video from './ViM-Video.vue'
 export default {
   computed:{
     barHeight(){
-      let height = window.screen.availHeight-64-50;
+      let height = window.screen.availHeight-150;
       return height;
     }
   },
