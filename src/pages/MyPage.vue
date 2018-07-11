@@ -1,6 +1,6 @@
 <template>
 <div class="MyPage">
-  <Navdrawer></Navdrawer>
+  <Navdrawer :items="navItem" :position="position" @navBtnState="navBtnClick"></Navdrawer>
   <div class="MyPage-wrap">
     <div class="MyPage-head">
       <Library></Library>
@@ -32,22 +32,37 @@ import edit from '../components/EditBtn.vue'
 export default {
   data() {
     return {
+      position: 'MyPageNav',
       headTxt: 'Group1',
-      cards: 8
+      cards: 8,
+      btnState: 0,
+      navItem: [{
+          title: "Recent Videos"
+        },
+        {
+          title: "Library Folder"
+        }
+      ]
     }
   },
   components: {
     'Library': Libaray,
     edit
+  },
+  methods: {
+    navBtnClick(index) {
+      this.navState = index;
+      // console.log('navBtn' + index);
+    }
   }
 
 }
 </script>
 <style lang='scss' scoped>
 .MyPage {
-  &-wrap{
+  &-wrap {
     max-width: 1024px;
-    margin:0 auto;
+    margin: 0 auto;
   }
   &-head {
     margin: 0 auto;
