@@ -4,8 +4,8 @@
   <div class="home-components">
     <main-poster></main-poster>
     <contents :headTxt="nowTrend">
-      <v-flex v-for="i in cards" :key="i" xs6 md3 slot="card">
-        <video-card :wrap="true">
+      <v-flex v-for="(item,index) in homeNowTrendItem" :key="index" xs6 md3 slot="card">
+        <video-card :wrap="true" :item="item">
           <more-menu slot="more"></more-menu>
         </video-card>
       </v-flex>
@@ -17,14 +17,18 @@
 <script>
 import contents from '../components/Contents/Contents.vue'
 import moreMenu from '../components/Card/Home-cardMore'
+import {
+  mapGetters,mapMutations,mapActions
+} from 'vuex'
+
 export default {
   data() {
     return {
-      position:'homeNav',
+      position: 'homeNav',
       nowTrend: 'Now Trend',
-      postition:'home',
+      postition: 'home',
       cards: 4,
-      navState:0,
+      navState: 1,
       navItem: [{
           title: "HOT"
         },
@@ -40,19 +44,25 @@ export default {
         {
           title: "Culture"
         }
-
       ],
     }
+  },
+  computed:{
+    ...mapGetters(['homeNowTrendItem'])
   },
   components: {
     contents,
     moreMenu
   },
-  methods:{
-    navBtnClick(index){
-      this.navState=index;
-      // console.log('navBtn'+index);
-    }
+  methods: {
+    navBtnClick(index) {//navBtnClick하면 list 숫자를 입력하는 함수
+      this.getHomeNowtrend(index);
+      this.navState = index;
+    },
+    ...mapActions(['getHomeNowtrend'])
+  },
+  created(){
+    this.getHomeNowtrend(this.navState);
   }
 
 

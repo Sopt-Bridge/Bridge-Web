@@ -1,8 +1,9 @@
 <template>
 <div class="ViM-Video">
-  <video class="ViM-content-video" src="../../assets/video/PWAs_vs_Native.mp4" controls controlsList="nodownload"></video>
+  <!-- <video class="ViM-content-video" src="../../assets/video/PWAs_vs_Native.mp4" controls controlsList="nodownload"></video> -->
   <!-- <object class="ViM-content-video" data="https://www.youtube.com/embed/F7Z6SFr-abQ" type=""></object> -->
-  <!-- <embed class="ViM-content-video" src="https://www.youtube.com/embed/F7Z6SFr-abQ" type=""> -->
+  <embed class="ViM-content-video" src="https://bit.ly/2N9dgiV" type="">
+  <!-- <embed class="ViM-content-video" src="https://youtu.be/i_uDYCdC-5E" type=""> -->
   <!-- <img class="ViM-Video-img" src="https://i.ytimg.com/vi/yBs2SrZ3QJM/maxresdefault.jpg" alt=""> -->
   <!-- <video></video> -->
 </div>
