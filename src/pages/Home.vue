@@ -1,6 +1,6 @@
 <template>
 <div class="Home">
-  <navdrawer></navdrawer>
+  <navdrawer :items="navItem" :position="position" @navBtnState="navBtnClick"></navdrawer>
   <div class="home-components">
     <main-poster></main-poster>
     <contents :headTxt="nowTrend">
@@ -20,12 +20,39 @@ import moreMenu from '../components/Card/Home-cardMore'
 export default {
   data() {
     return {
+      position:'homeNav',
       nowTrend: 'Now Trend',
-      cards: 4
+      postition:'home',
+      cards: 4,
+      navState:0,
+      navItem: [{
+          title: "HOT"
+        },
+        {
+          title: "K-content"
+        },
+        {
+          title: "K-pop"
+        },
+        {
+          title: "Fun"
+        },
+        {
+          title: "Culture"
+        }
+
+      ],
     }
   },
   components: {
-    contents,moreMenu
+    contents,
+    moreMenu
+  },
+  methods:{
+    navBtnClick(index){
+      this.navState=index;
+      // console.log('navBtn'+index);
+    }
   }
 
 
