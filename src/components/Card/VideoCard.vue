@@ -1,14 +1,14 @@
 <template>
-<div class="VideoCard" :style="{flexWrap:wraping}" to="/video">
-  <router-link :to="{name:'video'}">
-    <div class="VideoCard-content">
+<div class="VideoCard" :style="wraping" to="/video">
+  <div class="VideoCard-content">
+    <router-link :to="{name:'video'}">
       <img class="VideoCard-content-thumb" src="https://i.ytimg.com/vi/uM5UpRk-tuk/maxresdefault.jpg" alt="">
       <div class="VideoCard-content-play">
         <img src="@/assets/img/baseline-play_arrow-24px.svg" alt="">
       </div>
       <div class="VideoCard-content-time">04:29</div>
-    </div>
-  </router-link>
+    </router-link>
+  </div>
   <div class="VideoCard-infor">
     <div class="VideoCard-infor-heading">
       <router-link :to="{name:'video'}">
@@ -29,18 +29,18 @@
 </template>
 <script>
 export default {
-  data() {
-    return {
-      // wrap:'wrap'
-    }
-  },
   props: ['wrap'],
   computed: {
     wraping() {
       if (this.wrap) {
-        return 'wrap'
+        return {
+          'flex-wrap': 'wrap'
+        }
       } else {
-        return 'nowrap'
+        return {
+          'flex-wrap': 'nowrap',
+          // 'max-width': '80%'
+        }
       }
     }
   },
@@ -60,11 +60,18 @@ export default {
 </script>
 <style lang='scss' scoped>
 .VideoCard {
+  // background-color: bisque;
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
+  // align-items: center;
+  // max-width: auto;
+  // height: 100%;
   &-content {
-    flex-grow: 1;
+    // max-width:60%;
+    // flex-grow: 1;
+    // max-width: auto;
+    // height: 100%;
+    // background-color: blue;
     align-items: center;
     position: relative;
     &:hover &-play {
@@ -81,6 +88,8 @@ export default {
     }
     &-thumb {
       width: 100%;
+      // max-width: 100%;
+      // height:auto;
     }
     &-play {
       background-color: rgba(255, 255, 255, 0.8);
@@ -102,18 +111,18 @@ export default {
     }
   }
   &-infor {
+    // width:100%;
     // background-color: red;
-    transition: none;
+    // transition: none;
     align-self: stretch;
     padding-top: 5px;
     padding-bottom: 5px;
-    padding-right: 25px;
-    flex-grow: 1;
-    // width: 50%;
-    // box-sizing: border-box;
+    padding-right: 2%;
+    flex-grow: 3;
     font-size: 16px;
     padding-left: 2%;
     // white-space: nowrap;
+    flex-grow: 2;
     position: relative;
     &-heading {
       /* 한 줄 자르기 */
@@ -131,13 +140,12 @@ export default {
       display: -webkit-box;
       -webkit-line-clamp: 3;
       -webkit-box-orient: vertical;
-      a{
+      a {
         text-decoration: none;
-        color:#000000;
+        color: #000000;
       }
-      a:hover{
-        text-decoration:underline;
-
+      a:hover {
+        text-decoration: underline;
       }
     }
     &-moreBtn {

@@ -110,7 +110,7 @@ export default {
       display: flex;
       justify-content: flex-end;
       position: absolute;
-      z-index: 4;
+      z-index: 2;
       &-button {
         right: 92px;
         display: flex;
@@ -134,9 +134,15 @@ export default {
         }
         &-before {
           cursor: pointer;
+          i {
+            width: 15px;
+          }
         }
         &-next {
           cursor: pointer;
+          i {
+            width: 15px;
+          }
         }
       }
       &-spacer {
@@ -144,6 +150,7 @@ export default {
       }
     }
     &-pagination {
+      z-index: 10;
       text-align: right;
       padding-right: 120px;
       bottom: 30px;

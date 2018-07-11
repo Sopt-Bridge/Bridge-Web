@@ -8,7 +8,18 @@
 </template>
 <script>
 export default {
-
+  mounted() {
+    // function isMobile() {
+    //   return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    // }
+    // let page = document.getElementsByClassName('VideoContents-container')
+    // if (isMobile()) {
+    //   for (let i = 0; i < page.length; i++) {
+    //     // console.log('실행됨')
+    //     more[i].style.wrap = 'wrap'
+    //   }
+    // }
+  }
 }
 </script>
 <style lang='scss' scoped>
@@ -23,19 +34,33 @@ export default {
     // margin-left: auto;
     // margin-right: auto;
     max-width: 1280px;
-    @media screen and (max-width: 1000px) {
-      flex-wrap:wrap;
+    @media screen and (max-width: 1024px) {
+      width:90%;
+      flex-wrap: wrap;
+    }
+    @media screen and (max-width: 769px) {
+      width: 100%;
+      margin-top: 0;
     }
   }
   &-main {
     width: 70%;
-    @media screen and (max-width: 1000px) {
+    @media screen and (max-width: 1024px) {
+      width: 100%;
+    }
+    @media screen and (max-width: 769px) {
       width: 100%;
     }
   }
   &-sidebar {
     width: 31%;
-    @media screen and (max-width: 1000px) {
+    @media screen and (max-width: 1024px) {
+      width: 100%;
+    }
+    @media screen and (max-width: 769px) {
+      width: 90%;
+    }
+    @media screen and (max-width: 680px) {
       width: 100%;
     }
   }

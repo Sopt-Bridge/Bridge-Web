@@ -1,70 +1,72 @@
 <template>
 <div class="Toolbar-container">
-    <div class="Toobar">
-        <div class="Toobar-wrap">
-            <div class="Toobar-upBox">
-                <div class="Toobar-logo">
-                    <router-link :to="home">
-                        <img src="../../assets/img/short logo.svg" class="main_logo">
-                    </router-link>
-                </div>
-                <div class="Toobar-search">
-                    <search-bar @addItem="addOneItem" class="Toolbar-search-bar" :styleObj="searchStyle" :propsSearchItems="searchItemList"></search-bar>
-                </div>
-                <button class="nav-search-btn"><v-icon color="white">search</v-icon></button>
-            </div>
-            <div class="Toobar-items">
-                <router-link class="Toobar-items-item" :to="{ name : 'Subscribe' }">
-                    Subscriptions
-                </router-link>
-                <router-link class="Toobar-items-item Toobar_Btn" :to="{ name : 'Request' }">
-                    Request
-                </router-link>
-                <div class="Toobar-items-myinfo">
-                    <v-menu offset-y min-width="250">
-                        <v-btn icon slot="activator">
-                            <v-icon>perm_identity</v-icon>
-                        </v-btn>
-                        <v-list class="Toolbar-items-myinfo-contents">
-                            <v-list-tile>
-                                <v-list-tile-title>
-                                    <div class="Toolbar-items-myinfo-content">
-                                        {{ name }}
-                                    </div>
-                                </v-list-tile-title>
-                            </v-list-tile>
-                            <v-list-tile>
-                              <div class="Toolbar-items-myinfo-content">
-                                {{ email }}
-                              </div>
-                            </v-list-tile>
-                            <v-divider/>
-                            <v-list-tile>
-                                 <div class="Toolbar-items-myinfo-content">
-                                    <v-icon class="Toolbar-items-myinfo-content-icon">list</v-icon>
-                                    <span class="Toolbar-items-myinfo-content-text">내가 쓴 글</span>
-                                </div>
-                            </v-list-tile>
-                            <v-list-tile>
-                                
-                                <div class="Toolbar-items-myinfo-content">
-                                    <v-icon class="Toolbar-items-myinfo-content-icon">folder</v-icon>
-                                    <span class="Toolbar-items-myinfo-content-text">Library</span>
-                                </div>
-                                        
-                            </v-list-tile>
-                            <v-list-tile avatar class="Toolbar-items-myinfo-content-signout-section">
-                                <div class="Toolbar-items-myinfo-content Toolbar-items-myinfo-content-signout">
-                                    Sign out
-                                </div>
-                            </v-list-tile>
-                        </v-list>
-                    </v-menu>
-                </div>
-
-            </div>
+  <div class="Toobar">
+    <div class="Toobar-wrap">
+      <div class="Toobar-upBox">
+        <div class="Toobar-logo">
+          <router-link :to="home">
+            <img src="../../assets/img/short logo.svg" class="main_logo">
+          </router-link>
         </div>
+        <div class="Toobar-search">
+          <search-bar @addItem="addOneItem" class="Toolbar-search-bar" :styleObj="searchStyle" :propsSearchItems="searchItemList"></search-bar>
+        </div>
+        <button class="nav-search-btn"><v-icon color="white">search</v-icon></button>
+      </div>
+      <div class="Toobar-items">
+        <router-link class="Toobar-items-item" :to="{ name : 'Subscribe' }">
+          Subscriptions
+        </router-link>
+        <router-link class="Toobar-items-item Toobar_Btn" :to="{ name : 'Request' }">
+          Request
+        </router-link>
+        <div class="Toobar-items-myinfo">
+          <v-menu offset-y min-width="250">
+            <v-btn icon slot="activator">
+              <v-icon>perm_identity</v-icon>
+            </v-btn>
+            <v-list class="Toolbar-items-myinfo-contents">
+              <v-list-tile>
+                <v-list-tile-title>
+                  <div class="Toolbar-items-myinfo-content">
+                    {{ name }}
+                  </div>
+                </v-list-tile-title>
+              </v-list-tile>
+              <v-list-tile>
+                <div class="Toolbar-items-myinfo-content">
+                  {{ email }}
+                </div>
+              </v-list-tile>
+              <v-divider/>
+              <v-list-tile>
+                <div class="Toolbar-items-myinfo-content">
+                  <v-icon class="Toolbar-items-myinfo-content-icon">list</v-icon>
+                  <span class="Toolbar-items-myinfo-content-text">내가 쓴 글</span>
+                </div>
+              </v-list-tile>
+              <v-list-tile>
+
+                <router-link class="menu-item" :to="{name:'myPage'}">
+                  <div class="Toolbar-items-myinfo-content">
+                    <v-icon class="Toolbar-items-myinfo-content-icon">folder</v-icon>
+                    <div class="Toolbar-items-myinfo-content-text">Library</div>
+                  </div>
+                </router-link>
+
+              </v-list-tile>
+              <v-list-tile avatar class="Toolbar-items-myinfo-content-signout-section">
+                <div class="Toolbar-items-myinfo-content Toolbar-items-myinfo-content-signout">
+                  Sign out
+                </div>
+              </v-list-tile>
+            </v-list>
+          </v-menu>
+        </div>
+
+      </div>
     </div>
+  </div>
 </div>
 </template>
 
@@ -192,6 +194,23 @@ export default {
         text-decoration: none;
       }
     }
+  }
+}
+
+.menu-item {
+  text-decoration: none;
+  color: black;
+  width: 100%;
+  height: 90%;
+  display: flex;
+  .Toolbar-items-myinfo-content {
+    display: flex;
+    align-items: center;
+
+  }
+  &:hover {
+    transition: 0.5s;
+    background-color: rgba(151, 150, 150, 0.596);
   }
 }
 
