@@ -18,7 +18,7 @@
                             <div>
                                 <!--***AXIOS**-->
                                 <p class="req-comment-user-info-btn">DELETE</p>
-                                <p class="req-comment-user-info-btn req-comment-user-info-btn-reply">REPLY</p>
+                                <p class="req-comment-user-info-btn req-comment-user-info-btn-reply" @click="toggleShowReply()">REPLY</p>
                             </div>
                         </div>
                         <div class="req-comment-user-info-date-section req-comment-user-info-detail">
@@ -42,7 +42,18 @@
 </template>
 
 <script>
-export default {};
+export default {
+    props : ["propsShowReply"],
+    methods : {
+        toggleShowReply(){
+            let temp = !this.propsShowReply;
+            this.$emit("changeData", temp);
+        }
+    },
+    computed : {
+        
+    }
+};
 </script>
 
 <style lang='scss' scoped>

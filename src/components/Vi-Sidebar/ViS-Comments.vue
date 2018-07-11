@@ -17,6 +17,10 @@
     <div class="ViS-Comments-items">
       <!-- <ViS-Items :item="item"></ViS-Items> -->
       <div class="ViS-Comments-items-item">
+        <!-- <comment></comment> -->
+        <CommentAllInOne></CommentAllInOne>
+      </div>
+      <!-- <div class="ViS-Comments-items-item">
         <comment></comment>
       </div>
       <div class="ViS-Comments-items-item">
@@ -24,10 +28,7 @@
       </div>
       <div class="ViS-Comments-items-item">
         <comment></comment>
-      </div>
-      <div class="ViS-Comments-items-item">
-        <comment></comment>
-      </div>
+      </div> -->
     </div>
   </div>
 </template>
@@ -35,6 +36,7 @@
 <script>
 import Items from "./ViS-Items.vue";
 import Comment from "../Comment/Comment.vue";
+import CommentAllInOne from "../Comment/CommentAllInOne"
 export default {
   data() {
     return {
@@ -92,7 +94,8 @@ export default {
   },
   components: {
     "ViS-Items": Items,
-    Comment
+    Comment,
+    CommentAllInOne
   }
 };
 </script>
@@ -102,7 +105,7 @@ export default {
 .ViS-Comments {
   &-textField {
     display: flex;
-    padding: 10px 20px 10px 20px;
+    padding: 8px 15px 8px 15px;
     &-content {
       width: 100%;
 
@@ -114,7 +117,7 @@ export default {
       &-btn {
         margin-left: 15px;
         width: 100px;
-        height: 40px;
+        height: 45px;
         background-color: $grey-text;
         border-radius: 5px;
         
@@ -127,9 +130,7 @@ export default {
   }
   &-items {
     padding-right: 15px;
-    &-item {
-      border-bottom: 1px solid $grey-text;
-    }
+    
   }
 }
 </style>
