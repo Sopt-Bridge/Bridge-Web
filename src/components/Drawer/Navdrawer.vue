@@ -44,7 +44,7 @@ export default {
         },
         changeColor(index) {
             console.log(index);
-            this.$emit('navBtn',index);
+            this.$emit('navBtnState',index);
             for (let i = 0; i < this.btnLength; i++) {
                 document.getElementsByClassName(this.position)[i].style.color = "#333333";
             }
