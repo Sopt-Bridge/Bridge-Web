@@ -5,7 +5,9 @@
     <main-poster></main-poster>
     <contents :headTxt="nowTrend">
       <v-flex v-for="i in cards" :key="i" xs6 md3 slot="card">
-        <video-card :wrap="true"></video-card>
+        <video-card :wrap="true">
+          <more-menu slot="more"></more-menu>
+        </video-card>
       </v-flex>
     </contents>
   </div>
@@ -14,7 +16,7 @@
 
 <script>
 import contents from '../components/Contents/Contents.vue'
-
+import moreMenu from '../components/Card/Home-cardMore'
 export default {
   data() {
     return {
@@ -23,7 +25,7 @@ export default {
     }
   },
   components: {
-    contents
+    contents,moreMenu
   }
 
 

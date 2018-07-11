@@ -2,6 +2,6 @@ import VideoContent from '@/pages/VideoContents.vue'
 
 export const video = {
     path : '/video',
-    name : 'Video',
+    name : 'video',
     component : VideoContent
 }

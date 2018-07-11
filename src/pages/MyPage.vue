@@ -10,7 +10,14 @@
         <edit></edit>
       </div>
       <v-flex v-for="i in cards" :key="i" xs12 slot="card">
-        <video-card class="MyPage-body-card" :wrap="false"></video-card>
+        <video-card class="MyPage-body-card" :wrap="false">
+          <v-card slot="more">
+            <v-card-title>
+              Remove from this folder
+            </v-card-title>
+          </v-card>
+          <!-- <v-btn slot="more">Remove from this folder</v-btn> -->
+        </video-card>
       </v-flex>
     </Contents>
   </div>
@@ -28,7 +35,8 @@ export default {
     }
   },
   components: {
-    'Library': Libaray,edit
+    'Library': Libaray,
+    edit
   }
 
 }
@@ -36,11 +44,11 @@ export default {
 <style lang='scss' scoped>
 .MyPage {
   &-head {
-    margin:0 auto;
-    margin-top:100px;
+    margin: 0 auto;
+    margin-top: 100px;
     max-width: 1024px;
     // min-width:800px;
-    width:100%;
+    width: 100%;
     @media screen and (max-width: 800px) {
       overflow-x: scroll;
     }
@@ -60,5 +68,4 @@ export default {
     top: -57.2px;
   }
 }
-
 </style>

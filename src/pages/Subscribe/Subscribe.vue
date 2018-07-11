@@ -3,24 +3,24 @@
   <div class="Subscribe-heading">
     <div class="Subscribe-headingWrap">
       <h1 class="Subscribe-headingH1">PiCK</h1>
-      <div class="Subscribe-headingBtn">
-        + more
-      </div>
+      <subscribe-modal></subscribe-modal>
     </div>
     <div class="swiper">
       <div class="swiper-btn">
         <i class="material-icons">arrow_back_ios</i>
       </div>
       <swiper class="swiper1" :options="swiperOption1">
-        <swiper-slide class="swiper-slide" v-for="i in 12" :key="i">
-          <img class="swiper-slideImg" src="https://is4-ssl.mzstatic.com/image/thumb/Music128/v4/30/68/7a/30687a5b-ccc5-0b1a-3035-574c060f2508/cover-KARD.jpg/600x600bf.jpg" alt="">
-          <div class="swiper-slideText">{{i}}</div>
+        <swiper-slide class="swiper-slide" v-for="i in 12" :key="'swiper1'+i">
+          <div>
+            <img class="swiper-slideImg" src="http://cmsimg.mnet.com/clipimage/album/240/002/213/2213017.jpg" alt="">
+            <div class="swiper-slideText">#NU'EST{{i}}</div>
+          </div>
         </swiper-slide>
       </swiper>
       <swiper class="swiper2" :options="swiperOption2">
-        <swiper-slide class="swiper-slide" v-for="i in 12" :key="i">
-          <img class="swiper-slideImg" src="@/assets/img/baseline-subdirectory_arrow_right-24px.svg" alt="">
-          <div class="swiper-slideText">#NU'EST</div>
+        <swiper-slide class="swiper-slide" v-for="j in 12" :key="'swiper2'+j">
+          <img class="swiper-slideImg" src="http://cmsimg.mnet.com/clipimage/album/240/002/213/2213017.jpg" alt="">
+          <div class="swiper-slideText">#NU'EST{{j}}</div>
         </swiper-slide>
       </swiper>
       <div class="swiper-btn">
@@ -32,14 +32,39 @@
     <div class="Subscribe-bodyHead">
       <div class="Subscribe-bodyLB">
         <h1 class="Subscribe-bodyH1">#BTS</h1>
-        <div class="Subcribe-bodyBtn">Subscribe</div>
+        <!-- <div > -->
+        <button class="Subcribe-bodyBtn" flat @click="subClick" :style="{color:subBtnColor}">
+            <img :src="subscirbe" width="35px" alt="">
+            <span>Subscribe</span>
+          </button>
+        <!-- </div> -->
       </div>
-      <div class="Subscribe-bodyUpload">Upload date</div>
+      <v-menu offset-x left>
+        <button class="Subscribe-bodyUpload" slot="activator">
+          Upload date
+          <img :src="subFilter" width="25px" alt="">
+        </button>
+        <v-card>
+          <v-list-tile class="menu-list-item">
+            <v-list-tile-title>
+              Upload data
+            </v-list-tile-title>
+          </v-list-tile>
+          <v-list-tile class="menu-list-item">
+            <v-list-tile-title>
+              View count
+            </v-list-tile-title>
+          </v-list-tile>
+        </v-card>
+
+      </v-menu>
     </div>
     <v-container grid-list-lg fluid>
       <v-layout row wrap>
-        <v-flex class="Subscribe-content-flex" v-for="i in 12" :key="i" xs12 sm6>
-          <thumnail></thumnail>
+        <v-flex class="Subscribe-content-flex" v-for="k in 12" :key="'scf'+k" xs12 sm6>
+          <video-card>
+            <more-menu slot="more"></more-menu>
+          </video-card>
         </v-flex>
       </v-layout>
     </v-container>
@@ -48,62 +73,108 @@
 </template>
 
 <script>
-import thumnail from '../../components/Card/VideoCard.vue';
+import VideoCard from '../../components/Card/VideoCard.vue';
+import subscribeModal from '../../components/Modal/Subscribe-modal.vue'
+import moreMenu from '../../components/Card/Home-cardMore.vue'
+import subNomarlBtn from '../../assets/img/subscribe/drawable-xxxhdpi/subscribe_normal_btn.png';
+import subActivelBtn from '../../assets/img/subscribe/drawable-xxxhdpi/subscribe_active_btn.png';
+import subFilter from '../../assets/img/subscribe/drawable-xxxhdpi/search_filter_icon.png';
 
 export default {
-  name: 'carrousel',
   data() {
     return {
+      subBool: true,
       swiperOption1: {
         slidesPerView: 6,
+        spaceBetween: 1,
+        lazy: true,
       },
       swiperOption2: {
         slidesPerView: 4,
         freeMode: true,
+        lazy: true,
+      },
+      subFilter
+    }
+  },
+  computed: {
+    subscirbe() {
+      if (this.subBool) {
+        return subActivelBtn
+      } else if (!this.subBool) {
+        return subNomarlBtn
+      }
+    },
+    subBtnColor() {
+      if (this.subBool) {
+        return '#E31c9e'
+      } else if (!this.subBool) {
+        return '#9A9A9A'
       }
     }
   },
+  methods: {
+    subClick() {
+      this.subBool = !this.subBool;
+    }
+  },
   components: {
-    'thumnail': thumnail
+    'video-card': VideoCard,
+    'subscribe-modal': subscribeModal,
+    'more-menu': moreMenu
   }
 }
 </script>
 <style lang='scss' scoped>
 .Subscribe {
+  @media screen and (min-width: 511px) {
+    margin-top: 65px;
+  }
+  @media screen and (max-width: 510px) {
+    margin-top: 109px;
+  }
   max-width: 1300px;
   width: 100%;
   margin: 0 auto;
-  background-color: blue;
+  // background-color: blue;
   &-heading {
     // max-width: 1000px;
     // width: 100%;
-    margin: 0 auto;
+    // margin: 0 auto;
     &Wrap {
       display: flex;
       align-items: center;
-      background-color: slategrey;
+      // background-color: slategrey;
+    }
+    &Btn {
+      color: #9A9A9A;
     }
     &H1 {
       font-size: 43px;
     }
   }
   .swiper {
-    max-width:1200px;
+    max-width: 1200px;
     width: 100%;
     display: flex;
     margin: 0 auto;
     // margin-top:20px;
-    background-color: yellowgreen;
+    // background-color: yellowgreen;
     text-align: center;
-    
     &-slide {
-      padding-top:20px;
+      padding-top: 20px;
       // background-color: yellow;
       &Img {
-        height: 100px;
+        height: 120px;
+        width: 120px;
         border-radius: 100%;
-        @media screen and (max-width: 768px) {
-          height: 77px;
+        @media screen and (max-width: 865px) {
+          height: 100px;
+          width: 100px;
+        }
+        @media screen and (max-width: 650px) {
+          height: 85px;
+          width: 85px;
         }
         &:hover {
           animation: popUp 0.2s;
@@ -126,7 +197,7 @@ export default {
       }
     }
     &-btn {
-      background-color: azure;
+      // background-color: azure;
       display: flex;
       align-items: center;
       @media screen and (max-width: 768px) {
@@ -134,7 +205,7 @@ export default {
       }
     }
     &-btn i {
-      background-color: aqua;
+      // background-color: aqua;
       color: #CCCCCC;
       font-size: 42px;
     }
@@ -142,9 +213,9 @@ export default {
   &-body {
     // max-width: 1300px;
     margin: 0 auto;
-    margin-top:50px;
+    margin-top: 50px;
     width: 100%;
-    background-color: coral;
+    // background-color: coral;
     &Head {
       display: flex;
       align-items: center;
@@ -157,17 +228,17 @@ export default {
         &Btn {
           margin-left: 40px;
           font-size: 22px;
-          background-color: chartreuse;
+          // background-color: chartreuse;
         }
       }
     }
     &Upload {
-      background-color: brown;
+      // background-color: brown;
     }
   }
   &-content {
     &-flex {
-      background-color: cadetblue;
+      // background-color: cadetblue;
     }
   }
 } //end of Subscribe
@@ -176,7 +247,7 @@ export default {
 }
 
 .swiper1 {
-  @media screen and (max-width: 520px) {
+  @media screen and (max-width: 521px) {
     display:none;
   }
 }
@@ -185,5 +256,25 @@ export default {
   @media screen and (min-width: 520px) {
     display:none;
   }
+}
+
+.Subcribe-bodyBtn {
+  display: flex;
+  span {
+    margin-left: 10px;
+  }
+}
+
+.Subscribe-bodyUpload {
+  // color:#E31c9e;
+  font-size: 17px;
+  img {
+    margin-left: 10px;
+  }
+}
+
+.menu-list-item:hover {
+  transition: 0.3s;
+  background-color: rgba(141, 141, 141, 0.5);
 }
 </style>
