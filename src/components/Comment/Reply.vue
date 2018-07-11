@@ -1,104 +1,60 @@
 <template>
-            <v-layout row wrap>
-                <!-- ***AXIOS*** -->
-                <div class="req-comment-section">
-                    <div class="req-comment-user-icon">
-                        <v-icon>person</v-icon>
-                    </div>
-                    <div class="req-comment-user-container">
-                        <div class="req-comment-user-info">
-                            <div class="req-comment-user-info-nickname req-comment-user-info-detail">
-                                <div>
-                                    <!--***AXIOS**-->
-                                    <p>SML</p>
-                                </div>
-                                <v-spacer/>
-                                <div>
-                                    <!--***AXIOS**-->
-                                    <p class="req-comment-user-info-btn">DELETE</p>
-                                    <p class="req-comment-user-info-btn req-comment-user-info-btn-reply">REPLY</p>
-                                </div>
-                            </div>
-                            <div class="req-comment-user-info-date-section req-comment-user-info-detail">
-                                <div>
-                                    <!--***AXIOS**-->
-                                    <p class="req-comment-user-info-date">01/01/2018</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="req-comment-user-comment-detail">
-                            <!--***AXIOS**-->
-                            <p>Hello World! I'm Sang min lee. ahahahaha</p>
-                        </div>
-                    </div>
-                </div>
-            </v-layout>
+    <div class="reply">
+        <div class="req-comment-reply-section">
+            <div class="req-comment-reply-icon">
+                <v-icon>subdirectory_arrow_right</v-icon>
+            </div>
+            <comment class="req-comment-reply"></comment>
+        </div>
+    </div>
 </template>
-<script>
-export default {
 
-}
+<script>
+    import Comment from "./Comment.vue";
+    export default {
+        components: {
+            Comment
+        }
+    };
 </script>
+
 <style lang='scss' scoped>
     @import "styles/common.scss";
-    p{
+    p {
         display: inline;
-        font-size : 15px;
+        font-size: 15px;
     }
-    i{
-        width : 70px;
-        height : 70px;
-        font-size : 45px;
-        margin-left : 10px;
+    
+    .reply {
+        width: 100%;
     }
-
-    .req-comment{
-        &-section{
-            width : $remain;
-            height : $comment-height;
-            border-bottom : 1px solid $grey-text;
-            display: flex;
-        }
-        &-user{
-            &-icon{
-                width : 92px;
-            }
-            &-container{
+    
+    .req-comment {
+        &-reply {
+            
+            &-section {
+                border-bottom: 1px solid $grey-text;
+                padding-left: 15px;
                 display: flex;
-                flex-direction: column;
-                width : 100%;
-            }
-            &-comment{
-                &-detail{
-                    height : 100%;
+                @include media("(max-width : 620px)") {
+                    padding-left: 0px;
                 }
             }
-            &-info{
-                width : 100%;
-                height : 70px;
-                &-nickname{
-                    width : 100%;
-                    height : 60%;
+            &-btn {
+                width: $button-width-height;
+                background-color: $grey-text;
+                border-radius: 5px;
+                height: 45px;
+                margin-top: 19px;
+                @include media("(max-width : 620px)") {
+                    height: 60px;
                 }
-                &-detail{
-                    display: flex;
-                    align-items : flex-end;
-                }
-                &-btn{
-                    font-size : 13px;
-                    cursor: pointer;
-                    &-reply{
-                        margin-left : 26px;
-                    }
-                }
-                &-date{
-                    font-size : 13px;
-                    color : $grey-text;
-                    &-section{
-                    width : 100%;
-                    height : 30%;
-                    }
-                }
+            }
+        }
+        &-user {
+            &-content {
+                width: 100%;
+                height: 100%;
             }
         }
     }
