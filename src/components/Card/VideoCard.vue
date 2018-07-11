@@ -2,17 +2,17 @@
 <div class="VideoCard" :style="wraping" to="/video">
   <div class="VideoCard-content">
     <router-link :to="{name:'video'}">
-      <img class="VideoCard-content-thumb" src="https://i.ytimg.com/vi/uM5UpRk-tuk/maxresdefault.jpg" alt="">
+      <img class="VideoCard-content-thumb" :src="item.contentsUrl" alt="">
       <div class="VideoCard-content-play">
         <img src="@/assets/img/baseline-play_arrow-24px.svg" alt="">
       </div>
-      <div class="VideoCard-content-time">04:29</div>
+      <div class="VideoCard-content-time">{{item.contentsRuntime}}</div>
     </router-link>
   </div>
   <div class="VideoCard-infor">
     <div class="VideoCard-infor-heading">
       <router-link :to="{name:'video'}">
-        BTS - FAKE LOVE @BTS PERFECT COMEBACK SHOW PLEASE FOLLOW FOLLOW ME EVERYDAY SUBSCRIBE ME ME
+      {{item.contentsTitle}}
       </router-link>
     </div>
     <div class="VideoCard-infor-moreBtn">
@@ -22,14 +22,14 @@
         </slot>
       </v-menu>
     </div>
-    <div class="VideoCard-infor-hastag">#BTS #BANGTANTV
+    <div class="VideoCard-infor-hastag">{{item.hashName1}} {{item.hashName2}} {{item.hashName3}}
     </div>
   </div>
 </div>
 </template>
 <script>
 export default {
-  props: ['wrap'],
+  props: ['wrap','item'],
   computed: {
     wraping() {
       if (this.wrap) {
@@ -60,18 +60,9 @@ export default {
 </script>
 <style lang='scss' scoped>
 .VideoCard {
-  // background-color: bisque;
   display: flex;
   flex-wrap: wrap;
-  // align-items: center;
-  // max-width: auto;
-  // height: 100%;
   &-content {
-    // max-width:60%;
-    // flex-grow: 1;
-    // max-width: auto;
-    // height: 100%;
-    // background-color: blue;
     align-items: center;
     position: relative;
     &:hover &-play {

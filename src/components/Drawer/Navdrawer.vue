@@ -21,6 +21,7 @@
 </template>
 
 <script>
+import {mapMutations} from 'vuex'
 import more_icon from '../../assets/img/hamburger_open_btn.svg'
 export default {
     props: ['items', 'position'],
@@ -43,8 +44,9 @@ export default {
             return !this.drawer;
         },
         changeColor(index) {
+            this.$store.commit('getHomeNowtrend');
             console.log(index);
-            this.$emit('navBtnState',index);
+            this.$emit('navBtnState', index);
             for (let i = 0; i < this.btnLength; i++) {
                 document.getElementsByClassName(this.position)[i].style.color = "#333333";
             }
@@ -53,7 +55,7 @@ export default {
             if (window.screen.availWidth < 510) {
                 this.drawer = false;
             }
-        }
+        },
     }
 };
 </script>

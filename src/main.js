@@ -21,12 +21,18 @@ Vue.use(VueAwesomeSwiper)
 import axios from 'axios'
 Vue.prototype.$http = axios;
 
+// vuex setting
+// import Vuex from 'vuex'
+// Vue.use(Vuex);
+import store from './store/store'
+
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,
+  store,
   components: {
     App,
     Global
