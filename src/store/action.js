@@ -9,3 +9,13 @@ export const homeAction = {
     })
   }
 }
+
+
+export const searchAction = {
+  setSearchResult({commit},payload){
+    commit('setSearchResult');
+    axios.get(api+'/search/search/'+payload.pageIdx+'/'+payload.searchname+'/'+payload.searchType+'/'+payload.sortType).then(res=>{
+      commit('setSearchResultFinish',res.data.data[0].contents_list)
+    })
+  }
+}

@@ -15,21 +15,20 @@
 </template>
 
 <script>
-import contents from '../components/Contents/Contents.vue'
-import moreMenu from '../components/Card/Home-cardMore'
-import {
-  mapGetters,mapMutations,mapActions
-} from 'vuex'
+import contents from "../components/Contents/Contents.vue";
+import moreMenu from "../components/Card/Home-cardMore";
+import { mapGetters, mapMutations, mapActions } from "vuex";
 
 export default {
   data() {
     return {
-      position: 'homeNav',
-      nowTrend: 'Now Trend',
-      postition: 'home',
+      position: "homeNav",
+      nowTrend: "Now Trend",
+      postition: "home",
       cards: 4,
       navState: 1,
-      navItem: [{
+      navItem: [
+        {
           title: "HOT"
         },
         {
@@ -44,33 +43,32 @@ export default {
         {
           title: "Culture"
         }
-      ],
-    }
+      ]
+    };
   },
-  computed:{
-    ...mapGetters(['homeNowTrendItem'])
+  computed: {
+    ...mapGetters(["homeNowTrendItem"])
   },
   components: {
     contents,
     moreMenu
   },
   methods: {
-    navBtnClick(index) {//navBtnClick하면 list 숫자를 입력하는 함수
+    navBtnClick(index) {
+      //navBtnClick하면 list 숫자를 입력하는 함수
       this.getHomeNowtrend(index);
       this.navState = index;
     },
-    ...mapActions(['getHomeNowtrend'])
+    ...mapActions(["getHomeNowtrend"])
   },
-  created(){
+  created() {
     this.getHomeNowtrend(this.navState);
   }
-
-
-}
+};
 </script>
 
 <style lang="scss" scoped>
-@import 'styles/common.scss';
+@import "styles/common.scss";
 .home {
   &-components {
     max-width: 1380px;

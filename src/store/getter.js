@@ -3,3 +3,9 @@ export const homeGetters = {
     return state.nowTrend
   }
 }
+
+export const searchGetters = {
+  getSearchResult(state){
+    return state.result
+  }
+}
