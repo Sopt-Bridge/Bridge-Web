@@ -17,6 +17,10 @@ import VueAwesomeSwiper from 'vue-awesome-swiper'
 import 'swiper/dist/css/swiper.css'
 Vue.use(VueAwesomeSwiper)
 
+// axios setting
+import axios from 'axios'
+Vue.prototype.$http = axios;
+
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
