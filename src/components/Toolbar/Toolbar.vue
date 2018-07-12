@@ -11,7 +11,6 @@
         <div class="Toobar-search">
           <search-bar @addItem="addOneItem" class="Toolbar-search-bar" :styleObj="searchStyle" :propsSearchItems="searchItemList"></search-bar>
         </div>
-        <button class="nav-search-btn"><v-icon color="white">search</v-icon></button>
       </div>
       <div class="Toobar-items">
         <router-link class="Toobar-items-item" :to="{ name : 'Subscribe' }">
