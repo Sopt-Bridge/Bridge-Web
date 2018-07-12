@@ -4,7 +4,7 @@
             <v-layout row wrap class="req-detail-title-section">
                 <div class="req-detail-title">
                         <!-- AXIOS -->
-                    <h2 class="req-detail-title-tag">제목입니다.</h2>
+                    <h2 class="req-detail-title-tag">{{$route.query.iboardTitle}}</h2>
                 </div>
                 <v-spacer></v-spacer>
                 <div class="req-detail-translate">
@@ -16,29 +16,25 @@
                 <div class="req-detail-author">
                     <p class="req-detail-tag">Author</p>
                     <!-- AXIOS -->
-                    <p>moonluv</p>
+                    <p>{{$route.query.userName}}</p>
                 </div>
                 <v-spacer></v-spacer>
                 <div class="req-detail-date">
                     <p class="req-detail-tag">Date</p>
                     <!-- AXIOS -->
-                    <p>2018.07.21</p>
+                    <p>{{$route.query.iboardDate}}</p>
                 </div>                
             </v-layout>
             <v-layout row wrap class="req-detail-board-content-section">
                 
                     <div class="req-detail-link">
                         <!-- AXIOS -->
-                        <a href="https://tv.naver.com/v/3519878"><p>https://tv.naver.com/v/3519878</p></a>
+                        <a :href="$route.query.iboardUrl"><p>{{$route.query.iboardUrl}}</p></a>
                     </div>
                     <div class="req-detail-board-content-text-section">
                         <!-- AXIOS -->
                         <p class="req-detail-board-content-text">
-                            뉴이스트 영상요청이요!!뉴이스트 영상요청이요!!뉴이스트 영상요청이요!!뉴이스트 영상요청이요!!뉴이스트 영상요청이요!!뉴이스트 영상요청이요!!
-                            뉴이스트 영상요청이요!!뉴이스트 영상요청이요!!뉴이스트 영상요청이요!!뉴이스트 영상요청이요!!뉴이스트 영상요청이요!!뉴이스트 영상요청이요!!뉴이스트 영상요청이요!!
-                            뉴이스트 영상요청이요!!뉴이스트 영상요청이요!!뉴이스트 영상요청이요!!뉴이스트 영상요청이요!!뉴이스트 영상요청이요!!뉴이스트 영상요청이요!!
-                            뉴이스트 영상요청이요!!뉴이스트 영상요청이요!!뉴이스트 영상요청이요!!뉴이스트 영상요청이요!!뉴이스트 영상요청이요!!뉴이스트 영상요청이요!!
-                            뉴이스트 영상요청이요!!뉴이스트 영상요청이요!!뉴이스트 영상요청이요!!뉴이스트 영상요청이요!!뉴이스트 영상요청이요!!뉴이스트 영상요청이요!!
+                            {{$route.query.iboardContent}}
                         </p>
                     </div>
                 
