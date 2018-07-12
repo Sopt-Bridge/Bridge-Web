@@ -2,15 +2,15 @@
 <div class="home">
   <navdrawer :items="navItem" :position="position" @navBtnState="navBtnClick"></navdrawer>
   <div class="home-components">
-    <main-poster></main-poster>
-    <contents class="home-contents" :headTxt="Trending">
+    <main-poster v-if="navState===0"></main-poster>
+    <contents class="home-contents" v-if="navState===0" :headTxt="Trending">
       <v-flex v-for="(item,index) in homeNowTrendItem" :key="index" xs6 md3 slot="card">
         <video-card :nowrap="false" :item="item">
           <more-menu slot="more"></more-menu>
         </video-card>
       </v-flex>
     </contents>
-    <contents class="home-contents" :headTxt="Recommended">
+    <contents class="home-contents" v-if="navState===0" :headTxt="Recommended">
       <v-flex v-for="(item,index) in homeRecommendItem" :key="index" xs6 md3 slot="card">
         <video-card :nowrap="false" :item="item">
           <more-menu slot="more"></more-menu>
