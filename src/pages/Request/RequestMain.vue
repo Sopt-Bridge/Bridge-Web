@@ -7,8 +7,8 @@
                     <div class="req-search-section-content">
                         <input type="text" class="req-search-text">
                         <button class="req-search-btn">
-                            <v-icon>search</v-icon>
-                        </button>
+                                <v-icon>search</v-icon>
+                            </button>
                     </div>
                     <div>
                         <router-link :to="requestWrite">
@@ -17,7 +17,7 @@
                     </div>
                 </div>
             </v-layout>
-            <v-layout row class="board-header">
+            <v-layout row class="board-header" >
                 <v-flex xs1 sm1 md1 lg1 class="board-no">
                     <p class="board-header-content">No</p>
                 </v-flex>
@@ -31,178 +31,23 @@
                 </v-flex>
     
             </v-layout>
-            <v-layout row class="board-elems">
+            <v-layout row class="board-elems" v-for="(item,index) in getRequestResult" :key="index">
                 <!--****************AXIOS****************-->
                 <v-flex xs1 sm1 md1 lg1 class="board-no">
-                    <p class="board-elems-content">448</p>
+                    <p class="board-elems-content">1</p>
                 </v-flex>
     
                 <v-flex xs6 sm7 md7 lg7 class="board-elem-text">
-                    <p class="board-elems-content">뉴이스트 영샹 요청이요</p>
+                    <p class="board-elems-content">{{item.iboardTitle}}</p>
                 </v-flex>
                 <v-flex xs3 sm2 md2 lg2>
-                    <p class="board-elems-content">moonluv</p>
+                    <p class="board-elems-content">{{item.userName}}</p>
                 </v-flex>
                 <v-flex xs1 sm1 md1 lg1>
-                    <p class="board-elems-content">2018.01.01</p>
+                    <p class="board-elems-content">{{item.iboardDate}}</p>
                 </v-flex>
     
             </v-layout>
-            <v-layout row class="board-elems">
-                <v-flex xs1 sm1 md1 lg1 class="board-no">
-                    <p class="board-elems-content">448</p>
-                </v-flex>
-    
-                <v-flex xs6 sm7 md7 lg7 class="board-elem-text">
-                    <p class="board-elems-content">뉴이스트 영샹 요청이요</p>
-    
-                </v-flex>
-                <v-flex xs3 sm2 md2 lg2>
-                    <p class="board-elems-content">moonluv</p>
-                </v-flex>
-                <v-flex>
-                    <p class="board-elems-content">2018.01.01</p>
-                </v-flex>
-    
-            </v-layout>
-            <v-layout row class="board-elems">
-                <v-flex xs1 sm1 md1 lg1 class="board-no">
-                    <p class="board-elems-content">448</p>
-                </v-flex>
-    
-                <v-flex xs6 sm7 md7 lg7 class="board-elem-text">
-                    <p class="board-elems-content">뉴이스트 영샹 요청이요</p>
-    
-                </v-flex>
-                <v-flex xs3 sm2 md2 lg2>
-                    <p class="board-elems-content">moonluv</p>
-                </v-flex>
-                <v-flex>
-                    <p class="board-elems-content">2018.01.01</p>
-                </v-flex>
-    
-            </v-layout>
-            <v-layout row class="board-elems">
-                <v-flex xs1 sm1 md1 lg1 class="board-no">
-                    <p class="board-elems-content">448</p>
-                </v-flex>
-    
-                <v-flex xs6 sm7 md7 lg7 class="board-elem-text">
-                    <p class="board-elems-content">뉴이스트 영샹 요청이요</p>
-    
-                </v-flex>
-                <v-flex xs3 sm2 md2 lg2>
-                    <p class="board-elems-content">moonluv</p>
-                </v-flex>
-                <v-flex xs1 sm1 md2 lg1>
-                    <p class="board-elems-content">2018.01.01</p>
-                </v-flex>
-    
-            </v-layout>
-            <v-layout row class="board-elems">
-                <v-flex xs1 sm1 md1 lg1 class="board-no">
-                    <p class="board-elems-content">448</p>
-                </v-flex>
-    
-                <v-flex xs6 sm7 md7 lg7 class="board-elem-text">
-                    <p class="board-elems-content">뉴이스트 영샹 요청이요</p>
-    
-                </v-flex>
-                <v-flex xs3 sm2 md2 lg2>
-                    <p class="board-elems-content">moonluv</p>
-                </v-flex>
-                <v-flex xs1 sm1 md2 lg1>
-                    <p class="board-elems-content">2018.01.01</p>
-                </v-flex>
-    
-            </v-layout>
-            <v-layout row class="board-elems">
-                <v-flex xs1 sm1 md1 lg1 class="board-no">
-                    <p class="board-elems-content">448</p>
-                </v-flex>
-    
-                <v-flex xs6 sm7 md7 lg7 class="board-elem-text">
-                    <p class="board-elems-content">뉴이스트 영샹 요청이요</p>
-    
-                </v-flex>
-                <v-flex xs3 sm2 md2 lg2>
-                    <p class="board-elems-content">moonluv</p>
-                </v-flex>
-                <v-flex>
-                    <p class="board-elems-content">2018.01.01</p>
-                </v-flex>
-    
-            </v-layout>
-            <v-layout row class="board-elems">
-                <v-flex xs1 sm1 md1 lg1 class="board-no">
-                    <p class="board-elems-content">448</p>
-                </v-flex>
-    
-                <v-flex xs6 sm7 md7 lg7 class="board-elem-text">
-                    <p class="board-elems-content">뉴이스트 영샹 요청이요</p>
-    
-                </v-flex>
-                <v-flex xs3 sm2 md2 lg2>
-                    <p class="board-elems-content">moonluv</p>
-                </v-flex>
-                <v-flex>
-                    <p class="board-elems-content">2018.01.01</p>
-                </v-flex>
-    
-            </v-layout>
-            <v-layout row class="board-elems">
-                <v-flex xs1 sm1 md1 lg1 class="board-no">
-                    <p class="board-elems-content">448</p>
-                </v-flex>
-    
-                <v-flex xs6 sm7 md7 lg7 class="board-elem-text">
-                    <p class="board-elems-content">뉴이스트 영샹 요청이요</p>
-    
-                </v-flex>
-                <v-flex xs3 sm2 md2 lg2>
-                    <p class="board-elems-content">moonluv</p>
-                </v-flex>
-                <v-flex>
-                    <p class="board-elems-content">2018.01.01</p>
-                </v-flex>
-    
-            </v-layout>
-            <v-layout row class="board-elems">
-                <v-flex xs1 sm1 md1 lg1 class="board-no">
-                    <p class="board-elems-content">448</p>
-                </v-flex>
-    
-                <v-flex xs6 sm7 md7 lg7 class="board-elem-text">
-                    <p class="board-elems-content">뉴이스트 영샹 요청이요</p>
-    
-                </v-flex>
-                <v-flex xs3 sm2 md2 lg2>
-                    <p class="board-elems-content">moonluv</p>
-                </v-flex>
-                <v-flex>
-                    <p class="board-elems-content">2018.01.01</p>
-                </v-flex>
-    
-            </v-layout>
-            <v-layout row class="board-elems">
-                <v-flex xs1 sm1 md1 lg1 class="board-no">
-                    <p class="board-elems-content">448</p>
-                </v-flex>
-    
-                <v-flex xs6 sm7 md7 lg7 class="board-elem-text">
-                    <p class="board-elems-content">뉴이스트 영샹 요청이요</p>
-    
-                </v-flex>
-                <v-flex xs3 sm2 md2 lg2>
-                    <p class="board-elems-content">moonluv</p>
-                </v-flex>
-                <v-flex>
-                    <p class="board-elems-content">2018.01.01</p>
-                </v-flex>
-    
-    
-            </v-layout>
-    
         </v-container>
         <request-pagination></request-pagination>
     </div>
@@ -210,7 +55,18 @@
 
 <script>
     import RequestPagination from "../../components/Pagination/RequestPagination";
+    import {
+        mapGetters,
+        mapMutations,
+        mapActions
+    } from 'vuex'
     export default {
+        computed: {
+            ...mapGetters(['getRequestResult'])
+        },
+        methods : {
+            ...mapActions(["setRequestResult"])
+        },
         components: {
             RequestPagination
         },
@@ -219,8 +75,8 @@
                 requestWrite: "/request/write"
             };
         },
-        created(){
-            
+        created() {
+            this.setRequestResult();
         }
     };
 </script>

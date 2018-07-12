@@ -17,3 +17,13 @@ export const searchMutations = {
     console.log(payload);
   }
 }
+
+export const requestMutations = {
+  setRequestResult(state, payload){
+    console.log('set request result start');
+  },
+  setRequestResultFinish(state, payload){
+    state.result = payload;
+    console.log("set request result finish!");
+  }
+}
