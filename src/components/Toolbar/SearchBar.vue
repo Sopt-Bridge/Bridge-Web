@@ -22,8 +22,10 @@
           {{ noSearchResult }}
         </div>
       </div>
-  
     </div>
+    <button class="nav-search-btn" @click="addSearchItem"><v-icon color="white">search</v-icon></button>
+  
+  
   </div>
 </template>
 
@@ -51,6 +53,7 @@
         if (this.searchItem != "") {
           const now = moment().format("MM.DD");
           let tempSearchItem = this.searchItem;
+  
           const item = {
             date: now,
             searchItem: this.searchItem
@@ -59,15 +62,20 @@
           this.searchItem = "";
           let searchType = 1;
           if (tempSearchItem[0] == '#') searchType = 0;
+          let tempSearchName = '';
+          for (let i = 1; i < tempSearchItem.length; i++) {
+            tempSearchName += tempSearchItem[i];
+          }
           this.$router.push({
             path: 'search',
             query: {
               pageIdx: 0,
-              searchname: tempSearchItem,
+              searchname: tempSearchName,
               searchType: searchType,
               sortType: 0
             }
           })
+          location.reload();
         }
       }
     }
@@ -77,8 +85,23 @@
 <style lang='scss' scoped>
   @import "styles/common.scss";
   .Search {
+    display: flex;
+    width: 100%;
+  }
+  
+  .nav-search-btn {
+    height: 45px;
+    width: 45px;
+    background-color: $main-color;
+    @include media("(max-width : 510px)") {
+      margin-right: 8px;
+    }
+  }
+  
+  .Search {
     &-section {
       position: relative;
+      width : 100%;
     }
     &-textBar {
       border: 1px solid #e4e4e4;

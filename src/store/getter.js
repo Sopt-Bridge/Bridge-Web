@@ -15,3 +15,12 @@ export const searchGetters = {
     return state.result
   }
 }
+
+export const requestGetters = {
+  getRequestResult(state){
+    return state.result
+  },
+  getRequestSearchResult(state){
+    return state.result
+  }
+}
