@@ -51,6 +51,7 @@
         if (this.searchItem != "") {
           const now = moment().format("MM.DD");
           let tempSearchItem = this.searchItem;
+          
           const item = {
             date: now,
             searchItem: this.searchItem
@@ -59,11 +60,15 @@
           this.searchItem = "";
           let searchType = 1;
           if (tempSearchItem[0] == '#') searchType = 0;
+          let tempSearchName = '';
+          for(let i =1; i < tempSearchItem.length; i++){
+            tempSearchName += tempSearchItem[i];
+          }
           this.$router.push({
             path: 'search',
             query: {
               pageIdx: 0,
-              searchname: tempSearchItem,
+              searchname: tempSearchName,
               searchType: searchType,
               sortType: 0
             }

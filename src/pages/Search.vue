@@ -10,9 +10,9 @@
                         <v-spacer/>
                         <v-menu offset-x left>
                             <button class="search-header-btn" slot="activator">
-                                              {{btnName}}
-                                              <img :src="subFilter" width="25px" alt="">
-                                            </button>
+                                                  {{btnName}}
+                                                  <img :src="subFilter" width="25px" alt="">
+                                                </button>
                             <v-card>
                                 <v-list-tile class="search-header-btn-item">
                                     <v-list-tile-title @click="changeBtnName()">
@@ -91,10 +91,10 @@
         },
         created() {
             let data = {
-                pageIdx: 0,
-                searchname: 'nuest',
-                searchType: 1,
-                sortType: 0
+                pageIdx: this.$route.query.pageIdx,
+                searchname: this.$route.query.searchname,
+                searchType: this.$route.query.searchType,
+                sortType: this.$route.query.sortType
             }
             // this.setSearchResult(this.$route.params.query);
             this.setSearchResult(data);
