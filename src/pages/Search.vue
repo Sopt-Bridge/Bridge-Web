@@ -8,9 +8,25 @@
                             About {{ total }} results
                         </div>
                         <v-spacer/>
-                        <div>
-                            Upload date
-                        </div>
+                        <v-menu offset-x left>
+                            <button class="search-header-btn" slot="activator">
+                                              {{btnName}}
+                                              <img :src="subFilter" width="25px" alt="">
+                                            </button>
+                            <v-card>
+                                <v-list-tile class="search-header-btn-item">
+                                    <v-list-tile-title @click="changeBtnName()">
+                                        Upload date
+                                    </v-list-tile-title>
+                                </v-list-tile>
+                                <v-list-tile class="search-header-btn-item" @click="changeBtnNameReverse()">
+                                    <v-list-tile-title>
+                                        View count
+                                    </v-list-tile-title>
+                                </v-list-tile>
+                            </v-card>
+    
+                        </v-menu>
                     </div>
                 </v-flex>
             </v-layout>
@@ -28,6 +44,7 @@
 </template>
 
 <script>
+    import subFilter from '../assets/img/subscribe/drawable-xxxhdpi/search_filter_icon.png';
     import {
         mapGetters,
         mapMutations,
@@ -37,26 +54,52 @@
     export default {
         data() {
             return {
-                total: 40
+                total: 40,
+                subFilter,
+                btnName: "Upload date"
             }
         },
         computed: {
             ...mapGetters(['getSearchResult'])
         },
-        methods : {
-            ...mapActions(["setSearchResult"])
+        methods: {
+            ...mapActions(["setSearchResult"]),
+            changeBtnName() {
+                this.btnName = "Upload date";
+                this.$router.push({
+                    path: 'search',
+                    query: {
+                        pageIdx: this.$route.query.pageIdx,
+                        searchname: this.$route.query.searchname,
+                        searchType: this.$route.query.searchType,
+                        sortType: 0
+                    }
+                })
+            },
+            changeBtnNameReverse() {
+                this.btnName = "View count"
+                this.$router.push({
+                    path: 'search',
+                    query: {
+                        pageIdx: this.$route.query.pageIdx,
+                        searchname: this.$route.query.searchname,
+                        searchType: this.$route.query.searchType,
+                        sortType: 2
+                    }
+                })
+            }
         },
-        created(){
+        created() {
             let data = {
-                pageIdx : 0,
-                searchname : 'black',
-                searchType : 1,
-                sortType : 0
+                pageIdx: 0,
+                searchname: 'nuest',
+                searchType: 1,
+                sortType: 0
             }
             // this.setSearchResult(this.$route.params.query);
             this.setSearchResult(data);
         },
-        components : {
+        components: {
             moreMenu
         }
     
@@ -74,6 +117,16 @@
             display: flex;
             padding: 0px 10px 0px 10px;
             border-bottom: 3px solid black;
+            &-btn {
+                font-size: 17px;
+                img {
+                    margin-left: 10px;
+                }
+                &-item:hover {
+                    transition: 0.3s;
+                    background-color: rgba(141, 141, 141, 0.5);
+                }
+            }
         }
         &-elem {
             width: 100%;
