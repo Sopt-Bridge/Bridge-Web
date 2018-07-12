@@ -56,13 +56,13 @@ export default {
   methods: {
     navBtnClick(index) {
       //navBtnClick하면 list 숫자를 입력하는 함수
-      this.getHomeNowtrend(index);
+      this.setHomeNowtrend(index);
       this.navState = index;
     },
-    ...mapActions(["getHomeNowtrend"])
+    ...mapActions(["setHomeNowtrend"])
   },
   created() {
-    this.getHomeNowtrend(this.navState);
+    this.setHomeNowtrend(this.navState);
   }
 };
 </script>

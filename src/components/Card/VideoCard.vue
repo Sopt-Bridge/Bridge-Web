@@ -4,7 +4,8 @@
     <router-link :to="{name:'video'}">
       <div class="VideoCard-content-thumnail" :class="{'thumnail-wrap':nowrap}">
         <div class="VideoCard-content-thumnail-centered">
-          <img class="VideoCard-content-thumnail-centered-img" :class="{'img-wrap':nowrap}" :src="item.contentsUrl">
+          <img class="VideoCard-content-thumnail-centered-img" v-if="item.thumbnailUrl" :class="{'img-wrap':nowrap}" :src="item.contentsUrl">
+          <img class="VideoCard-content-thumnail-centered-img" v-else src="../../assets/img/no_detail_img.gif" alt="">
         </div>
       </div>
       <div class="VideoCard-content-play">

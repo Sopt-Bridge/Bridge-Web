@@ -44,7 +44,7 @@ export default {
             return !this.drawer;
         },
         changeColor(index) {
-            this.$store.commit('getHomeNowtrend');
+            this.$store.commit('setHomeNowtrend');
             console.log(index);
             this.$emit('navBtnState', index);
             for (let i = 0; i < this.btnLength; i++) {
