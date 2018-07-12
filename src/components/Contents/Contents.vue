@@ -1,6 +1,6 @@
 <template>
 <div class="Contents">
-  <v-container grid-list-lg fluid>
+  <v-container grid-list-lg fluid pt-3 pb-1>
     <div class="Contents-head">
       <div class="Contents-head-text">
         {{headTxt}}
@@ -32,19 +32,10 @@ export default {
   &-head {
     font-size: 18px;
     display:flex;
-    // background-color: aqua;
     justify-content: space-between;
     &-text{
       display:flex;
       align-items: center;
-      // background-color: bisque;
-    }
-    &-edit{
-      // display:flex;
-      // justify-content: flex-end;
-      // margin-left:auto;
-      // margin-right:0;
-      // background-color: #ffffff;
     }
   }
 }
