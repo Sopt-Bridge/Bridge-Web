@@ -5,7 +5,7 @@
     <main-poster></main-poster>
     <contents :headTxt="nowTrend">
       <v-flex v-for="(item,index) in homeNowTrendItem" :key="index" xs6 md3 slot="card">
-        <video-card :wrap="true" :item="item">
+        <video-card :nowrap="false" :item="item">
           <more-menu slot="more"></more-menu>
         </video-card>
       </v-flex>

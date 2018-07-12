@@ -1,10 +1,12 @@
 <template>
-<div class="VideoCard" :class="{'videoCard-wrap':nowrap}" to="/video">
-  <div class="VideoCard-content" :class="{'content-wrap':nowrap}">
+<div class="VideoCard" :style="{flexWrap:wraping.flexWrap}" to="/video">
+  <div class="VideoCard-content">
     <router-link :to="{name:'video'}">
-      <div class="VideoCard-content-thumnail" :class="{'thumnail-wrap':nowrap}">
-        <div class="VideoCard-content-thumnail-centered">
-          <img class="VideoCard-content-thumnail-centered-img" :class="{'img-wrap':nowrap}" :src="item.contentsUrl">
+      <div class="thumnail-wrapper">
+        <div class="thumbnail">
+          <div class="centered">
+            <img class="VideoCard-content-thumb" :src="item.contentsUrl">
+          </div>
         </div>
       </div>
       <div class="VideoCard-content-play">
@@ -33,8 +35,25 @@
 </template>
 <script>
 export default {
-  props: ['nowrap', 'item'],
-  computed: {},
+  props: ['wrap', 'item'],
+  computed: {
+    wraping() {
+      if (this.wrap) {
+        return {
+          // flexWrap: 'wrap',
+          // contentHeight: '100%',
+          // thumHeight: '100%',
+          // thumWidth: '100%'
+        }
+      } else {
+        return {
+          flexWrap: 'nowrap',
+          maxWidth: '40%',
+          width: '100%'
+        }
+      }
+    }
+  },
   mounted() {
     function isMobile() {
       return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
@@ -51,73 +70,14 @@ export default {
 </script>
 <style lang='scss' scoped>
 .VideoCard {
-  // no
-  // display:flex;
   height: 100%;
+  background-color: tomato;
   &-content {
-    background-color: rgb(173, 173, 173);
-    height: 150px;
-    @media screen and (max-width: 640px) {
-      height:135px;
-    }
-    @media screen and (max-width:510px) {
-      height: 110px;
-    }
-    @media screen and (max-width:450px) {
-      height: 90px;
-    }
-    // no
-    // width: 295px;
-    // @media screen and (max-width: 730px) {
-    //   width: 250px;
-    // }
-    // @media screen and (max-width: 560px) {
-    //   width: 210px;
-    // }
-    // @media screen and (max-width: 430px) {
-    //   width: 190px;
-    // }
-    // @media screen and (max-width: 375px) {
-    //   width: 140px;
-    // }
+    // align-items: center;
     position: relative;
-    &-thumnail {
-      // no
-      // width: 100%;
-      width: auto;
-      height: 100%;
-      position: relative;
-      // wrap
-      overflow: hidden;
-      &-centered {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        transform: translate(50%, 50%);
-        &-img {
-          position: absolute;
-          top: 0;
-          left: 0;
-          // no
-          // width: 100%;
-          width: auto;
-          height: 100%;
-          transform: translate(-50%, -50%);
-        }
-      }
-    }
-    &-play {
-      background-color: rgba(255, 255, 255, 0.8);
-      bottom: 6px;
-      left: 0;
-      width: 13%;
-      height: 20%;
-      position: absolute;
-      display: flex;
-      justify-content: center;
-    }
+    // overflow: hidden;
+    // height: 68%;
+    background-color: rgb(173, 173, 173);
     &:hover &-play {
       animation: playHover 0.3s;
       background-color: rgba(227, 28, 157, 0.9);
@@ -130,6 +90,21 @@ export default {
         background-color: rgba(227, 28, 157, 0.9);
       }
     }
+    &-thumb {
+      // width:100%;
+      // height: 100%;
+      // overflow: hidden;
+    }
+    &-play {
+      background-color: rgba(255, 255, 255, 0.8);
+      bottom: 6px;
+      left: 0;
+      width: 13%;
+      height: 20%;
+      position: absolute;
+      display: flex;
+      justify-content: center;
+    }
     &-time {
       color: white;
       font-size: 1.1vw;
@@ -140,14 +115,19 @@ export default {
     }
   }
   &-infor {
+    // width:100%;
+    // margin-top:-8%;
     background-color: wheat;
+    // transition: none;
     align-self: stretch;
-    padding-top: 3%;
+    // padding-top: 5px;
+    padding-bottom: 5px;
     padding-right: 2%;
+    flex-grow: 3;
     font-size: 16px;
     padding-left: 2%;
-    white-space: nowrap;
-    flex-grow: 1;
+    // white-space: nowrap;
+    flex-grow: 2;
     position: relative;
     &-heading {
       /* 한 줄 자르기 */
@@ -159,8 +139,7 @@ export default {
       /* 여러 줄 자르기 추가 스타일 */
       white-space: normal;
       line-height: 1.2;
-      max-height: 3.6em;
-      min-height: 2.5em;
+      height: 3.6em;
       text-align: left;
       word-wrap: break-word;
       display: -webkit-box;
@@ -181,6 +160,7 @@ export default {
       visibility: hidden;
     }
     &-hastag {
+      margin-top: 1em;
       color: #E31C9E;
     }
     @media screen and (max-width:1200px) {
@@ -201,6 +181,10 @@ export default {
 .VideoCard:hover .VideoCard-infor-moreBtn {
   transition: none;
   visibility: visible;
+}
+
+.thumbnail-wrappper {
+  width: 25%;
 }
 
 .thumbnail {
@@ -227,47 +211,9 @@ export default {
   left: 0;
   max-width: 100%;
   height: auto;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
 }
 
-.videoCard-wrap {
-  display: flex;
-}
-
-.content-wrap {
-  height: auto;
-  @media screen and (max-width: 640px) {
-    height: auto;
-  }
-  @media screen and (max-width:510px) {
-    height: auto;
-  }
-  @media screen and (max-width:450px) {
-    height: auto;
-  }
-  @media screen and (min-width:641px) {
-    height: auto;
-  }
-  width: 295px;
-  @media screen and (max-width: 730px) {
-    width: 250px;
-  }
-  @media screen and (max-width: 560px) {
-    width: 210px;
-  }
-  @media screen and (max-width: 430px) {
-    width: 190px;
-  }
-  @media screen and (max-width: 375px) {
-    width: 140px;
-  }
-}
-
-.thumnail-wrap {
-  width: 100%;
-}
-
-.img-wrap {
-  width: 100%;
-}
 </style>

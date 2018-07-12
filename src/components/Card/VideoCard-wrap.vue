@@ -1,10 +1,10 @@
 <template>
-<div class="VideoCard" :class="{'videoCard-wrap':nowrap}" to="/video">
-  <div class="VideoCard-content" :class="{'content-wrap':nowrap}">
+<div class="VideoCard" to="/video">
+  <div class="VideoCard-content">
     <router-link :to="{name:'video'}">
-      <div class="VideoCard-content-thumnail" :class="{'thumnail-wrap':nowrap}">
+      <div class="VideoCard-content-thumnail">
         <div class="VideoCard-content-thumnail-centered">
-          <img class="VideoCard-content-thumnail-centered-img" :class="{'img-wrap':nowrap}" :src="item.contentsUrl">
+          <img :src="item.contentsUrl">
         </div>
       </div>
       <div class="VideoCard-content-play">
@@ -33,8 +33,12 @@
 </template>
 <script>
 export default {
-  props: ['nowrap', 'item'],
-  computed: {},
+  props: ['wrap', 'item'],
+  computed: {
+    wraping() {
+
+    }
+  },
   mounted() {
     function isMobile() {
       return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
@@ -51,43 +55,27 @@ export default {
 </script>
 <style lang='scss' scoped>
 .VideoCard {
-  // no
-  // display:flex;
+  // display: flex;
+  // flex-wrap:wrap;
   height: 100%;
   &-content {
     background-color: rgb(173, 173, 173);
     height: 150px;
-    @media screen and (max-width: 640px) {
+    @media screen and (max-width:640px){
       height:135px;
     }
-    @media screen and (max-width:510px) {
-      height: 110px;
+    @media screen and (max-width:510px){
+      height:110px;
     }
-    @media screen and (max-width:450px) {
-      height: 90px;
+    @media screen and (max-width:450px){
+      height:90px;
     }
-    // no
-    // width: 295px;
-    // @media screen and (max-width: 730px) {
-    //   width: 250px;
-    // }
-    // @media screen and (max-width: 560px) {
-    //   width: 210px;
-    // }
-    // @media screen and (max-width: 430px) {
-    //   width: 190px;
-    // }
-    // @media screen and (max-width: 375px) {
-    //   width: 140px;
-    // }
     position: relative;
     &-thumnail {
-      // no
-      // width: 100%;
-      width: auto;
       height: 100%;
+      width: auto;
+      // height: 100%;
       position: relative;
-      // wrap
       overflow: hidden;
       &-centered {
         position: absolute;
@@ -96,12 +84,10 @@ export default {
         right: 0;
         bottom: 0;
         transform: translate(50%, 50%);
-        &-img {
+        img {
           position: absolute;
           top: 0;
           left: 0;
-          // no
-          // width: 100%;
           width: auto;
           height: 100%;
           transform: translate(-50%, -50%);
@@ -143,6 +129,7 @@ export default {
     background-color: wheat;
     align-self: stretch;
     padding-top: 3%;
+    // padding-bottom: 2%;
     padding-right: 2%;
     font-size: 16px;
     padding-left: 2%;
@@ -228,46 +215,5 @@ export default {
   max-width: 100%;
   height: auto;
   transform: translate(-50%, -50%);
-}
-
-.videoCard-wrap {
-  display: flex;
-}
-
-.content-wrap {
-  height: auto;
-  @media screen and (max-width: 640px) {
-    height: auto;
-  }
-  @media screen and (max-width:510px) {
-    height: auto;
-  }
-  @media screen and (max-width:450px) {
-    height: auto;
-  }
-  @media screen and (min-width:641px) {
-    height: auto;
-  }
-  width: 295px;
-  @media screen and (max-width: 730px) {
-    width: 250px;
-  }
-  @media screen and (max-width: 560px) {
-    width: 210px;
-  }
-  @media screen and (max-width: 430px) {
-    width: 190px;
-  }
-  @media screen and (max-width: 375px) {
-    width: 140px;
-  }
-}
-
-.thumnail-wrap {
-  width: 100%;
-}
-
-.img-wrap {
-  width: 100%;
 }
 </style>

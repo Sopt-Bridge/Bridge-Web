@@ -1,6 +1,6 @@
 export const homeMutations = {
-  getHomeNowtrend(state,payload){
-    console.log('getHomeNowtrend');
+  setHomeNowtrend(state,payload){
+    console.log('setHomeNowtrend');
   },
   presentHomeNowtrend(state,payload){
     state.nowTrend = payload
