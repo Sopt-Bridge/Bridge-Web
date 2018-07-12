@@ -13,5 +13,8 @@ export const searchGetters = {
 export const requestGetters = {
   getRequestResult(state){
     return state.result
+  },
+  getRequestSearchResult(state){
+    return state.result
   }
 }

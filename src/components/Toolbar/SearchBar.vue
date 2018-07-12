@@ -75,6 +75,7 @@
               sortType: 0
             }
           })
+          location.reload();
         }
       }
     }
