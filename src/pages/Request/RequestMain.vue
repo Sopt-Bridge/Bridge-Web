@@ -5,7 +5,7 @@
                 <v-spacer></v-spacer>
                 <div class="req-search-section">
                     <div class="req-search-section-content">
-                        <input type="text" class="req-search-text">
+                        <input type="text" class="req-search-text" v-model="requestSearch" @keyup.enter="requestSearchFunc">
                         <button class="req-search-btn">
                                 <v-icon>search</v-icon>
                             </button>
@@ -62,18 +62,23 @@
     } from 'vuex'
     export default {
         computed: {
-            ...mapGetters(['getRequestResult'])
-        },
-        methods : {
-            ...mapActions(["setRequestResult"])
+            ...mapGetters(['getRequestResult', 'getRequestSearchResult'])
         },
         components: {
             RequestPagination
         },
         data() {
             return {
-                requestWrite: "/request/write"
-            };
+                requestWrite: "/request/write",
+                requestSearch : ""
+            }
+        },
+        methods : {
+            ...mapActions(["setRequestResult", 'setRequestSearchResult']),
+            requestSearchFunc(){
+                if(this.requestSearch != "") this.setRequestSearchResult(this.requestSearch);
+                this.requestSearch = "";
+            }
         },
         created() {
             this.setRequestResult();

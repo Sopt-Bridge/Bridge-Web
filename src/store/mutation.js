@@ -25,5 +25,12 @@ export const requestMutations = {
   setRequestResultFinish(state, payload){
     state.result = payload;
     console.log("set request result finish!");
+  },
+  setRequestSearchResult(state, payload){
+    console.log("set request search result start!");
+  },
+  setRequestSearchResultFinish(state, payload){
+    state.result = payload;
+    console.log("set request search result finish!");
   }
 }

@@ -23,8 +23,14 @@ export const searchAction = {
 export const requestAction = {
   setRequestResult({commit}){
     commit('setRequestResult');
-    axios.get(api+'/trequest/trequest_listview/300').then(res=>{
+    axios.get(api+'/trequest/trequest_listview/0').then(res=>{
       commit('setRequestResultFinish',res.data.data[0].request_list)
+    })
+  },
+  setRequestSearchResult({commit}, payload){
+    commit('setRequestSearchResult');
+    axios.get(api+'/trequest/trequest_search/'+payload).then(res=>{
+      commit('setRequestSearchResultFinish',res.data.data[0].request_list)
     })
   }
 }
