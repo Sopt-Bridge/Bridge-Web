@@ -9,3 +9,9 @@ export const searchGetters = {
     return state.result
   }
 }
+
+export const requestGetters = {
+  getRequestResult(state){
+    return state.result
+  }
+}
