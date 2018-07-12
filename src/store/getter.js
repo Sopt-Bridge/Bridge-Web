@@ -24,3 +24,15 @@ export const requestGetters = {
     return state.result
   }
 }
+
+export const libraryGetters = {
+  getGroupList(state){
+    return state.groupList;
+  },
+  getGroupLength(state){
+    return state.groupLength;
+  },
+  getMyRecentVideo(state){
+    return state.myRecnetVideo
+  }
+}

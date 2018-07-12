@@ -11,3 +11,9 @@ export const searchState = {
 export const requestState = {
   result : null
 }
+
+export const libarayState = {
+  groupList : null,
+  groupLength : null,
+  myRecnetVideo:null
+}

@@ -44,3 +44,15 @@ export const requestMutations = {
     console.log("set request search result finish!");
   }
 }
+
+export const libraryMutatoins = {
+  setMyLibrary(state,payload){
+    state.groupList = payload;
+  },
+  setGroupLength(state,payload){
+    state.groupLength = payload.length;
+  },
+  setMyRecnetVideoResult(state,payload){
+    state.myRecnetVideo = payload;
+  }
+}

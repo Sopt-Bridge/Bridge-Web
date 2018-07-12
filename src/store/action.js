@@ -64,3 +64,20 @@ export const requestAction = {
     })
   }
 }
+
+export const libraryAction = {
+  setGroupList({commit},payload){
+    axios.get(api+'/library/grouplist/'+payload).then(res=>{
+      // console.log(res.data.data[0].group_list);
+      commit('setMyLibrary',res.data.data[0].group_list);
+      commit('setGroupLength',res.data.data[0].group_list);
+
+    })
+  },
+  setMyRecnetVideo({commit},payload){
+    axios.get(api+'/library/recentvideo/'+payload).then(res=>{
+      console.log(res.data.data[0].contents_list);
+      commit('setMyRecnetVideoResult',res.data.data[0].contents_list);
+    })
+  }
+}
