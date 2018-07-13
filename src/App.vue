@@ -1,6 +1,6 @@
 <template>
 <v-app>
-  <toolbar id="App-toolbar"></toolbar>
+  <toolbar id="App-toolbar" v-if="isActiveToolbar"></toolbar>
   <v-content>
     <router-view class="App-content"></router-view>
   </v-content>
@@ -24,6 +24,17 @@ export default {
       title: 'Vuetify.js'
     }
   },
+  computed: {
+    isActiveToolbar() {
+      console.log(this.$route.path);
+      if (this.$route.path==='/login') {
+        return false;
+      } else {
+        return true;
+      }
+    }
+
+  },
   name: 'App'
 }
 </script>
@@ -34,9 +45,11 @@ export default {
 .v-app {
   min-width: 320px;
 }
-#App-toolbar{
-  z-index:6;
+
+#App-toolbar {
+  z-index: 6;
 }
+
 .App {
   &-content {
     margin-top: 65px;
@@ -49,5 +62,4 @@ export default {
 .swiper-pagination-bullet-active {
   background-color: #ffffff;
 }
-
 </style>
