@@ -61,6 +61,12 @@ export const subscribeGetters = {
   }
 }
 
+export const contentsGetters = {
+  getContents(state){
+    return state.contents;
+  }
+}
+
 export const writeGetters = {
   getWriteResult(state){
     return state.writeResult
@@ -75,3 +81,4 @@ export const searchTraceGetters = {
     return state.searchTraceResult
   }
 }
+

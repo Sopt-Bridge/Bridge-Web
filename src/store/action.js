@@ -30,12 +30,13 @@ export const homeAction = {
   }, payload) {
     axios.get(api + '/home/recent/' + payload.category + '/' + payload.pageIdx).then(res => {
       if (res.data.data[0].contents_list.length !== 0) {
+        // console.log(res.data.data[0].contents_list);
         commit('pushRecentReadMore', res.data.data[0].contents_list);
       }
       commit('notReadMore');
       // console.log(res.data.data[0].contents_list.length === 0);
     })
-  }
+  },
 };
 
 export const searchAction = {
@@ -124,7 +125,7 @@ export const subscribeAction = {
       sortType : 0
     }
     console.log('asyncSetHashContentlist');
-    axios.post(api + '/subscribe/hashcontentlist', data).then(res => {
+    axios.post(api + '/subscribe/hashcontentlist', data,config).then(res => {
       commit('setHashContentlist', res.data.data[0].contents_list);
     })
   },
@@ -159,6 +160,22 @@ export const replyAction = {
   }
 };
 
+export const contentsAction = {
+  asyncSetContents({commit},payload){
+    let data = {
+      userIdx: 1,
+      contentsIdx: payload.contentsIdx,
+      contentsType: payload.contentsType
+    }
+    axios
+    .post(api+'/contents/getcontents',data)
+    .then(res=>{
+      commit('setContents',res.data.data[0].contents_list[0]);
+    })
+  }
+}
+
+
 export const writeAction = {
   setWriteResult({ commit }, payload) {
     commit("setWriteResult");
@@ -186,3 +203,4 @@ export const searchTraceAction = {
 
   }
 }
+

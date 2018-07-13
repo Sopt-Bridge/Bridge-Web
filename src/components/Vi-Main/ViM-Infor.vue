@@ -1,7 +1,7 @@
 <template>
 <div class="ViM-Infor">
   <div class="ViM-Infor-heading">
-    <div class="ViM-Infor-heading-text">BTS - FAKE LOVE @BTS PERFECT COMEBACK SHOW PLEASE FOLLOW FOLLOW ME EVERYDAY SUBSCRIBE ME ME
+    <div class="ViM-Infor-heading-text" v-text="getContents.contentsTitle">
     </div>
     <div class="ViM-Infor-heading-more">
       <v-menu :close-on-content-click="false">
@@ -10,18 +10,38 @@
       </v-menu>
     </div>
   </div>
-  <div class="ViM-Infor-tag">#BTS #BANGTANTV
+  <div class="ViM-Infor-tag">{{getContents.hashName1}} {{getContents.hashName2}} {{getContents.hashName3}}
   </div>
   <!-- <div class="ViM-Infor-time">3 min age</div> -->
-  <div class="ViM-Infor-src">BTS Official Homepage https:/bts.isjndk_vkaocorp.com</div>
+  <!-- <div class="ViM-Infor-src">BTS Official Homepage https:/bts.isjndk_vkaocorp.com</div> -->
 </div>
 </template>
 <script>
 import more from '../Card/Home-cardMore.vue'
+import {
+  mapGetters,mapActions
+} from 'vuex';
 export default {
   components: {
     more
-  }
+  },
+  computed: {
+    ...mapGetters(['getContents']),
+  },
+  watch: {
+    '$route': 'fetchData'
+  },
+  methods: {
+    ...mapActions(['asyncSetContents']),
+    fetchData() {
+      console.log('라우트 변경이 감지됨');
+      let data = {
+        contentsIdx: this.$route.params.contentsIdx,
+        contentsType: this.$route.params.contentsType
+      }
+      this.asyncSetContents(data);
+    }
+  },
 }
 </script>
 <style lang='scss' scoped>
@@ -73,5 +93,4 @@ export default {
     @include resSize(17px);
   }
 }
-
 </style>

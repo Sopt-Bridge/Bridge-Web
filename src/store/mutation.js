@@ -11,7 +11,9 @@ export const homeMutations = {
     // console.log(payload);
   },
   pushRecentReadMore(state,payload){
-    state.recent.push(payload);
+    console.log('pushReadMore');
+    console.log(payload);
+    state.recent = state.recent.concat(payload);
   },
   notReadMore(state){
     // console.log('notReadMore')
@@ -91,6 +93,13 @@ export const replyMutations = {
   }
 };
 
+
+export const contentsMutation = {
+  setContents(state,payload){
+    state.contents = payload;
+  }
+}
+
 export const writeMutations = {
   setWriteResult(state, payload) {
     console.log("set write result start!");
@@ -114,3 +123,4 @@ export const searchTraceMutations = {
     state.searchTraceResult = payload;
   }
 };
+
