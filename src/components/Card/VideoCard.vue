@@ -9,7 +9,8 @@
         </div>
       </div>
       <div class="VideoCard-content-play">
-        <img src="@/assets/img/baseline-play_arrow-24px.svg" alt="">
+        <img v-if="item.contentsType === 1" src="@/assets/img/thumnail_video_icon.png" alt="">
+        <img v-else-if="item.contentsType === 0" src="@/assets/img/thumnail_image_icon.png">
       </div>
       <div class="VideoCard-content-time">{{item.contentsRuntime}}</div>
     </router-link>
@@ -27,7 +28,7 @@
         </slot>
       </v-menu>
     </div>
-    <div class="VideoCard-infor-hastag">{{item.hashName1}} {{item.hashName2}} {{item.hashName3}}
+    <div class="VideoCard-infor-hastag">{{item.hashName1}} {{item.hashName2}}  {{item.hashName3}}
     </div>
   </div>
 </div>
@@ -111,13 +112,18 @@ export default {
     }
     &-play {
       background-color: rgba(255, 255, 255, 0.8);
-      bottom: 6px;
+      bottom: 0;
       left: 0;
-      width: 13%;
-      height: 20%;
+      width: 11%;
+      height: 19%;
       position: absolute;
       display: flex;
       justify-content: center;
+      align-items: center;
+      img{
+        width:70%;
+        height:70%;
+      }
     }
     &:hover &-play {
       animation: playHover 0.3s;

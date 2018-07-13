@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 56.625 56.625">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+      }
+
+      .cls-1, .cls-2 {
+        opacity: 0.9;
+      }
+
+      .cls-2 {
+        fill: #0d0c0c;
+      }
+    </style>
+  </defs>
+  <g id="mainposter_player_icon" transform="translate(-810 -479.375)">
+    <g id="그룹_1218" data-name="그룹 1218">
+      <rect id="사각형_2034" data-name="사각형 2034" class="cls-1" width="56.625" height="56.625" rx="28" transform="translate(810 479.375)"/>
+      <path id="패스_431" data-name="패스 431" class="cls-2" d="M20.716,12.749,0,0V25.5Z" transform="translate(829.865 495.258)"/>
+    </g>
+  </g>
+</svg>

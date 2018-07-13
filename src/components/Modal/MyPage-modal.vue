@@ -7,13 +7,13 @@
     <!-- myPage-Modal-card-body -->
     <div class="mmcb" slot="contents">
       <v-layout row wrap>
-        <v-flex xs6 sm4 md3 class="mmcb-card" v-for="i in 17" :key="i">
+        <v-flex xs6 sm4 md3 class="mmcb-card" v-for="(item,index) in getGroupList" :key="index">
           <div class="mmcb-card-wrapper">
             <div class="mmcb-card-img">
               <img src="http://img.insight.co.kr/static/2018/01/08/700/143hm9u98n3dr49jue61.jpg">
             </div>
             <div class="mmcb-card-text">
-              Group
+              {{item.groupTitle}}
             </div>
           </div>
         </v-flex>
@@ -24,12 +24,16 @@
 </template>
 <script>
 import Modal from './Modal.vue'
+import {mapGetters} from 'vuex'
 
 export default {
   data() {
     return {
       dialog: false
     }
+  },
+  computed:{
+    ...mapGetters(['getGroupList'])
   },
   components: {
     'Modal': Modal

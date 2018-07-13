@@ -6,29 +6,37 @@
       <Library></Library>
     </div>
     <div class="MyPage-body">
+
       <Contents class="MyPage-body-contents" :headTxt="headTxt">
         <div slot="edit">
           <edit></edit>
         </div>
-        <v-flex v-for="i in cards" :key="i" xs12 slot="card">
-          <video-card class="MyPage-body-card" :wrap="false">
-            <v-card slot="more">
-              <v-card-title>
-                Remove from this folder
-              </v-card-title>
-            </v-card>
-            <!-- <v-btn slot="more">Remove from this folder</v-btn> -->
-          </video-card>
+        <v-flex v-for="(item,index) in getMyRecentVideo" :key="index" xs12 slot="card">
+          <div class="search-elem">
+            <video-card class="MyPage-body-card" :nowrap="true" :item="item">
+              <v-card slot="more">
+                <v-card-title>
+                  Remove from this folder
+                </v-card-title>
+              </v-card>
+            </video-card>
+          </div>
         </v-flex>
       </Contents>
     </div>
   </div>
 </div>
 </template>
+            <!-- <v-btn slot="more">Remove from this folder</v-btn> -->
 
 <script>
 import Libaray from '../components/Library.vue'
 import edit from '../components/EditBtn.vue'
+import {
+  mapActions,
+  mapGetters
+} from 'vuex'
+
 export default {
   data() {
     return {
@@ -36,14 +44,19 @@ export default {
       headTxt: 'Group1',
       cards: 8,
       btnState: 0,
+      userIdx: 0,
       navItem: [{
           title: "Recent Videos"
         },
         {
-          title: "Library Folder"
+          title: "Library Folder",
         }
-      ]
+      ],
+      userIdx: 1 //더미 유저 인덱스
     }
+  },
+  computed: {
+    ...mapGetters(['getGroupList', 'getMyRecentVideo'])
   },
   components: {
     'Library': Libaray,
@@ -53,7 +66,12 @@ export default {
     navBtnClick(index) {
       this.navState = index;
       // console.log('navBtn' + index);
-    }
+    },
+    ...mapActions(['setGroupList', 'setMyRecnetVideo'])
+  },
+  mounted() {
+    this.setGroupList(this.userIdx);
+    this.setMyRecnetVideo(this.userIdx);
   }
 
 }
@@ -78,14 +96,32 @@ export default {
     justify-content: center;
     &-card {
       max-height: 324px;
+      // height:100%;
     }
     &-contents {
       max-width: 1024px;
+      // width:100%;
     }
   }
   &-inMenu {
     left: -4.6px;
     top: -57.2px;
+  }
+}
+
+.search-elem {
+  height: 182px;
+  @media screen and (max-width: 730px) {
+    height: 150px;
+  }
+  @media screen and (max-width: 560px) {
+    height: 130px;
+  }
+  @media screen and (max-width: 430px) {
+    height: 115px;
+  }
+  @media screen and (max-width: 375px) {
+    height: 98px;
   }
 }
 </style>

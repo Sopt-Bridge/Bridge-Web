@@ -36,3 +36,24 @@ export const replyGetters = {
     return state.replyResult
   }
 }
+
+export const libraryGetters = {
+  getGroupList(state){
+    return state.groupList;
+  },
+  getGroupLength(state){
+    return state.groupLength;
+  },
+  getMyRecentVideo(state){
+    return state.myRecnetVideo
+  }
+}
+
+export const subscribeGetters = {
+  getHashlist(state){
+    return state.myHashlist;
+  },
+  getHashContentlist(state){
+    return state.hashContentlist;
+  }
+}

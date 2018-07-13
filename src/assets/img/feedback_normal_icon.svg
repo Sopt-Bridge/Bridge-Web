@@ -1,0 +1,18 @@
+<svg id="feedback_normal_icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 27.461 27.462">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #a5a5a5;
+      }
+
+      .cls-2 {
+        fill: #fbfbfb;
+      }
+    </style>
+  </defs>
+  <ellipse id="타원_362" data-name="타원 362" class="cls-1" cx="13.731" cy="13.731" rx="13.731" ry="13.731" transform="translate(0 0)"/>
+  <circle id="타원_363" data-name="타원 363" class="cls-2" cx="1.747" cy="1.747" r="1.747" transform="translate(11.984 19.388)"/>
+  <g id="그룹_781" data-name="그룹 781" transform="translate(11.375 5.741)">
+    <path id="패스_617" data-name="패스 617" class="cls-2" d="M219.086,67.112c.037-.24.1-.561.131-.714v-.146a2.433,2.433,0,0,0-4.711,0V66.4c.036.153.094.474.131.714l1.2,7.843.067.437a.07.07,0,0,1,0,.008v0a.994.994,0,0,0,1.925,0h0l.007-.054c0-.029.037-.249.074-.489Z" transform="translate(-214.506 -64.429)"/>
+  </g>
+</svg>
