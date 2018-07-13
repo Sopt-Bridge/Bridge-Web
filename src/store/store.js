@@ -11,7 +11,7 @@ import {
   libarayState,
   subscribeState,
   contentsState,
-  writeState, searchTraceState
+  writeState
 } from "./state.js";
 import {
   homeGetters,
@@ -21,7 +21,7 @@ import {
   replyGetters,
   libraryGetters,
   subscribeGetters,
-  contentsGetters,writeGetters, searchTraceGetters
+  contentsGetters,writeGetters
 } from "./getter.js";
 import {
   homeMutations,
@@ -31,7 +31,7 @@ import {
   replyMutations,
   libraryMutatoins,
   subscribeMutations,
-  contentsMutation,writeMutations, searchTraceMutations
+  contentsMutation,writeMutations
 } from "./mutation.js";
 import {
   homeAction,
@@ -41,16 +41,16 @@ import {
   replyAction,
   libraryAction,
   subscribeAction,
-  contentsAction,writeAction, searchTraceAction
+  contentsAction,writeAction
 } from "./action.js";
 
 
 Vue.use(Vuex);
 
 export default new Vuex.Store({
-  state: Object.assign({}, homeState, searchState, requestState, commentState, replyState, libarayState, subscribeState, contentsState, writeState, searchTraceState),
-  getters: Object.assign({}, homeGetters, searchGetters, requestGetters, commentGetters, replyGetters, libraryGetters, subscribeGetters, contentsGetters,writeGetters, searchTraceGetters),
-  mutations: Object.assign({}, homeMutations, searchMutations, requestMutations, commentMutations, replyMutations, libraryMutatoins, subscribeMutations, contentsMutation,writeMutations, searchTraceMutations),
-  actions: Object.assign({}, homeAction, searchAction, requestAction, commentAction, replyAction, libraryAction, subscribeAction, contentsAction,writeAction, searchTraceAction)
+  state: Object.assign({}, homeState, searchState, requestState, commentState, replyState, libarayState, subscribeState, contentsState, writeState),
+  getters: Object.assign({}, homeGetters, searchGetters, requestGetters, commentGetters, replyGetters, libraryGetters, subscribeGetters, contentsGetters,writeGetters),
+  mutations: Object.assign({}, homeMutations, searchMutations, requestMutations, commentMutations, replyMutations, libraryMutatoins, subscribeMutations, contentsMutation,writeMutations),
+  actions: Object.assign({}, homeAction, searchAction, requestAction, commentAction, replyAction, libraryAction, subscribeAction, contentsAction,writeAction)
 
 });
