@@ -63,17 +63,20 @@
     },
     methods : {
       deleteRequest(){
+        let r = confirm("Are you sure to delete it?");
         console.log(this.$route.query.iboardIdx);
-        let data = {
-          iboardIdx : this.$route.query.iboardIdx
+        if(r){
+          let data = {
+            iboardIdx : this.$route.query.iboardIdx
+          }
+          axios.post(api + '/trequest/trequest_delete', data).then(res=>{
+            console.log(res);
+          }).catch(err=>{
+            console.log(err.response);
+          })
+          
+          this.$router.go(-1);
         }
-        axios.post(api + '/trequest/trequest_delete', data).then(res=>{
-          console.log(res);
-        }).catch(err=>{
-          console.log(err.response);
-        })
-        alert("Successfully deleted");
-        this.$router.go(-1);
       }
     }
 
