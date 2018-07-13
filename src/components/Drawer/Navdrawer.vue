@@ -10,6 +10,14 @@
                     <a @click="changeColor(index)">
                         <p :class="position" class="navbar-drawer-components-lists-item-title">{{ item.title }}</p>
                     </a>
+                    <!-- <div v-if="item.subtitle">시발 이건 섭타이틀 있다{{index}}</div> -->
+                    <ul class="navbar-drawer-components-sublists" v-if="index===1">
+                        <li class="navbar-drawer-components-sublists-item" v-for="(group,idx) in subtitle" :key="'sub'+idx">
+                            <a @click="changeColor(index+idx+1)">
+                                <p :class="position" class="navbar-drawer-components-sublists-item-title">{{ group.groupTitle }}{{index+idx+1}}</p>
+                            </a>
+                        </li>
+                    </ul>
                 </li>
             </ul>
         </div>
@@ -21,7 +29,10 @@
 </template>
 
 <script>
-import {mapMutations} from 'vuex'
+import {
+    mapMutations,
+    mapGetters
+} from 'vuex'
 import more_icon from '../../assets/img/hamburger_open_btn.svg'
 export default {
     props: ['items', 'position'],
@@ -37,15 +48,22 @@ export default {
     computed: {
         btnLength() {
             return document.getElementsByClassName(this.position).length;
-        }
+        },
+        subtitle() {
+            if (this.position === 'MyPageNav') {
+                return this.getGroupList
+            } else {
+                return false;
+            }
+        },
+        ...mapGetters(['getGroupList'])
     },
     methods: {
         drawing() {
             return !this.drawer;
         },
         changeColor(index) {
-            this.$store.commit('getHomeNowtrend');
-            console.log(index);
+            // console.log(index);
             this.$emit('navBtnState', index);
             for (let i = 0; i < this.btnLength; i++) {
                 document.getElementsByClassName(this.position)[i].style.color = "#333333";
@@ -56,6 +74,9 @@ export default {
                 this.drawer = false;
             }
         },
+    },
+    mounted() {
+        document.getElementsByClassName(this.position)[0].style.color = "#E31c9e";
     }
 };
 </script>
@@ -105,7 +126,20 @@ $navigation-top: 64px;
     }
 }
 
-ul li:nth-child(1) p {
-    color: $main-color;
+.navbar-drawer-components-sublists {
+    list-style: none;
+    padding-left: 0px;
+    padding-top : 15px;
+    &-item {
+        height: 70px;
+        &-title {
+            font-size: 20px;
+            color: #333333;
+        }
+    }
 }
+
+// ul li:nth-child(1) p {
+//     color: $main-color;
+// }
 </style>

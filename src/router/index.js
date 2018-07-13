@@ -7,13 +7,16 @@ import {home} from './home'
 import {RequestDetail,RequestMain,RequestWrite} from './request'
 import {subscribe} from './subscribe'
 import {myPage} from './myPage'
+import {search} from './search'
+import {myWrite} from './myPage'
+
 
 
 Vue.use(Router)
 
 export default new Router({
   routes: [
-    login, home, video, RequestMain,RequestWrite,RequestDetail,subscribe,myPage
+    login, home, video, RequestMain,RequestWrite,RequestDetail,subscribe,myPage,search, myWrite
   ],
   mode : 'history'
 })

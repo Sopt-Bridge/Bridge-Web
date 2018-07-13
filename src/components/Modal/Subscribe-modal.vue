@@ -8,14 +8,16 @@
     <div class="smcb" slot="contents">
       <v-container grid-list-md>
         <v-layout row wrap>
-          <v-flex xs12 sm6 class="smcb-card" v-for="i in 17" :key="i">
+          <v-flex xs12 sm6 class="smcb-card" v-for="(item,index) in getHashlist" :key="index">
             <div class="smcb-card-wrapper">
 
-              <img class="smcb-card-img" src="http://ilyricsbuzz.com/wp-content/uploads/2015/01/Eddy-Kim-Sing-Sing-Sing.jpg">
+              <!-- <img class="smcb-card-img" src="http://ilyricsbuzz.com/wp-content/uploads/2015/01/Eddy-Kim-Sing-Sing-Sing.jpg"> -->
+              <img v-if="!item.hashImg" :src="noImg" alt="" class="smcb-card-img">
+              <img v-if="item.hashImg" class="smcb-card-img" :src="item.hashImg">
               <div class="smcb-card-infor">
-                <div class="smcb-card-infor-hash">#EddyKim</div>
+                <div class="smcb-card-infor-hash">{{ item.hashName }}</div>
                 <div class="smcb-card-infor-sub">구독자</div>
-                <div class="smcb-card-infor-number">6,502,030s</div>
+                <div class="smcb-card-infor-number">{{ item.hashCnt }}</div>
               </div>
               <div class="smcb-card-subBtn" @click="subClick">
                 <button class="Subcribe-bodyBtn">
@@ -35,17 +37,24 @@
 import Modal from './Modal.vue'
 import subNomarlBtn from '../../assets/img/subscribe/drawable-xxxhdpi/subscribe_normal_btn.png';
 import subActivelBtn from '../../assets/img/subscribe/drawable-xxxhdpi/subscribe_active_btn.png';
-
+import noImg from '../../assets/img/no_detail_img.gif'
+import {
+  mapGetters,
+  mapMutations,
+  mapActions
+} from 'vuex'
 export default {
   data() {
     return {
       subBool: true,
       dialog: false,
       subNomarlBtn:subNomarlBtn,
-      subActivelBtn:subActivelBtn
+      subActivelBtn:subActivelBtn,
+      noImg : noImg
     }
   },
   computed: {
+    ...mapGetters(['getrecommendHashList','getHashlist']),
     subscirbe() {
       if (this.subBool) {
         return subActivelBtn
@@ -58,6 +67,7 @@ export default {
     'Modal': Modal
   },
   methods: {
+    ...mapActions(['setrecommendHashList',]),
     opening() {
       this.dialog = true;
     },
@@ -71,6 +81,9 @@ export default {
         e.target.src=subNomarlBtn
       }
     }
+  },
+  created(){
+    this.setrecommendHashList();
   }
 }
 </script>

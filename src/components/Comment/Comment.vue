@@ -12,29 +12,39 @@
     
                             <div>
                                 <!--***AXIOS**-->
-                                <p class="req-comment-user-info-nickname-text">SML</p>
+                                <!-- <p class="req-comment-user-info-nickname-text">SML</p> -->
+                                <p class="req-comment-user-info-nickname-text">{{commentElementAtComment.userName}}</p>
                             </div>
                             <v-spacer/>
                             <div>
-                                <!--***AXIOS**-->
-                                <p class="req-comment-user-info-btn">DELETE</p>
-                                <p class="req-comment-user-info-btn req-comment-user-info-btn-reply" @click="toggleShowReply()">REPLY</p>
+                                <p class="req-comment-user-info-date">{{commentElementAtComment.icmtDate}}</p>
                             </div>
-                        </div>
-                        <div class="req-comment-user-info-date-section req-comment-user-info-detail">
-                            <div>
+                            <!--@@@@@@@@@@@@@원래 여기가 reply버튼 있는 공간@@@@@@@@@@@@@-->
+                            <!-- <div> -->
                                 <!--***AXIOS**-->
-                                <p class="req-comment-user-info-date">01/01/2018</p>
-                            </div>
+                                
+                                <!-- <p class="req-comment-user-info-btn req-comment-user-info-btn-reply" @click="toggleShowReply()">REPLY</p>
+                            </div> -->
                         </div>
+
+                        <!--@@@@@@@@@@@@@원래 여기가 시간나오는 공간@@@@@@@@@@-->
+                        <!-- <div class="req-comment-user-info-date-section req-comment-user-info-detail">
+                            <div> -->
+                                <!--***AXIOS**-->
+                                <!-- <p class="req-comment-user-info-date">01/01/2018</p> -->
+                                <!-- <p class="req-comment-user-info-date">{{commentElementAtComment.icmtDate}}</p>
+                            </div>
+                        </div> -->
                     </div>
                     <div class="req-comment-user-comment-detail">
                         <!--***AXIOS**-->
-                        <p class="req-comment-user-comment-detail-text">Hello World! I'm Sang min lee. ahahahahaHello World! I'm Sang min lee. ahahahahaHello World! I'm Sang min lee. ahahahahaHello World! I'm Sang min lee. ahahahahaHello World! I'm Sang min lee. ahahahahaHello World! I'm Sang min lee.
-                            ahahahahaHello World! I'm Sang min lee. ahahahaha</p>
+                        <!-- <p class="req-comment-user-comment-detail-text">Hello World! I'm Sang min lee. ahahahahaHello World! I'm Sang min lee. ahahahahaHello World! I'm Sang min lee. ahahahahaHello World! I'm Sang min lee. ahahahahaHello World! I'm Sang min lee. ahahahahaHello World! I'm Sang min lee.
+                            ahahahahaHello World! I'm Sang min lee. ahahahaha</p> -->
+                            <p class="req-comment-user-comment-detail-text">{{commentElementAtComment.icmtContent}}</p>
                         <!-- <div class="req-comment-user-comment-detail-space"></div> -->
                     </div>
                 </div>
+                
             </div>
         </v-layout>
     
@@ -42,21 +52,26 @@
 </template>
 
 <script>
-export default {
-    props : ["propsShowReply"],
-    methods : {
-        toggleShowReply(){
-            let temp = !this.propsShowReply;
-            this.$emit("changeData", temp);
+    import {
+        mapGetters,
+        mapMutations,
+        mapActions
+    } from 'vuex'
+    export default {
+        props: ["propsShowReply", "commentElementAtComment"],
+        methods: {
+            
+            toggleShowReply() {
+                let temp = !this.propsShowReply;
+                this.$emit("changeData", temp);
+            }
+        },
+        created() {
+            // console.log(this.commentElementAtComment.icmtContent);
         }
-    },
-    computed : {
-        
-    }
-};
+    };
 </script>
 
 <style lang='scss' scoped>
-@import "styles/common.scss";
-
+    @import "styles/common.scss";
 </style>
