@@ -5,11 +5,11 @@ export const homeState = {
 }
 
 export const searchState = {
-  result : null
+  searchResult : null
 }
 
 export const requestState = {
-  result : null
+  requestResult : null
 }
 
 export const libarayState = {
@@ -21,4 +21,11 @@ export const libarayState = {
 export const subscribeState = {
   myHashlist : null,
   hashContentlist:null
+}
+export const commentState = {
+  commentResult : null
+}
+
+export const replyState = {
+  replyResult : null
 }

@@ -5,49 +5,36 @@
         <div class="req-comment-count-section">
           <p class="req-comment-title">Comments</p>
           <!-- ***AXIOS*** -->
-          <p class="req-comment-count">4</p>
+          <!-- <p class="req-comment-count">4</p> -->
+          <p class="req-comment-count">{{getCommentResult.length}}</p>
         </div>
       </v-layout>
       <v-layout>
         <v-flex xs12 sm12 md12 lg12 class="req-comment-user-content-section">
           <div class="req-comment-user-content-inner-section">
             <!-- <textarea class="req-comment-user-content" :placeholder="comment"></textarea> -->
-            <textarea class="req-comment-user-content"></textarea>
+            <textarea class="req-comment-user-content" v-model="commentContent" @keyup.enter="commentWriteFunc"></textarea>
           </div>
           <div class="req-comment-btn-section">
-            <button class="req-comment-btn">Comment</button>
+            <button class="req-comment-btn" @click="commentWriteFunc">Comment</button>
           </div>
         </v-flex>
       </v-layout>
-      <comment-all-in-one></comment-all-in-one>
-      <comment-all-in-one></comment-all-in-one>
-      <!-- <div class="req-comment-component">
-        <comment></comment>
+      <div v-for="(item,index) in getCommentResult" :key="index">
+        <comment-all-in-one :commentElement="item"></comment-all-in-one>
       </div>
-  
-      <div class="req-comment-reply-component">
-        <reply></reply>
-      </div>
-      <div class="req-comment-reply-content">
-        <div class="req-comment-reply-content-section">
-          <div>
-            <v-icon>subdirectory_arrow_right</v-icon>
-          </div>
-          <div class="req-comment-reply-content-section-inner">
-  
-            <textarea class="req-comment-user-content"></textarea>
-          </div>
-        </div>
-        <div class="req-comment-reply-btn-section">
-          <button class="req-comment-reply-btn">Reply</button>
-        </div>
-      </div> -->
     </v-container>
   </div>
 </template>
 
 <script>
-  // import Reply from './Reply'
+  import axios from "axios";
+  const api = "http://13.124.201.59";
+  import {
+    mapGetters,
+    mapMutations,
+    mapActions
+  } from 'vuex'
   import Comment from "./Comment";
   import Reply from "./Reply";
   import CommentAllInOne from "./CommentAllInOne";
@@ -55,13 +42,40 @@
     data() {
       return {
         comment: "Please input comment...",
-        reply: "Please input reply..."
-      };
+        reply: "Please input reply...",
+        commentContent: "",
+        commentCount : 0
+      }
+    },
+    methods: {
+      ...mapActions(["setCommentResult"]),
+      commentWriteFunc() {
+        if (this.commentContent != "") {
+          console.log(this.$route.query.iboardIdx);
+          let data = {
+            userIdx: 1,
+            icmtContent: this.commentContent,
+            iboardIdx: this.$route.query.iboardIdx
+          }
+          axios.post(api + '/trequest/trequestcomment_write', data).then(res => {
+            console.log(res);
+          });
+          alert("Write comment success!")
+          location.reload()
+        }
+      }
+    },
+    computed: {
+      ...mapGetters(['getCommentResult'])
     },
     components: {
       Comment,
       Reply,
       CommentAllInOne
+    },
+    props: ['requestIdx'],
+    created() {
+      this.setCommentResult(this.requestIdx);
     }
   };
 </script>
