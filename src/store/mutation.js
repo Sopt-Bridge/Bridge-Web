@@ -25,7 +25,7 @@ export const searchMutations = {
   },
   setSearchResultFinish(state, payload) {
     state.searchResult = payload;
-    console.log(payload);
+    // console.log(payload);
   }
 };
 
@@ -93,8 +93,34 @@ export const replyMutations = {
   }
 };
 
+
 export const contentsMutation = {
   setContents(state,payload){
     state.contents = payload;
   }
 }
+
+export const writeMutations = {
+  setWriteResult(state, payload) {
+    console.log("set write result start!");
+  },
+  setWriteResultFinish(state, payload) {
+    state.writeResult = payload;
+    console.log("set write result finish!");
+  },
+  setWriteSearchResult(state, payload) {
+    console.log("set write result start!");
+  },
+  setWriteSearchResultFinish(state, payload) {
+    state.writeResult = payload;
+    console.log("set write result finish!");
+  }
+};
+
+// searchTraceResultFinish
+export const searchTraceMutations = {
+  setSearchTraceResultFinish(state, payload){
+    state.searchTraceResult = payload;
+  }
+};
+

@@ -66,3 +66,19 @@ export const contentsGetters = {
     return state.contents;
   }
 }
+
+export const writeGetters = {
+  getWriteResult(state){
+    return state.writeResult
+  },
+  getWriteSearchResult(state){
+    return state.requestResult
+  }
+}
+
+export const searchTraceGetters = {
+  getSearchTraceResult(state){
+    return state.searchTraceResult
+  }
+}
+

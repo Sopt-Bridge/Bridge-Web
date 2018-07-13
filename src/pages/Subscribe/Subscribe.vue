@@ -48,6 +48,7 @@
             Upload date
             <img :src="subFilter" width="25px" alt="">
           </button>
+
         <v-card>
           <v-list-tile class="menu-list-item">
             <v-list-tile-title>
@@ -61,6 +62,7 @@
           </v-list-tile>
         </v-card>
       </v-menu>
+
     </div>
     <v-container grid-list-lg fluid>
       <v-layout row wrap>
@@ -79,6 +81,7 @@
 </template>
 
 <script>
+
 import VideoCard from '../../components/Card/VideoCard.vue';
 import subscribeModal from '../../components/Modal/Subscribe-modal.vue'
 import moreMenu from '../../components/Card/Home-cardMore.vue'
@@ -101,6 +104,7 @@ export default {
         slidesPerView: 4,
         spaceBeetween: 15,
         lazy: true
+
       },
       swiperOption2: {
         slidesPerView: 4,
@@ -135,6 +139,7 @@ export default {
       this.hashtagName = hashName;
       this.asyncSetHashContentlist(hashName);
     },
+
     subClick() {
       this.subBool = !this.subBool;
     },
@@ -151,6 +156,7 @@ export default {
       pageIdx: 0,
       userIdx: 1
     });
+
   }
 }
 </script>
