@@ -3,25 +3,27 @@
     <div class="Search-section">
       <input class="Search-textBar" v-model="searchItem" @keyup.enter="addSearchItem" type="text" placeholder="#Kpop, #beauty, #BTS 등을 검색해보세요">
       <!-- <div class="Search-menu" :style="styleObj"> -->
-      <div class="Search-menu" :height="logHeight+'px'" v-if="propsSearchItems.length > 1">
-        <div class="Search-menu-items">
-          <div class="Search-menu-item" v-for="(propsSearchItem, index) in propsSearchItems.slice().reverse()" :key="index">
-            <!-- <div class="Search-menu-item" v-for="(propsSearchItem, index) in propsSearchItems" :key="index"> -->
+      <!-- <div class="Search-menu" :height="logHeight+'px'" v-if="getSearchTraceResult.length > 0">
+        <div class="Search-menu-items"> -->
+          <!-- <div class="Search-menu-item" v-for="(propsSearchItem, index) in propsSearchItems.slice().reverse()" :key="index"> -->
+          <!-- <div class="Search-menu-item" v-for="(propsSearchItem, index) in propsSearchItems" :key="index"> -->
+          <!-- <div class="Search-menu-item" v-for="(Item, index) in getSearchTraceResult.slice().reverse()" :key="index"> -->
+            <!-- <div class="Search-menu-item" v-for="(Item, index) in getSearchTraceResult" :key="index">
             <div class="Search-menu-item-text">
-              {{ propsSearchItem.searchItem }}
+              {{ Item.searchItem }}
             </div>
-            <div class="Search-menu-item-date">{{ propsSearchItem.date }}</div>
+            <div class="Search-menu-item-date">{{ Item.date }}</div>
             <div class="Search-menu-item-closeBtn">
               <v-icon small class="Search-menu-item-closeBtn-icon">clear</v-icon>
             </div>
           </div>
         </div>
-      </div>
-      <div class="Search-menu-noresult" v-if="propsSearchItems.length <= 1">
+      </div> -->
+      <!-- <div class="Search-menu-noresult" v-if="getSearchTraceResult.length < 1">
         <div class="Search-menu-noresult-text">
           {{ noSearchResult }}
         </div>
-      </div>
+      </div> -->
     </div>
     <button class="nav-search-btn" @click="addSearchItem"><v-icon color="white">search</v-icon></button>
   
@@ -31,6 +33,11 @@
 
 <script>
   import * as moment from "moment";
+  import {
+    mapGetters,
+    mapMutations,
+    mapActions
+  } from 'vuex'
   export default {
     props: ["styleObj", "propsSearchItems"],
     data() {
@@ -46,26 +53,38 @@
           return len * 45
         }
         return 270;
-      }
+      },
+      ...mapGetters(['getSearchTraceResult'])
     },
     methods: {
+      ...mapActions(['setSearchTraceResult']),
       addSearchItem() {
         if (this.searchItem != "") {
           const now = moment().format("MM.DD");
           let tempSearchItem = this.searchItem;
-  
           const item = {
             date: now,
             searchItem: this.searchItem
           };
-          this.$emit("addItem", item);
+          // this.$emit("addItem", item);
+          // this.$store.state
+          // this.$store.dispatch('searchTraceAction', item);
+          // this.$store.state.searchTraceState += item;
+          // this.setSearchTraceResult(item);
           this.searchItem = "";
           let searchType = 1;
           if (tempSearchItem[0] == '#') searchType = 0;
           let tempSearchName = '';
-          for (let i = 1; i < tempSearchItem.length; i++) {
-            tempSearchName += tempSearchItem[i];
+          if (searchType == 0) {
+            for (let i = 1; i < tempSearchItem.length; i++) {
+              tempSearchName += tempSearchItem[i];
+            }
+          } else {
+            for (let i = 0; i < tempSearchItem.length; i++) {
+              tempSearchName += tempSearchItem[i];
+            }
           }
+          
           this.$router.push({
             path: 'search',
             query: {
@@ -101,7 +120,7 @@
   .Search {
     &-section {
       position: relative;
-      width : 100%;
+      width: 100%;
     }
     &-textBar {
       border: 1px solid #e4e4e4;

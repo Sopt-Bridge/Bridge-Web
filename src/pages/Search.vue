@@ -5,7 +5,7 @@
       <v-flex xs10 sm10 md10 lg10 offset-xs1 offset-sm1 offset-md1 offset-lg1>
         <div class="search-header">
           <div>
-            About {{ total }} results
+            About {{ getSearchResult.length }} results
           </div>
           <v-spacer/>
           <v-menu offset-x left>
@@ -30,7 +30,7 @@
       </v-flex>
     </v-layout>
     <v-layout row wrap>
-      <v-flex v-for="(item,index) in getMyRecentVideo" :key="index" xs10 sm10 md10 lg10 offset-xs1 offset-sm1 offset-md1 offset-lg1>
+      <v-flex v-for="(item,index) in getSearchResult" :key="index" xs10 sm10 md10 lg10 offset-xs1 offset-sm1 offset-md1 offset-lg1>
         <div class="search-elem">
           <video-card :nowrap="true" :item="item">
             <more-menu slot="more"></more-menu>
@@ -74,6 +74,7 @@ export default {
           sortType: 0
         }
       })
+      location.reload();
     },
     changeBtnNameReverse() {
       this.btnName = "View count"
@@ -86,6 +87,7 @@ export default {
           sortType: 2
         }
       })
+      location.reload();
     }
   },
   created() {
@@ -101,6 +103,9 @@ export default {
   mounted() {
     this.$store.dispatch('setMyRecnetVideo', 1);
 
+  },
+  components : {
+    moreMenu
   }
 }
 </script>

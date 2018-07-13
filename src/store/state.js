@@ -35,3 +35,7 @@ export const replyState = {
 export const writeState = {
   writeResult : null
 }
+
+export const searchTraceState = {
+  searchTraceResult : []
+}

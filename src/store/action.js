@@ -40,6 +40,7 @@ export const homeAction = {
 
 export const searchAction = {
   setSearchResult({ commit }, payload) {
+    
     commit("setSearchResult");
     axios
       .get(
@@ -54,6 +55,7 @@ export const searchAction = {
           payload.sortType
       )
       .then(res => {
+        // console.log(res.data.data[0].contents_list);
         commit("setSearchResultFinish", res.data.data[0].contents_list);
       });
   }
@@ -175,5 +177,12 @@ export const writeAction = {
         console.log(res.data.data[0].request_list);
         commit("setWriteSearchResultFinish", res.data.data[0].request_list);
       });
+  }
+}
+
+export const searchTraceAction = {
+  setSearchTraceResult({commit}, payload){
+    commit("setSearchTraceResultFinish", payload);
+
   }
 }
