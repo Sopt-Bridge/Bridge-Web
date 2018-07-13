@@ -76,9 +76,4 @@ export const writeGetters = {
   }
 }
 
-export const searchTraceGetters = {
-  getSearchTraceResult(state){
-    return state.searchTraceResult
-  }
-}
 
