@@ -3,9 +3,17 @@ export const homeState = {
 }
 
 export const searchState = {
-  result : null
+  searchResult : null
 }
 
 export const requestState = {
-  result : null
+  requestResult : null
+}
+
+export const commentState = {
+  commentResult : null
+}
+
+export const replyState = {
+  replyResult : null
 }

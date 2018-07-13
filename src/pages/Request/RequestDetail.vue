@@ -48,7 +48,7 @@
       </v-layout>
   
     </v-container>
-    <request-comment></request-comment>
+    <request-comment :requestIdx="$route.query.iboardIdx"></request-comment>
   
   </div>
 </template>

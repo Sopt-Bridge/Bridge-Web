@@ -19,35 +19,20 @@
           </div>
         </v-flex>
       </v-layout>
-      <comment-all-in-one></comment-all-in-one>
-      <comment-all-in-one></comment-all-in-one>
-      <!-- <div class="req-comment-component">
-        <comment></comment>
+      <div v-for="(item,index) in getCommentResult" :key="index">
+        <comment-all-in-one :commentElement="item"></comment-all-in-one>
       </div>
-  
-      <div class="req-comment-reply-component">
-        <reply></reply>
-      </div>
-      <div class="req-comment-reply-content">
-        <div class="req-comment-reply-content-section">
-          <div>
-            <v-icon>subdirectory_arrow_right</v-icon>
-          </div>
-          <div class="req-comment-reply-content-section-inner">
-  
-            <textarea class="req-comment-user-content"></textarea>
-          </div>
-        </div>
-        <div class="req-comment-reply-btn-section">
-          <button class="req-comment-reply-btn">Reply</button>
-        </div>
-      </div> -->
     </v-container>
   </div>
 </template>
 
 <script>
-  // import Reply from './Reply'
+  
+  import {
+    mapGetters,
+    mapMutations,
+    mapActions
+  } from 'vuex'
   import Comment from "./Comment";
   import Reply from "./Reply";
   import CommentAllInOne from "./CommentAllInOne";
@@ -58,10 +43,22 @@
         reply: "Please input reply..."
       };
     },
+    methods: {
+      ...mapActions(["setCommentResult"])
+    },
+    computed: {
+      ...mapGetters(['getCommentResult'])
+    },
     components: {
       Comment,
       Reply,
       CommentAllInOne
+    },
+    props: ['requestIdx'],
+    created() {
+      
+      this.setCommentResult(this.requestIdx);
+      
     }
   };
 </script>

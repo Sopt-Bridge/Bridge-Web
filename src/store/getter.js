@@ -6,15 +6,27 @@ export const homeGetters = {
 
 export const searchGetters = {
   getSearchResult(state){
-    return state.result
+    return state.searchResult
   }
 }
 
 export const requestGetters = {
   getRequestResult(state){
-    return state.result
+    return state.requestResult
   },
   getRequestSearchResult(state){
-    return state.result
+    return state.requestResult
+  }
+}
+
+export const commentGetters = {
+  getCommentResult(state){
+    return state.commentResult
+  }
+}
+
+export const replyGetters = {
+  getReplyResult(state){
+    return state.replyResult
   }
 }
