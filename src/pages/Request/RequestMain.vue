@@ -6,9 +6,9 @@
                 <div class="req-search-section">
                     <div class="req-search-section-content">
                         <input type="text" class="req-search-text" v-model="requestSearch" @keyup.enter="requestSearchFunc">
-                        <button class="req-search-btn">
-                                <v-icon>search</v-icon>
-                            </button>
+                        <button class="req-search-btn" @click="requestSearchFunc">
+                                    <v-icon>search</v-icon>
+                                </button>
                     </div>
                     <div>
                         <router-link :to="requestWrite">
@@ -17,13 +17,13 @@
                     </div>
                 </div>
             </v-layout>
-            <v-layout row class="board-header" >
+            <v-layout row class="board-header">
                 <v-flex xs1 sm1 md1 lg1 class="board-no">
                     <p class="board-header-content">No</p>
                 </v-flex>
                 <!-- <v-flex xs1 sm1 md1 lg1/> -->
-                <v-flex xs6 sm7 md7 lg7 />
-                <v-flex xs3 sm2 md2 lg2>
+                <v-flex xs3 sm3 md6 lg7 />
+                <v-flex xs3 sm2 md3 lg2>
                     <p class="board-header-content">Author</p>
                 </v-flex>
                 <v-flex>
@@ -37,13 +37,17 @@
                     <p class="board-elems-content">1</p>
                 </v-flex>
     
-                <v-flex xs6 sm7 md7 lg7 class="board-elem-text">
-                    <p class="board-elems-content">{{item.iboardTitle}}</p>
+                <v-flex xs3 sm3 md7 lg7 class="board-elem-text">
+                    <p class="board-elems-content">
+                        <router-link :to="{ path : '/request/detail', query : item}" class="board-elems-content-link">
+                            {{item.iboardTitle}}
+                        </router-link>
+                    </p>
                 </v-flex>
                 <v-flex xs3 sm2 md2 lg2>
                     <p class="board-elems-content">{{item.userName}}</p>
                 </v-flex>
-                <v-flex xs1 sm1 md1 lg1>
+                <v-flex xs5 sm4 md3 lg2>
                     <p class="board-elems-content">{{item.iboardDate}}</p>
                 </v-flex>
     
@@ -70,13 +74,13 @@
         data() {
             return {
                 requestWrite: "/request/write",
-                requestSearch : ""
+                requestSearch: ""
             }
         },
-        methods : {
+        methods: {
             ...mapActions(["setRequestResult", 'setRequestSearchResult']),
-            requestSearchFunc(){
-                if(this.requestSearch != "") this.setRequestSearchResult(this.requestSearch);
+            requestSearchFunc() {
+                if (this.requestSearch != "") this.setRequestSearchResult(this.requestSearch);
                 this.requestSearch = "";
             }
         },
@@ -166,6 +170,17 @@
     
     .board-elems-content {
         line-height: 60px;
+        &-link{
+            text-decoration: none;
+            color : rgba(0,0,0,.87);
+            &:hover{
+                transition : .1s;
+                color : blue;
+            }
+        }
+        @include media("(max-width : 820px)") {
+            font-size : 13px;
+        }
     }
     
     .board-elem-text {

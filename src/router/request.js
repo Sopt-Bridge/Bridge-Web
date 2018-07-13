@@ -17,6 +17,6 @@ export const RequestWrite = {
 }
 
 export const RequestDetail = {
-  path: '/request/detail/:id',
+  path: '/request/detail',
   component: Detail
 }
