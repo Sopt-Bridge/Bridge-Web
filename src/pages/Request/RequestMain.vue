@@ -34,7 +34,7 @@
             <v-layout row class="board-elems" v-for="(item,index) in getRequestResult" :key="index">
                 <!--****************AXIOS****************-->
                 <v-flex xs1 sm1 md1 lg1 class="board-no">
-                    <p class="board-elems-content">1</p>
+                    <p class="board-elems-content">{{getRequestResult.length - index}}</p>
                 </v-flex>
     
                 <v-flex xs3 sm3 md7 lg7 class="board-elem-text">
