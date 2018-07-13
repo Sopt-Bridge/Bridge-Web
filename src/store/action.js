@@ -113,19 +113,19 @@ export const subscribeAction = {
   asyncSetHashContentlist({
     commit
   }, payload) {
-    // let data = payload;
     var config = {
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded',
       }
     };
     let data = {
-      hashName : payload,
+      hashName : payload.hashName,
       pageIdx : 0,
-      sortType : 0
+      sortType : payload.sortType
     }
     console.log('asyncSetHashContentlist');
-    axios.post(api + '/subscribe/hashcontentlist', data,config).then(res => {
+    axios.post(api + '/subscribe/hashcontentlist', data).then(res => {
+      console.log('axios.post. hashContentlist')
       commit('setHashContentlist', res.data.data[0].contents_list);
     })
   },

@@ -11,7 +11,7 @@ import {
   libarayState,
   subscribeState,
   contentsState,
-  writeState, searchTraceState
+  writeState
 } from "./state.js";
 import {
   homeGetters,
@@ -48,7 +48,7 @@ import {
 Vue.use(Vuex);
 
 export default new Vuex.Store({
-  state: Object.assign({}, homeState, searchState, requestState, commentState, replyState, libarayState, subscribeState, contentsState, writeState, searchTraceState),
+  state: Object.assign({}, homeState, searchState, requestState, commentState, replyState, libarayState, subscribeState, contentsState, writeState),
   getters: Object.assign({}, homeGetters, searchGetters, requestGetters, commentGetters, replyGetters, libraryGetters, subscribeGetters, contentsGetters,writeGetters, searchTraceGetters),
   mutations: Object.assign({}, homeMutations, searchMutations, requestMutations, commentMutations, replyMutations, libraryMutatoins, subscribeMutations, contentsMutation,writeMutations, searchTraceMutations),
   actions: Object.assign({}, homeAction, searchAction, requestAction, commentAction, replyAction, libraryAction, subscribeAction, contentsAction,writeAction, searchTraceAction)
