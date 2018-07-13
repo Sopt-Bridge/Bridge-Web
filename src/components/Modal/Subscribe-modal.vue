@@ -21,7 +21,7 @@
               </div>
               <div class="smcb-card-subBtn" @click="subClick">
                 <button class="Subcribe-bodyBtn">
-                  <img :src="subNomarlBtn" width="35px" alt="">
+                  <img :src="subActivelBtn" width="35px" alt="">
                   <!-- <div>Subscribe</div> -->
                 </button>
               </div>
@@ -56,11 +56,12 @@ export default {
   computed: {
     ...mapGetters(['getrecommendHashList','getHashlist']),
     subscirbe() {
-      if (this.subBool) {
-        return subActivelBtn
-      } else if (!this.subBool) {
-        return subNomarlBtn
-      }
+      // if (this.subBool) {
+      //   return subActivelBtn
+      // } else if (!this.subBool) {
+      //   return subNomarlBtn
+      // }
+      return subActivelBtn
     }
   },
   components: {
@@ -145,7 +146,6 @@ export default {
         }
       }
     }
-    &-subBtn {}
   }
 }
 

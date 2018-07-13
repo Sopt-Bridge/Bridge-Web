@@ -51,11 +51,11 @@
 
         <v-card>
           <v-list-tile class="menu-list-item">
-            <v-list-tile-title>
+            <v-list-tile-title @clikc="sorting(0)">
               Upload data
             </v-list-tile-title>
           </v-list-tile>
-          <v-list-tile class="menu-list-item">
+          <v-list-tile class="menu-list-item" @clikc="sorting(2)">
             <v-list-tile-title>
               View count
             </v-list-tile-title>
@@ -81,7 +81,6 @@
 </template>
 
 <script>
-
 import VideoCard from '../../components/Card/VideoCard.vue';
 import subscribeModal from '../../components/Modal/Subscribe-modal.vue'
 import moreMenu from '../../components/Card/Home-cardMore.vue'
@@ -104,7 +103,6 @@ export default {
         slidesPerView: 4,
         spaceBeetween: 15,
         lazy: true
-
       },
       swiperOption2: {
         slidesPerView: 4,
@@ -114,7 +112,8 @@ export default {
       subFilter,
       cardItem: null,
       noImg: noImg,
-      hashtagName: "#BTS"
+      hashtagName: "#SEVENTEEN",
+      sortType: 0
     }
   },
   computed: {
@@ -135,23 +134,42 @@ export default {
     ...mapGetters(['getHashlist', 'getHashContentlist'])
   },
   methods: {
+    ...mapActions(['asyncSetHashlist', 'asyncSetHashContentlist']),
     changeHashName(hashName) {
       this.hashtagName = hashName;
-      this.asyncSetHashContentlist(hashName);
+      let data = {
+        hashName: this.hashtagName,
+        pageIdx: 0,
+        sortType: this.sortType
+      }
+      this.asyncSetHashContentlist(data);
     },
-
     subClick() {
       this.subBool = !this.subBool;
     },
-    ...mapActions(['asyncSetHashlist', 'asyncSetHashContentlist'])
+    sorting(type) {
+      console.log(type);
+      this.sortType = type;
+      let data = {
+        hashName: this.hashtagName,
+        pageIdx: 0,
+        sortType: this.sortType
+      }
+      this.asyncSetHashContentlist(data);
+    },
   },
   components: {
     'video-card': VideoCard,
     'subscribe-modal': subscribeModal,
     'more-menu': moreMenu
   },
-  mounted() {
-    this.asyncSetHashContentlist('#DRAMA');
+  created() {
+    let data = {
+      hashName: this.hashtagName,
+      pageIdx: 0,
+      sortType: this.sortType
+    }
+    this.asyncSetHashContentlist(data);
     this.asyncSetHashlist({
       pageIdx: 0,
       userIdx: 1
