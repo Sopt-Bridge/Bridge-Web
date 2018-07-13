@@ -9,9 +9,9 @@ import { homeAction, searchAction, requestAction,commentAction,replyAction,libra
 Vue.use(Vuex);
 
 export default new Vuex.Store({
-  state: Object.assign({}, homeState, searchState, requestState,libarayState,subscribeState, commentState, replyState ),
-  getters: Object.assign({}, homeGetters, searchGetters, requestGetters,libraryGetters,subscribeGetters,commentState, replyState),
-  mutations: Object.assign({}, homeMutations, searchMutations, requestMutations,libraryMutatoins,subscribeMutations,commentMutations, replyMutations),
-  actions: Object.assign({}, homeAction, searchAction, requestAction,libraryAction,subscribeAction,commentAction, replyAction)
+  state: Object.assign({}, homeState, searchState, requestState, commentState, replyState ,libarayState,subscribeState ),
+  getters: Object.assign({}, homeGetters, searchGetters, requestGetters ,commentGetters, replyGetters ,libraryGetters,subscribeGetters),
+  mutations: Object.assign({}, homeMutations, searchMutations, requestMutations,commentMutations, replyMutations , libraryMutatoins ,subscribeMutations),
+  actions: Object.assign({},  homeAction, searchAction, requestAction,commentAction,replyAction,libraryAction ,subscribeAction)
   
 });

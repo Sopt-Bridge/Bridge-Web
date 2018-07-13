@@ -22,6 +22,7 @@ export const subscribeState = {
   myHashlist : null,
   hashContentlist:null
 }
+
 export const commentState = {
   commentResult : null
 }
