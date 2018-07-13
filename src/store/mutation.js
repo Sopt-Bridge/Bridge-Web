@@ -117,10 +117,3 @@ export const writeMutations = {
   }
 };
 
-// searchTraceResultFinish
-export const searchTraceMutations = {
-  setSearchTraceResultFinish(state, payload){
-    state.searchTraceResult = payload;
-  }
-};
-

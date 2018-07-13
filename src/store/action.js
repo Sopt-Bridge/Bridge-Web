@@ -197,10 +197,5 @@ export const writeAction = {
   }
 }
 
-export const searchTraceAction = {
-  setSearchTraceResult({commit}, payload){
-    commit("setSearchTraceResultFinish", payload);
 
-  }
-}
 
