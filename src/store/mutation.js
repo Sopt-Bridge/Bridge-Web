@@ -23,7 +23,7 @@ export const searchMutations = {
   },
   setSearchResultFinish(state, payload) {
     state.searchResult = payload;
-    console.log(payload);
+    // console.log(payload);
   }
 };
 
@@ -108,3 +108,9 @@ export const writeMutations = {
   }
 };
 
+// searchTraceResultFinish
+export const searchTraceMutations = {
+  setSearchTraceResultFinish(state, payload){
+    state.searchTraceResult = payload;
+  }
+};

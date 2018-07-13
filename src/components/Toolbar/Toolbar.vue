@@ -57,9 +57,13 @@
   
                 </v-list-tile>
                 <v-list-tile avatar class="Toolbar-items-myinfo-content-signout-section">
-                  <div class="Toolbar-items-myinfo-content Toolbar-items-myinfo-content-signout">
-                    Sign out
-                  </div>
+                  
+                    <div class="Toolbar-items-myinfo-content Toolbar-items-myinfo-content-signout">
+                      <router-link :to="{name : 'Login'}" class="signout">
+                        Sign out
+                        </router-link>
+                    </div>
+                  
                 </v-list-tile>
               </v-list>
             </v-menu>
@@ -112,6 +116,13 @@
 
 <style lang="scss" scoped>
   @import "styles/common.scss";
+  .signout{
+    text-decoration: none;
+    color : white;
+    width : 100%;
+    height : 100%;
+    display: inline-block;
+  }
   .Toobar {
     border-top: 3px solid $main-color;
     box-shadow: 0px 2px 6px 1px gray;
