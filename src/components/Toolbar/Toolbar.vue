@@ -78,8 +78,8 @@ export default {
       drawer: true,
       request: "/request",
       home: "/",
-      name: "lee",
-      email: "abc@abc.com",
+      name: "beenzino",
+      email: "bridge@gmail.com",
       items: {},
       searchStyle: {
         width: "100%"
