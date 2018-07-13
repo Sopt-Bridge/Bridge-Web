@@ -31,3 +31,7 @@ export const commentState = {
 export const replyState = {
   replyResult : null
 }
+
+export const contentsState = {
+  contents:null
+}

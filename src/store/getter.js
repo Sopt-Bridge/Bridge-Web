@@ -60,3 +60,9 @@ export const subscribeGetters = {
     return state.recommendHashLIst;
   }
 }
+
+export const contentsGetters = {
+  getContents(state){
+    return state.contents;
+  }
+}

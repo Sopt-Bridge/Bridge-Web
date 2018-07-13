@@ -8,7 +8,7 @@
     <div class="smcb" slot="contents">
       <v-container grid-list-md>
         <v-layout row wrap>
-          <v-flex xs12 sm6 class="smcb-card" v-for="(item,index) in getrecommendHashList" :key="index">
+          <v-flex xs12 sm6 class="smcb-card" v-for="(item,index) in getHashlist" :key="index">
             <div class="smcb-card-wrapper">
 
               <!-- <img class="smcb-card-img" src="http://ilyricsbuzz.com/wp-content/uploads/2015/01/Eddy-Kim-Sing-Sing-Sing.jpg"> -->
@@ -54,7 +54,7 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(['getrecommendHashList']),
+    ...mapGetters(['getrecommendHashList','getHashlist']),
     subscirbe() {
       if (this.subBool) {
         return subActivelBtn
@@ -67,7 +67,7 @@ export default {
     'Modal': Modal
   },
   methods: {
-    ...mapActions(['setrecommendHashList']),
+    ...mapActions(['setrecommendHashList',]),
     opening() {
       this.dialog = true;
     },

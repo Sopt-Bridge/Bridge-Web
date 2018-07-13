@@ -92,6 +92,7 @@ export default {
     },
     readmoreClick() {
       this.recentPage++;
+      // console.log(this.recentPage);
       this.setRecentReadMore({
         category: this.navState,
         pageIdx: this.recentPage

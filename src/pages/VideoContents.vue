@@ -2,23 +2,44 @@
 <div class="VideoContents">
   <div class="VideoContents-container">
     <Vi-Main class="VideoContents-main"></Vi-Main>
-    <Vi-Sidebar class="VideoContents-sidebar"></Vi-Sidebar>
+    <!-- <Vi-Sidebar class="VideoContents-sidebar"></Vi-Sidebar> -->
   </div>
 </div>
 </template>
 <script>
+import {
+  mapGetters,
+  mapActions,
+  mapMutations
+} from 'vuex'
+
 export default {
-  mounted() {
-    // function isMobile() {
-    //   return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-    // }
-    // let page = document.getElementsByClassName('VideoContents-container')
-    // if (isMobile()) {
-    //   for (let i = 0; i < page.length; i++) {
-    //     // console.log('실행됨')
-    //     more[i].style.wrap = 'wrap'
-    //   }
-    // }
+  data() {
+    return {}
+  },
+  computed: {
+    ...mapMutations(['setContents']),
+    ...mapGetters(['getContents'])
+  },
+  watch: {
+    '$route': 'fetchData'
+  },
+  methods: {
+    ...mapActions(['asyncSetContents']),
+    fetchData() {
+      let data = {
+        contentsIdx: this.$route.params.contentsIdx,
+        contentsType: this.$route.params.contentsType
+      }
+      this.asyncSetContents(data);
+    }
+  },
+  created() {
+    let data = {
+      contentsIdx: this.$route.params.contentsIdx,
+      contentsType: this.$route.params.contentsType
+    }
+    this.asyncSetContents(data);
   }
 }
 </script>

@@ -1,10 +1,10 @@
 <template>
 <div class="VideoCard" :class="{'videoCard-wrap':nowrap}" to="/video">
   <div class="VideoCard-content" :class="{'content-wrap':nowrap}">
-    <router-link :to="{name:'video'}">
+    <router-link :to="{name:'video',params:{contentsIdx:item.contentsIdx,contentsType:item.contentsType}}">
       <div class="VideoCard-content-thumnail" :class="{'thumnail-wrap':nowrap}">
         <div class="VideoCard-content-thumnail-centered">
-          <img class="VideoCard-content-thumnail-centered-img" v-if="item.thumbnailUrl" :class="{'img-wrap':nowrap}" :src="item.contentsUrl">
+          <img class="VideoCard-content-thumnail-centered-img" v-if="item.thumbnailUrl" :class="{'img-wrap':nowrap}" :src="item.thumbnailUrl">
           <img class="VideoCard-content-thumnail-centered-img" v-else src="../../assets/img/no_detail_img.gif" alt="">
         </div>
       </div>
@@ -28,15 +28,23 @@
         </slot>
       </v-menu>
     </div>
-    <div class="VideoCard-infor-hastag">{{item.hashName1}} {{item.hashName2}}  {{item.hashName3}}
+    <div class="VideoCard-infor-hastag">{{item.hashName1}} {{item.hashName2}} {{item.hashName3}}
     </div>
   </div>
 </div>
 </template>
 <script>
+import axios from 'axios';
 export default {
   props: ['nowrap', 'item'],
-  computed: {},
+  data(){
+    return {
+      // item:null
+    }
+  },
+  created() {
+    
+  },
   mounted() {
     function isMobile() {
       return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
@@ -68,28 +76,11 @@ export default {
     @media screen and (max-width:450px) {
       height: 90px;
     }
-    // no
-    // width: 295px;
-    // @media screen and (max-width: 730px) {
-    //   width: 250px;
-    // }
-    // @media screen and (max-width: 560px) {
-    //   width: 210px;
-    // }
-    // @media screen and (max-width: 430px) {
-    //   width: 190px;
-    // }
-    // @media screen and (max-width: 375px) {
-    //   width: 140px;
-    // }
     position: relative;
     &-thumnail {
-      // no
-      // width: 100%;
       width: auto;
       height: 100%;
       position: relative;
-      // wrap
       overflow: hidden;
       &-centered {
         position: absolute;
@@ -120,9 +111,9 @@ export default {
       display: flex;
       justify-content: center;
       align-items: center;
-      img{
-        width:70%;
-        height:70%;
+      img {
+        width: 70%;
+        height: 70%;
       }
     }
     &:hover &-play {
