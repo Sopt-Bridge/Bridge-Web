@@ -60,3 +60,12 @@ export const subscribeGetters = {
     return state.recommendHashLIst;
   }
 }
+
+export const writeGetters = {
+  getWriteResult(state){
+    return state.writeResult
+  },
+  getWriteSearchResult(state){
+    return state.requestResult
+  }
+}

@@ -2,20 +2,9 @@
     <div class="req-main">
         <v-container class="req-main-container">
             <v-layout row class="req-search">
+                <h2 class="req-search-title">My Requests</h2>
                 <v-spacer></v-spacer>
-                <div class="req-search-section">
-                    <div class="req-search-section-content">
-                        <input type="text" class="req-search-text" v-model="requestSearch" @keyup.enter="requestSearchFunc">
-                        <button class="req-search-btn" @click="requestSearchFunc">
-                                    <v-icon>search</v-icon>
-                                </button>
-                    </div>
-                    <div>
-                        <router-link :to="requestWrite">
-                            <button class="req-write-btn">write</button>
-                        </router-link>
-                    </div>
-                </div>
+                
             </v-layout>
             <v-layout row class="board-header">
                 <v-flex xs1 sm1 md1 lg1 class="board-no">
@@ -31,10 +20,10 @@
                 </v-flex>
     
             </v-layout>
-            <v-layout row class="board-elems" v-for="(item,index) in getRequestResult" :key="index">
+            <v-layout row class="board-elems" v-for="(item,index) in getWriteResult" :key="index">
                 <!--****************AXIOS****************-->
                 <v-flex xs1 sm1 md1 lg1 class="board-no">
-                    <p class="board-elems-content">{{getRequestResult.length - index}}</p>
+                    <p class="board-elems-content">{{getWriteResult.length - index}}</p>
                 </v-flex>
     
                 <v-flex xs3 sm3 md7 lg7 class="board-elem-text">
@@ -66,7 +55,7 @@
     } from 'vuex'
     export default {
         computed: {
-            ...mapGetters(['getRequestResult', 'getRequestSearchResult'])
+            ...mapGetters(['getWriteResult', "getWriteSearchResult"])
         },
         components: {
             RequestPagination
@@ -78,14 +67,14 @@
             }
         },
         methods: {
-            ...mapActions(["setRequestResult", 'setRequestSearchResult']),
+            ...mapActions(["setWriteResult", "setRequestSearchResult"]),
             requestSearchFunc() {
                 if (this.requestSearch != "") this.setRequestSearchResult(this.requestSearch);
                 this.requestSearch = "";
             }
         },
         created() {
-            this.setRequestResult();
+            this.setWriteResult();
         }
     };
 </script>
@@ -104,6 +93,9 @@
         margin-top: 50px;
         @include media("(max-width : 510px)") {
             margin-top: 30px;
+        }
+        &-title{
+            font-size : 25px;
         }
         &-text {
             border: 1px solid #e4e4e4;
