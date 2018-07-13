@@ -111,6 +111,7 @@ export default {
 <style lang="scss" scoped>
 @import "styles/common.scss";
 .Toobar {
+  border-top: 3px solid $main-color;
   box-shadow: 0px 2px 6px 1px gray;
   z-index: 1;
   position: fixed;
