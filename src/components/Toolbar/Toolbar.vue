@@ -80,7 +80,7 @@
         drawer: true,
         request: "/request",
         home: "/",
-        name: "beenzino",
+        name: "ryudd",
         email: "bridge@gmail.com",
         items: {},
         searchStyle: {

@@ -66,6 +66,7 @@
       <v-container grid-list-lg fluid>
         <v-layout row wrap>
           <v-flex class="Subscribe-content-flex" v-for="(item, index) in getHashContentlist" :key="index" xs12 sm6>
+            
             {{item.contentsInfo}}
             <!-- <video-card>
               <more-menu slot="more"></more-menu>
@@ -109,7 +110,7 @@
         subFilter,
         cardItem: null,
         noImg: noImg,
-        hashtagName: "#BTS"
+        hashtagName: ""
       }
     },
     computed: {
@@ -160,28 +161,13 @@
       'subscribe-modal': subscribeModal,
       'more-menu': moreMenu
     },
-    mounted() {
+    created() {
       // this.asyncSetHashContentlist(data);
       this.asyncSetHashlist({
         pageIdx: 0,
         userIdx: 1
       });
-      let data = {
-        hashName: "#BTS",
-        pageIdx: 0,
-        sortType: 0
-      }
-      let config = {
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded',
-        }
-      };
-      // axios.post('http://13.124.201.59/subscribe/hashcontentlist', data,config).then(res => {
-      //   console.log('axios test')
-      //   console.log(res);
-      // }).catch(err=>{
-      //   console.log(err);
-      // })
+      this.hashtagName = this.getHashlist[0].hashName
     }
   }
 </script>
