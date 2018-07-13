@@ -174,7 +174,7 @@ export default {
       pageIdx: 0,
       userIdx: 1
     });
-
+    this.hashtagName = this.getHashlist[0].hashName;
   }
 }
 </script>
