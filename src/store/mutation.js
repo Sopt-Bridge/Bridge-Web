@@ -90,3 +90,21 @@ export const replyMutations = {
     console.log("set reply result finish!");
   }
 };
+
+export const writeMutations = {
+  setWriteResult(state, payload) {
+    console.log("set write result start!");
+  },
+  setWriteResultFinish(state, payload) {
+    state.writeResult = payload;
+    console.log("set write result finish!");
+  },
+  setWriteSearchResult(state, payload) {
+    console.log("set write result start!");
+  },
+  setWriteSearchResultFinish(state, payload) {
+    state.writeResult = payload;
+    console.log("set write result finish!");
+  }
+};
+

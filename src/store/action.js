@@ -157,3 +157,23 @@ export const replyAction = {
   }
 };
 
+export const writeAction = {
+  setWriteResult({ commit }, payload) {
+    commit("setWriteResult");
+    axios
+      .get(api + "/user/getmytext/1")
+      .then(res => {
+        console.log(res.data.data[0].request_list);
+        commit("setWriteResultFinish", res.data.data[0].request_list);
+      });
+  },
+  setWriteSearchResult({ commit }, payload) {
+    commit("setWriteSearchResult");
+    axios
+      .get(api + "/user/getmytext/1")
+      .then(res => {
+        console.log(res.data.data[0].request_list);
+        commit("setWriteSearchResultFinish", res.data.data[0].request_list);
+      });
+  }
+}
