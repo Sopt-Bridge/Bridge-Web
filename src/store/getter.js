@@ -55,5 +55,8 @@ export const subscribeGetters = {
   },
   getHashContentlist(state){
     return state.hashContentlist;
+  },
+  getrecommendHashList(state){
+    return state.recommendHashLIst;
   }
 }

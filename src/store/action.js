@@ -87,9 +87,19 @@ export const subscribeAction = {
         'Content-Type': 'application/x-www-form-urlencoded',
       }
     };
+    let data = {
+      hashName : payload,
+      pageIdx : 0,
+      sortType : 0
+    }
     console.log('asyncSetHashContentlist');
-    axios.post(api + '/subscribe/hashcontentlist', payload,config).then(res => {
+    axios.post(api + '/subscribe/hashcontentlist', data).then(res => {
       commit('setHashContentlist', res.data.data[0].contents_list);
+    })
+  },
+  setrecommendHashList({commit}, payload){
+    axios.get(api+"/subscribe/getsubhashlist/0/1").then(res=>{
+      commit('setrecommendHashList', res.data.data[0].hashcontents_list);
     })
   }
 };

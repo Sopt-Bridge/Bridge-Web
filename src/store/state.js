@@ -20,7 +20,8 @@ export const libarayState = {
 
 export const subscribeState = {
   myHashlist : null,
-  hashContentlist:null
+  hashContentlist:null,
+  recommendHashList : null
 }
 
 export const commentState = {

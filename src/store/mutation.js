@@ -52,6 +52,9 @@ export const subscribeMutations = {
   setHashContentlist(state,payload){
     console.log('setHashContentlist..........');
     state.hashContentlist = payload
+  },
+  setrecommendHashList(state, payload){
+    state.recommendHashList = payload;
   }
 }
 
