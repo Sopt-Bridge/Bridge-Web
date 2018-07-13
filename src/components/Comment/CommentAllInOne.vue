@@ -3,7 +3,7 @@
     <div class="req-comment-component">
       <comment :commentElementAtComment="commentElement" :propsShowReply="showReply" @changeData="change"></comment>
     </div>
-    <div class="req-comment-reply" v-if="showReply">
+    <!-- <div class="req-comment-reply" v-if="showReply">
       <div class="req-comment-reply-component" v-if="replyContent">
         <div>
           <v-icon>subdirectory_arrow_right</v-icon>
@@ -26,11 +26,13 @@
           <button class="req-comment-reply-btn">Reply</button>
         </div>
       </div>
-    </div>
+    </div> -->
   </div>
 </template>
 
 <script>
+
+  
   import {
     mapGetters,
     mapMutations,
@@ -60,7 +62,7 @@
     },
     props: ['commentElement'],
     created() {
-      console.log('commmentElement'+this.commentElement.icmtIdx);
+      console.log('commmentElement' + this.commentElement.icmtIdx);
   
       this.setReplyResult(this.commentElement.icmtIdx);
   

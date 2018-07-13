@@ -17,18 +17,24 @@
                             </div>
                             <v-spacer/>
                             <div>
-                                <!--***AXIOS**-->
-                                
-                                <p class="req-comment-user-info-btn req-comment-user-info-btn-reply" @click="toggleShowReply()">REPLY</p>
-                            </div>
-                        </div>
-                        <div class="req-comment-user-info-date-section req-comment-user-info-detail">
-                            <div>
-                                <!--***AXIOS**-->
-                                <!-- <p class="req-comment-user-info-date">01/01/2018</p> -->
                                 <p class="req-comment-user-info-date">{{commentElementAtComment.icmtDate}}</p>
                             </div>
+                            <!--@@@@@@@@@@@@@원래 여기가 reply버튼 있는 공간@@@@@@@@@@@@@-->
+                            <!-- <div> -->
+                                <!--***AXIOS**-->
+                                
+                                <!-- <p class="req-comment-user-info-btn req-comment-user-info-btn-reply" @click="toggleShowReply()">REPLY</p>
+                            </div> -->
                         </div>
+
+                        <!--@@@@@@@@@@@@@원래 여기가 시간나오는 공간@@@@@@@@@@-->
+                        <!-- <div class="req-comment-user-info-date-section req-comment-user-info-detail">
+                            <div> -->
+                                <!--***AXIOS**-->
+                                <!-- <p class="req-comment-user-info-date">01/01/2018</p> -->
+                                <!-- <p class="req-comment-user-info-date">{{commentElementAtComment.icmtDate}}</p>
+                            </div>
+                        </div> -->
                     </div>
                     <div class="req-comment-user-comment-detail">
                         <!--***AXIOS**-->
