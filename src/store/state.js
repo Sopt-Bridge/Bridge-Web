@@ -35,12 +35,8 @@ export const replyState = {
 
 export const contentsState = {
   contents:null
-
+}
 export const writeState = {
   writeResult : null
 }
 
-export const searchTraceState = {
-  searchTraceResult : []
-
-}
