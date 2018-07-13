@@ -1,6 +1,12 @@
 export const homeGetters = {
-  homeNowTrendItem(state){
+  homeNowTrendItem(state) {
     return state.nowTrend
+  },
+  homeRecommendItem(state) {
+    return state.recommend
+  },
+  homeRecentItem(state) {
+    return state.recent
   }
 }
 

@@ -1,5 +1,7 @@
 export const homeState = {
-  nowTrend : null
+  nowTrend : null,
+  recommend : null,
+  recent : null,
 }
 
 export const searchState = {

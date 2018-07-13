@@ -44,8 +44,7 @@ export default {
             return !this.drawer;
         },
         changeColor(index) {
-            this.$store.commit('getHomeNowtrend');
-            console.log(index);
+            // console.log(index);
             this.$emit('navBtnState', index);
             for (let i = 0; i < this.btnLength; i++) {
                 document.getElementsByClassName(this.position)[i].style.color = "#333333";
