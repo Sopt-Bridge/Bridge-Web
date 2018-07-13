@@ -138,7 +138,7 @@ export default {
     }
   }
   &-infor {
-    background-color: wheat;
+    background-color: #fafafa;
     align-self: stretch;
     padding-top: 3%;
     padding-right: 2%;
