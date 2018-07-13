@@ -22,8 +22,8 @@
                     <p class="board-header-content">No</p>
                 </v-flex>
                 <!-- <v-flex xs1 sm1 md1 lg1/> -->
-                <v-flex xs6 sm7 md7 lg7 />
-                <v-flex xs3 sm2 md2 lg2>
+                <v-flex xs3 sm3 md6 lg7 />
+                <v-flex xs3 sm2 md3 lg2>
                     <p class="board-header-content">Author</p>
                 </v-flex>
                 <v-flex>
@@ -37,7 +37,7 @@
                     <p class="board-elems-content">1</p>
                 </v-flex>
     
-                <v-flex xs6 sm7 md7 lg7 class="board-elem-text">
+                <v-flex xs3 sm3 md7 lg7 class="board-elem-text">
                     <p class="board-elems-content">
                         <router-link :to="{ path : '/request/detail', query : item}" class="board-elems-content-link">
                             {{item.iboardTitle}}
@@ -47,7 +47,7 @@
                 <v-flex xs3 sm2 md2 lg2>
                     <p class="board-elems-content">{{item.userName}}</p>
                 </v-flex>
-                <v-flex xs1 sm1 md1 lg1>
+                <v-flex xs5 sm4 md3 lg2>
                     <p class="board-elems-content">{{item.iboardDate}}</p>
                 </v-flex>
     
@@ -177,6 +177,9 @@
                 transition : .1s;
                 color : blue;
             }
+        }
+        @include media("(max-width : 820px)") {
+            font-size : 13px;
         }
     }
     
