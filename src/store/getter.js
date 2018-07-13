@@ -36,3 +36,12 @@ export const libraryGetters = {
     return state.myRecnetVideo
   }
 }
+
+export const subscribeGetters = {
+  getHashlist(state){
+    return state.myHashlist;
+  },
+  getHashContentlist(state){
+    return state.hashContentlist;
+  }
+}

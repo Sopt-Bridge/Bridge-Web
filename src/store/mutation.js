@@ -54,5 +54,16 @@ export const libraryMutatoins = {
   },
   setMyRecnetVideoResult(state,payload){
     state.myRecnetVideo = payload;
+  },
+
+}
+
+export const subscribeMutations = {
+  setHashlist(state,payload){
+    state.myHashlist = payload;
+  },
+  setHashContentlist(state,payload){
+    console.log('setHashContentlist..........');
+    state.hashContentlist = payload
   }
 }

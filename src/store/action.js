@@ -51,33 +51,65 @@ export const searchAction = {
 }
 
 export const requestAction = {
-  setRequestResult({commit}){
+  setRequestResult({
+    commit
+  }) {
     commit('setRequestResult');
-    axios.get(api+'/trequest/trequest_listview/0').then(res=>{
-      commit('setRequestResultFinish',res.data.data[0].request_list)
+    axios.get(api + '/trequest/trequest_listview/0').then(res => {
+      commit('setRequestResultFinish', res.data.data[0].request_list)
     })
   },
-  setRequestSearchResult({commit}, payload){
+  setRequestSearchResult({
+    commit
+  }, payload) {
     commit('setRequestSearchResult');
-    axios.get(api+'/trequest/trequest_search/'+payload).then(res=>{
-      commit('setRequestSearchResultFinish',res.data.data[0].request_list)
+    axios.get(api + '/trequest/trequest_search/' + payload).then(res => {
+      commit('setRequestSearchResultFinish', res.data.data[0].request_list)
     })
   }
 }
 
 export const libraryAction = {
-  setGroupList({commit},payload){
-    axios.get(api+'/library/grouplist/'+payload).then(res=>{
+  setGroupList({
+    commit
+  }, payload) {
+    axios.get(api + '/library/grouplist/' + payload).then(res => {
       // console.log(res.data.data[0].group_list);
-      commit('setMyLibrary',res.data.data[0].group_list);
-      commit('setGroupLength',res.data.data[0].group_list);
+      commit('setMyLibrary', res.data.data[0].group_list);
+      commit('setGroupLength', res.data.data[0].group_list);
 
     })
   },
-  setMyRecnetVideo({commit},payload){
-    axios.get(api+'/library/recentvideo/'+payload).then(res=>{
+  setMyRecnetVideo({
+    commit
+  }, payload) {
+    axios.get(api + '/library/recentvideo/' + payload).then(res => {
       console.log(res.data.data[0].contents_list);
-      commit('setMyRecnetVideoResult',res.data.data[0].contents_list);
+      commit('setMyRecnetVideoResult', res.data.data[0].contents_list);
+    })
+  }
+}
+
+export const subscribeAction = {
+  asyncSetHashlist({
+    commit
+  }, payload) {
+    axios.get(api + '/subscribe/getsubhashlist/' + payload.pageIdx + '/' + payload.userIdx).then(res => {
+      commit('setHashlist', res.data.data[0].hashcontents_list);
+    })
+  },
+  asyncSetHashContentlist({
+    commit
+  }, payload) {
+    // let data = payload;
+    var config = {
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+      }
+    };
+    console.log('asyncSetHashContentlist');
+    axios.post(api + '/subscribe/hashcontentlist', payload,config).then(res => {
+      commit('setHashContentlist', res.data.data[0].contents_list);
     })
   }
 }

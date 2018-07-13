@@ -10,17 +10,17 @@
         <i class="material-icons">arrow_back_ios</i>
       </div>
       <swiper class="swiper1" :options="swiperOption1">
-        <swiper-slide class="swiper-slide" v-for="i in 12" :key="'swiper1'+i">
+        <swiper-slide class="swiper-slide" v-for="(item,index) in getHashlist" :key="'swiper1'+index">
           <div>
-            <img class="swiper-slideImg" src="http://cmsimg.mnet.com/clipimage/album/240/002/213/2213017.jpg" alt="">
-            <div class="swiper-slideText">#NU'EST{{i}}</div>
+            <img class="swiper-slideImg" :src="item.hashImg" alt="">
+            <div class="swiper-slideText">{{item.hashName}}</div>
           </div>
         </swiper-slide>
       </swiper>
       <swiper class="swiper2" :options="swiperOption2">
-        <swiper-slide class="swiper-slide" v-for="j in 12" :key="'swiper2'+j">
-          <img class="swiper-slideImg" src="http://cmsimg.mnet.com/clipimage/album/240/002/213/2213017.jpg" alt="">
-          <div class="swiper-slideText">#NU'EST{{j}}</div>
+        <swiper-slide class="swiper-slide" v-for="(item,index) in getHashlist" :key="'swiper2'+index">
+          <img class="swiper-slideImg" :src="item.hashImg" alt="">
+          <div class="swiper-slideText">{{item.hashName}}</div>
         </swiper-slide>
       </swiper>
       <div class="swiper-btn">
@@ -62,9 +62,9 @@
     <v-container grid-list-lg fluid>
       <v-layout row wrap>
         <v-flex class="Subscribe-content-flex" v-for="k in 12" :key="'scf'+k" xs12 sm6>
-          <video-card>
+          <!-- <video-card>
             <more-menu slot="more"></more-menu>
-          </video-card>
+          </video-card> -->
         </v-flex>
       </v-layout>
     </v-container>
@@ -79,6 +79,12 @@ import moreMenu from '../../components/Card/Home-cardMore.vue'
 import subNomarlBtn from '../../assets/img/subscribe/drawable-xxxhdpi/subscribe_normal_btn.png';
 import subActivelBtn from '../../assets/img/subscribe/drawable-xxxhdpi/subscribe_active_btn.png';
 import subFilter from '../../assets/img/subscribe/drawable-xxxhdpi/search_filter_icon.png';
+import {
+  mapGetters,
+  mapActions,
+  mapMutations
+} from 'vuex'
+import axios from 'axios'
 
 export default {
   data() {
@@ -94,7 +100,8 @@ export default {
         freeMode: true,
         lazy: true,
       },
-      subFilter
+      subFilter,
+      cardItem: null
     }
   },
   computed: {
@@ -111,17 +118,58 @@ export default {
       } else if (!this.subBool) {
         return '#9A9A9A'
       }
-    }
+    },
+    ...mapGetters(['getHashlist', 'getHashContentlist'])
   },
   methods: {
     subClick() {
       this.subBool = !this.subBool;
-    }
+      console.log('axiosClick start')
+      axios({
+        method: 'post',
+        url: 'http://13.124.201.59/subscribe/hashcontentlist',
+        data: {
+          hashName: "#BTS",
+          pageIdx: 0,
+          sortType: 0
+        },
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        }
+      }).then(res => {
+        console.log(res);
+      })
+      console.log('axiosClick finish')
+    },
+    ...mapActions(['asyncSetHashlist', 'asyncSetHashContentlist'])
   },
   components: {
     'video-card': VideoCard,
     'subscribe-modal': subscribeModal,
     'more-menu': moreMenu
+  },
+  mounted() {
+    // this.asyncSetHashContentlist(data);
+    this.asyncSetHashlist({
+      pageIdx: 0,
+      userIdx: 1
+    });
+    let data = {
+      hashName: "#BTS",
+      pageIdx: 0,
+      sortType: 0
+    }
+    let config = {
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+      }
+    };
+    // axios.post('http://13.124.201.59/subscribe/hashcontentlist', data,config).then(res => {
+    //   console.log('axios test')
+    //   console.log(res);
+    // }).catch(err=>{
+    //   console.log(err);
+    // })
   }
 }
 </script>

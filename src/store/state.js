@@ -17,3 +17,8 @@ export const libarayState = {
   groupLength : null,
   myRecnetVideo:null
 }
+
+export const subscribeState = {
+  myHashlist : null,
+  hashContentlist:null
+}
