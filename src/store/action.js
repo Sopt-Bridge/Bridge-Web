@@ -40,20 +40,22 @@ export const homeAction = {
 };
 
 export const searchAction = {
-  setSearchResult({ commit }, payload) {
-    
+  setSearchResult({
+    commit
+  }, payload) {
+
     commit("setSearchResult");
     axios
       .get(
         api +
-          "/search/search/" +
-          payload.pageIdx +
-          "/" +
-          payload.searchname +
-          "/" +
-          payload.searchType +
-          "/" +
-          payload.sortType
+        "/search/search/" +
+        payload.pageIdx +
+        "/" +
+        payload.searchname +
+        "/" +
+        payload.searchType +
+        "/" +
+        payload.sortType
       )
       .then(res => {
         // console.log(res.data.data[0].contents_list);
@@ -119,9 +121,9 @@ export const subscribeAction = {
       }
     };
     let data = {
-      hashName : payload.hashName,
-      pageIdx : 0,
-      sortType : payload.sortType
+      hashName: payload.hashName,
+      pageIdx: 0,
+      sortType: payload.sortType
     }
     console.log('asyncSetHashContentlist');
     axios.post(api + '/subscribe/hashcontentlist', data).then(res => {
@@ -129,15 +131,19 @@ export const subscribeAction = {
       commit('setHashContentlist', res.data.data[0].contents_list);
     })
   },
-  setrecommendHashList({commit}, payload){
-    axios.get(api+"/subscribe/getsubhashlist/0/1").then(res=>{
+  setrecommendHashList({
+    commit
+  }, payload) {
+    axios.get(api + "/subscribe/getsubhashlist/0/1").then(res => {
       commit('setrecommendHashList', res.data.data[0].hashcontents_list);
     })
   }
 };
 
 export const commentAction = {
-  setCommentResult({ commit }, payload) {
+  setCommentResult({
+    commit
+  }, payload) {
     commit("setCommentResult");
     axios
       .get(api + "/trequest/trequestcomment_view/" + payload + "/0")
@@ -149,7 +155,9 @@ export const commentAction = {
 };
 
 export const replyAction = {
-  setReplyResult({ commit }, payload) {
+  setReplyResult({
+    commit
+  }, payload) {
     commit("setReplyResult");
     axios
       .get(api + "/trequest/trequestrecomment_view/" + String(payload) + "/0")
@@ -161,23 +169,39 @@ export const replyAction = {
 };
 
 export const contentsAction = {
-  asyncSetContents({commit},payload){
+  asyncSetContents({
+    commit
+  }, payload) {
     let data = {
       userIdx: 1,
       contentsIdx: payload.contentsIdx,
       contentsType: payload.contentsType
     }
     axios
-    .post(api+'/contents/getcontents',data)
-    .then(res=>{
-      commit('setContents',res.data.data[0].contents_list[0]);
-    })
+      .post(api + '/contents/getcontents', data)
+      .then(res => {
+        console.log(res.data.data[0].contents_list[0].contentsIdx)
+        commit('setContents', res.data.data[0].contents_list[0]);
+      })
+  },
+  asyncSetNextContents({
+    commit
+  }, payload) {
+    axios
+      .get(api + '/contents/nextcontents/' + payload.lastcontentsIdx + '/' + payload.contentsIdx)
+      .then(res => {
+        console.log('nextCOntet');
+        console.log(res.data.data[0].contents_list);
+        commit('setNextContents', res.data.data[0].contents_list);
+      })
   }
 }
 
 
 export const writeAction = {
-  setWriteResult({ commit }, payload) {
+  setWriteResult({
+    commit
+  }, payload) {
     commit("setWriteResult");
     axios
       .get(api + "/user/getmytext/1")
@@ -186,7 +210,9 @@ export const writeAction = {
         commit("setWriteResultFinish", res.data.data[0].request_list);
       });
   },
-  setWriteSearchResult({ commit }, payload) {
+  setWriteSearchResult({
+    commit
+  }, payload) {
     commit("setWriteSearchResult");
     axios
       .get(api + "/user/getmytext/1")
@@ -196,6 +222,3 @@ export const writeAction = {
       });
   }
 }
-
-
-

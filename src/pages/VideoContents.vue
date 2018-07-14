@@ -2,7 +2,7 @@
 <div class="VideoContents">
   <div class="VideoContents-container">
     <Vi-Main class="VideoContents-main"></Vi-Main>
-    <!-- <Vi-Sidebar class="VideoContents-sidebar"></Vi-Sidebar> -->
+    <Vi-Sidebar class="VideoContents-sidebar"></Vi-Sidebar>
   </div>
 </div>
 </template>
@@ -54,7 +54,10 @@ export default {
     justify-content: center;
     // margin-left: auto;
     // margin-right: auto;
-    max-width: 1280px;
+    width:90%;
+    // @media screen and (max-width:1280px) {
+    // max-width: 1280px;
+    // }
     @media screen and (max-width: 1024px) {
       width:90%;
       flex-wrap: wrap;

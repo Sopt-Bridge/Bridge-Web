@@ -64,6 +64,9 @@ export const subscribeGetters = {
 export const contentsGetters = {
   getContents(state){
     return state.contents;
+  },
+  getNextContents(state){
+    return state.nextContents;
   }
 }
 

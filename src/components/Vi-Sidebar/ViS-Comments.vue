@@ -9,7 +9,7 @@
       </div>
     </div>
     <div class="ViS-Comments-heading">
-      <div class="ViS-Comments-heading-text">댓글 4</div>
+      <div class="ViS-Comments-heading-text">댓글 0</div>
     </div>
     <!-- <div class="ViS-Comments-items" v-for="item in items" :key="item.idx">
         <ViS-Items :item="item"></ViS-Items>

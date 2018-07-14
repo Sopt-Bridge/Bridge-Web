@@ -97,6 +97,9 @@ export const replyMutations = {
 export const contentsMutation = {
   setContents(state,payload){
     state.contents = payload;
+  },
+  setNextContents(state,payload){
+    state.nextContents = payload;
   }
 }
 

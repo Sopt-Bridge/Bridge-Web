@@ -1,6 +1,6 @@
 <template>
 <div class="ViS-Recommended">
-  <video-card v-resize="onResize" :wrap="wrapBool" class="ViS-Recommended-card" v-for="i in 9" :key="i">
+  <video-card v-resize="onResize" :nowrap="wrapBool" class="ViS-Recommended-card" v-for="(item,index) in getNextContents" :key="'visr'+index" :item="item">
     <more slot="more"></more>
   </video-card>
 </div>
@@ -8,6 +8,11 @@
 <script>
 import more from '../Card/Home-cardMore.vue'
 import VideoCard from '../Card/VideoCard.vue'
+import {
+  mapActions,
+  mapGetters
+} from 'vuex'
+
 export default {
   data() {
     return {
@@ -22,19 +27,31 @@ export default {
         return true;
       }
       // return false;
+    },
+    ...mapGetters(['getNextContents', 'getContents']),
+    contentsIdx() {
+      console.log(this.getContents.contentsIdx);
+      return this.getContents.contentsIdx;
     }
+
   },
   methods: {
     onResize() {
       this.clientWidth = document.documentElement.clientWidth;
-    }
+    },
+    ...mapActions(['asyncSetNextContents'])
   },
   components: {
     'video-card': VideoCard,
     more
   },
   mounted() {
-    this.onResize()
+    let data = {
+      lastcontentsIdx: 0,
+      contentsIdx: this.$route.params.contentsIdx
+    }
+    this.asyncSetNextContents(data);
+    this.onResize();
   },
 }
 </script>
