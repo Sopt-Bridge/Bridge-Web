@@ -65,6 +65,7 @@
           this.requestContent = "";
           alert("Writing complete");
           this.$router.go(-1);
+          
         } else {
           this.requestTitle = "";
           this.requestLink = "";
