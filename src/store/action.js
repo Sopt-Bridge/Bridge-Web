@@ -69,7 +69,7 @@ export const requestAction = {
     commit
   }) {
     commit('setRequestResult');
-    axios.get(api + '/trequest/trequest_listview/0').then(res => {
+    axios.get(api + '/trequest/weblist').then(res => {
       commit('setRequestResultFinish', res.data.data[0].request_list)
     })
   },
