@@ -34,7 +34,8 @@ export const replyState = {
 
 
 export const contentsState = {
-  contents:null
+  contents:null,
+  nextContents:null
 }
 export const writeState = {
   writeResult : null
